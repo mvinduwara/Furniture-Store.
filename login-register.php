@@ -72,7 +72,7 @@
                                                         <label>Remember me</label>
                                                         <a href="#">Forgot Password?</a>
                                                     </div>
-                                                    <button type="submit" onclick="user_login();">Login</button>
+                                                    <button type="button" onclick="user_login();">Login</button>
                                                 </div>
                                             </form>
                                         </div>

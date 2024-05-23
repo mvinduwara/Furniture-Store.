@@ -58,7 +58,7 @@ function user_register() {
                 if (text == "success") {
                     document.getElementById("responseAlert").innerHTML = "user registration successfull";
                     document.getElementById("responseAlert").className = "text-dark";
-                    window.location="./index.php";
+                    window.location="./login-register.php";
                 } else {
                     document.getElementById("responseAlert").innerHTML = text;
                     document.getElementById("responseAlert").className = "text-danger";
