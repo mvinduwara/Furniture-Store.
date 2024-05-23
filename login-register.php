@@ -62,19 +62,38 @@
                                 <div id="lg1" class="tab-pane active">
                                     <div class="login-form-container">
                                         <div class="login-register-form">
+
+                                            <div class="col-12">
+                                                <p id="responseAlert"></p>
+                                            </div>
+
                                             <!-- form-start -->
                                             <form action="#" method="post">
-                                                <input type="text" name="user-name" placeholder="Username" required>
-                                                <input type="password" name="user-password" placeholder="Password" required>
+
+                                                <?php
+                                                $user_email_address = "";
+                                                $user_password = "";
+
+                                                if (isset($_COOKIE["email"])) {
+                                                    $user_email_address = $_COOKIE["email"];
+                                                }
+                                                if (isset($_COOKIE["password"])) {
+                                                    $user_password = $_COOKIE["password"];
+                                                }
+                                                ?>
+
+                                                <input type="text" id="users_name" placeholder="Useremail" required>
+                                                <input type="password" id="users_password" placeholder="Password" required>
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
-                                                        <input type="checkbox">
-                                                        <label>Remember me</label>
+                                                        <input type="checkbox" id="remember_me">
+                                                        <label id="remember_me">Remember me</label>
                                                         <a href="#">Forgot Password?</a>
                                                     </div>
                                                     <button type="button" onclick="user_login();">Login</button>
                                                 </div>
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +120,6 @@
                                                 <div class="button-box">
                                                     <button type="button" onclick="user_register();">Register</button>
                                                 </div>
-                                                
                                             </form>
 
                                         </div>
