@@ -26,6 +26,7 @@
 
 <body>
     <div class="wrapper">
+        
         <!-- header-sestion -->
         <?php require "./content/header.php" ?>
         <!-- header-sestion -->
