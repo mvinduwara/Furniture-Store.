@@ -95,7 +95,8 @@
                                                 <input type="text" id="user_last_name" placeholder="Last Name" required>
                                                 <input type="email" id="user_email" placeholder="Email" required>
                                                 <input type="password" id="user_password" placeholder="Password" required>
-                                                <input type="text" id="user_Gender" placeholder="Gender" required>
+                                                <input type="text" id="user_Gender" placeholder="male/female" required>
+                                                <input type="date" id="user_birthdate" placeholder="birthdate" required>
                                                 <input type="text" id="user_phone" placeholder="Phone" required>
                                                 <div class="button-box">
                                                     <button type="button" onclick="user_register();">Register</button>

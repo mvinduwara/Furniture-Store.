@@ -7,6 +7,7 @@ function user_register() {
     var user_password = document.getElementById("user_password").value;
     var user_gender = document.getElementById("user_Gender").value;
     var user_contact = document.getElementById("user_phone").value;
+    var user_birthdate = document.getElementById("user_birthdate").value;
 
     if (user_First_name.trim() === '') {
         document.getElementById("responseAlert").className = "text-danger";
@@ -35,7 +36,10 @@ function user_register() {
     } else if (user_contact.length !== 10) {
         document.getElementById("responseAlert").className = "text-danger";
         document.getElementById("error_text_register").innerHTML = "Mobile number must be 10 digits long";
-    } else {
+    }else if (!/^\d{4}-\d{2}-\d{2}$/.test(user_birthdate)) {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter a valid birthdate in the format YYYY-MM-DD";
+    }else {
 
         var form = new FormData();
         form.append("user_first_name", user_First_name);
@@ -44,6 +48,7 @@ function user_register() {
         form.append("user_password", user_password);
         form.append("user_gender", user_gender);
         form.append("user_contact", user_contact);
+        form.append("user_birthdate", user_birthdate);
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
