@@ -28,238 +28,14 @@
 </head>
 
 <body>
+    
 <div class="wrapper">
-    <!-- header-section-start -->
-    <header class="header-area sticky-bar">
-        <div class="main-header-wrap">
-            <div class="container">
-                <div class="row">
-                    <!-- logo- -->
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo pt-40">
-                            <a href="index.html">
-                                <img src="assets/img/logo/logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
+    
+  <!-- header-sestion -->
+  <?php require "./content/header.php" ?>
+  <!-- header-sestion -->
 
-                    <!-- nav-bar-start -->
-                    <div class="col-xl-7 col-lg-7 ">
-                        <div class="main-menu">
-                            <nav>
-                                <ul>
-                                    <li class="angle-shape"><a href="index.html">Home </a></li>
-                                    <li class="angle-shape"><a href="shop.html"> Shop </a></li>
-                                    <li><a href="shop.html">Accessories </a></li>
-                                    <li><a href="contact-us.html"> Contact </a></li>
-                                    <li class="angle-shape"><a href="#">Pages </a>
-                                        <ul class="submenu">
-                                            <li><a href="about-us.html">about us </a></li>
-                                            <li><a href="login-register.html">login/register </a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="angle-shape"><a href="blog-3-col.html"> Blog </a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- nav-bar-end -->
-
-                    <div class="col-xl-3 col-lg-3">
-                        <div class="header-right-wrap pt-40">
-                            <div class="header-search">
-                                <a class="search-active" href="#"><i class="sli sli-magnifier"></i></a>
-                            </div>
-                            <div class="cart-wrap">
-                                <button class="icon-cart-active">
-                                    <span class="cart-price">
-                                        $00.00
-                                    </span>
-                                </button>
-                                <div class="shopping-cart-content">
-                                    <div class="shopping-cart-top">
-                                        <h4>Shoping Cart</h4>
-                                        <a class="cart-close" href="#"><i class="sli sli-close"></i></a>
-                                    </div>
-                                    <ul>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
-                                                <div class="item-close">
-                                                    <a href="#"><i class="sli sli-close"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Product Name </a></h4>
-                                                <span>1 x 90.00</span>
-                                            </div>
-                                        </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                                                <div class="item-close">
-                                                    <a href="#"><i class="sli sli-close"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Product Name</a></h4>
-                                                <span>1 x 90.00</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-bottom">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total : <span class="shop-total">$260.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-btn btn-hover text-center">
-                                            <a class="default-btn" href="checkout.html">checkout</a>
-                                            <a class="default-btn" href="cart-page.html">view cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- main-search start -->
-            <div class="main-search-active">
-                <div class="sidebar-search-icon">
-                    <button class="search-close"><span class="sli sli-close"></span></button>
-                </div>
-                <div class="sidebar-search-input">
-                    <form>
-                        <div class="form-search">
-                            <input id="search" class="input-text" value="" placeholder="Search Now" type="search">
-                            <button>
-                                <i class="sli sli-magnifier"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-             <!-- main-search end -->
-
-        </div>
-
-        <!-- checkout-section-mobile -->
-        <div class="header-small-mobile">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <div class="mobile-logo">
-                            <a href="index.html">
-                                <img alt="" src="assets/img/logo/logo.png">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="header-right-wrap">
-                            <div class="cart-wrap">
-                                <button class="icon-cart-active">
-                                    <span class="cart-price">
-                                        $00.00
-                                    </span>
-                                </button>
-                                <div class="shopping-cart-content">
-                                    <div class="shopping-cart-top">
-                                        <h4>Shoping Cart</h4>
-                                        <a class="cart-close" href="#"><i class="sli sli-close"></i></a>
-                                    </div>
-                                    <ul>
-                                        
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Product Name </a></h4>
-                                                <span>1 x 90.00</span>
-                                            </div>
-                                        </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="#">Product Name</a></h4>
-                                                <span>1 x 90.00</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-bottom">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total : <span class="shop-total">$260.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-btn btn-hover text-center">
-                                            <a class="default-btn" href="checkout.html">checkout</a>
-                                            <a class="default-btn" href="cart-page.html">view cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mobile-off-canvas">
-                                <a class="mobile-aside-button" href="#"><i class="sli sli-menu"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- checkout-section-mobile -->
-    </header>
-    <!-- header-section-end -->
-
-    <!-- header-section-mobile-start -->
-    <div class="mobile-off-canvas-active">
-        <a class="mobile-aside-close"><i class="sli sli-close"></i></a>
-        <div class="header-mobile-aside-wrap">
-
-            <!-- search-section-mobile-start -->
-            <div class="mobile-search">
-                <form class="search-form" action="#">
-                    <input type="text" placeholder="Search entire store…">
-                    <button class="button-search"><i class="sli sli-magnifier"></i></button>
-                </form>
-            </div>
-             <!-- search-section-mobile-end -->
-
-            <div class="mobile-menu-wrap">
-                <!-- mobile menu start -->
-                <div class="mobile-navigation">
-                    <!-- mobile menu navigation start -->
-                    <nav>
-                        <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><a href="index.html">Home</a></li>
-                            <li class="menu-item-has-children "><a href="shop.html">shop</a> </li>
-                            <li><a href="shop.html">Accessories </a></li>
-                            <li class="menu-item-has-children"><a href="#">pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="about-us.html">about us </a></li>
-                                    <li><a href="login-register.html">login/register </a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children "><a href="blog-3-col.html">Blog</a></li>
-                            <li><a href="contact-us.html">Contact us</a></li>
-                        </ul>
-                    </nav>
-                    <!-- mobile menu navigation end -->
-                </div>
-                <!-- mobile menu end -->
-            </div>
-            <div class="mobile-social-wrap">
-                <a class="facebook" href="#"><i class="sli sli-social-facebook"></i></a>
-                <a class="twitter" href="#"><i class="sli sli-social-twitter"></i></a>
-                <a class="pinterest" href="#"><i class="sli sli-social-pinterest"></i></a>
-                <a class="instagram" href="#"><i class="sli sli-social-instagram"></i></a>
-                <a class="google" href="#"><i class="sli sli-social-google"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- header-section-mobile-end -->
-
-    <!--page content-start -->
+    <!--page content-start-slider-area -->
     <div class="slider-area section-padding-1">
         <div class="slider-active owl-carousel nav-style-1">
             <div class="single-slider slider-height-1 bg-paleturquoise">
@@ -304,6 +80,8 @@
             </div>
         </div>
     </div>
+
+    <!-- second-section-start -->
     <div class="banner-area pt-100 pb-65">
         <div class="container">
             <div class="row">
@@ -338,6 +116,9 @@
             </div>
         </div>
     </div>
+     <!-- second-section-end -->
+
+      <!-- third-section-start -->
     <div class="product-area pb-70">
         <div class="container">
             <div class="section-title text-center pb-40">
@@ -1173,6 +954,9 @@
             </div>
         </div>
     </div>
+       <!-- third-section-end -->
+
+     <!-- Fourth-section-start -->
     <div class="testimonial-area pt-80 pb-95 section-margin-1" style="background-image: url(assets/img/bg/bg-1.jpg);">
         <div class="container">
             <div class="row">
@@ -1199,6 +983,9 @@
             </div>
         </div>
     </div>
+     <!-- Fourth-section-end -->
+
+    <!-- Fifth-section-start -->
     <div class="product-area pt-95 pb-70">
         <div class="container">
             <div class="section-title text-center pb-60">
@@ -1479,6 +1266,10 @@
             </div>
         </div>
     </div>
+     <!-- Fifth-section-end -->
+    
+     
+    <!-- Sixth-section-start -->
     <div class="banner-area pb-120">
         <div class="container">
             <div class="row">
@@ -1505,6 +1296,10 @@
             </div>
         </div>
     </div>
+     <!-- Sixth-section-end -->
+
+
+    <!-- Seventh-section-start -->
     <div class="feature-area">
         <div class="container">
             <div class="row">
@@ -1544,6 +1339,10 @@
             </div>
         </div>
     </div>
+     <!-- Seventh-section-end -->
+
+
+    <!-- blog-area-start -->
     <div class="blog-area pt-50 pb-65">
         <div class="container">
             <div class="section-title text-center pb-60">
@@ -1590,48 +1389,10 @@
             </div>
         </div>
     </div>
+     <!-- blog-area-end -->
 
     <!-- footer-start -->
-    <footer class="footer-area bg-paleturquoise">
-        <div class="container">
-            <div class="footer-top text-center pt-45 pb-45">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home </a></li>
-                        <li><a href="shop.html">Shop </a></li>
-                        <li><a href="shop.html">Accessories  </a></li>
-                        <li><a href="contact-us.html">Contact </a></li>
-                        <li><a href="about-us.html">About </a></li>
-                        <li><a href="blog.html">Blog </a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="footer-bottom border-top-1 pt-20">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-5 col-12">
-                        <div class="footer-social pb-20">
-                            <a href="#">Facebok</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">Linkedin</a>
-                            <a href="#">Instagram</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <div class="copyright text-center pb-20">
-                            <p>Copyright © All Right Reserved</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-3 col-12">
-                        <div class="payment-mathod pb-20">
-                            <a href="#"><img src="assets/img/icon-img/payment.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php require "./content/footer.php"; ?>
      <!-- footer-end-->
 
     <!-- Modal -->
