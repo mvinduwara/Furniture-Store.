@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,15 +26,15 @@
 </head>
 
 <body>
-
-    <!--navigation-section-start-->
     <div class="wrapper">
+
+        <!--navigation-section-start-->
         <div class="breadcrumb-area pt-35 pb-35 bg-gray">
             <div class="container">
                 <div class="breadcrumb-content text-center">
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         <li class="active">login / register </li>
                     </ul>
@@ -63,15 +64,15 @@
                                         <div class="login-register-form">
                                             <!-- form-start -->
                                             <form action="#" method="post">
-                                                <input type="text" name="user-name" placeholder="Username">
-                                                <input type="password" name="user-password" placeholder="Password">
+                                                <input type="text" name="user-name" placeholder="Username" required>
+                                                <input type="password" name="user-password" placeholder="Password" required>
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
                                                         <input type="checkbox">
                                                         <label>Remember me</label>
                                                         <a href="#">Forgot Password?</a>
                                                     </div>
-                                                    <button type="submit" onclick="login();">Login</button>
+                                                    <button type="submit" onclick="user_login();">Login</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -83,17 +84,23 @@
                                 <div id="lg2" class="tab-pane">
                                     <div class="login-form-container">
                                         <div class="login-register-form">
+
+                                            <div class="col-12">
+                                                <p id="responseAlert"></p>
+                                            </div>
+
                                             <!-- form-start -->
-                                            <form action="#" method="post">
-                                                <input type="text" name="user-name" placeholder="First Name">
-                                                <input type="text" name="user-name" placeholder="Last Name">
-                                                <input name="user-email" placeholder="Email" type="email">
-                                                <input type="password" name="user-password" placeholder="Password">
-                                                <input name="user-Gender" placeholder="Gender" type="text">
-                                                <input name="user-phone" placeholder="Phone" type="text">
+                                            <form method="post">
+                                                <input type="text" id="user_first_name" placeholder="First Name" required>
+                                                <input type="text" id="user_last_name" placeholder="Last Name" required>
+                                                <input type="email" id="user_email" placeholder="Email" required>
+                                                <input type="password" id="user_password" placeholder="Password" required>
+                                                <input type="text" id="user_Gender" placeholder="Gender" required>
+                                                <input type="text" id="user_phone" placeholder="Phone" required>
                                                 <div class="button-box">
-                                                    <button type="submit">Register</button>
+                                                    <button type="button" onclick="user_register();">Register</button>
                                                 </div>
+                                                
                                             </form>
 
                                         </div>
@@ -141,4 +148,5 @@
     <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>

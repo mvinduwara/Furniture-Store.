@@ -80,8 +80,7 @@ p {
 p:last-child {
   margin-bottom: 0; }
 
-a,
-button {
+a {
   color: inherit;
   line-height: inherit;
   text-decoration: none;
@@ -89,7 +88,6 @@ button {
   color: #1f2226; }
 
 a,
-button,
 img,
 input,
 span {
