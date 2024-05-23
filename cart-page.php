@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- footer-start -->
         <?php require "./content/footer.php"; ?>
         <!-- footer-end-->
@@ -230,6 +230,8 @@
     <!-- All JS is here
 ============================================ -->
 
+    <!-- script.js -->
+    <script src="assets/js/script.js"></script>
     <!-- jQuery JS -->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Popper JS -->

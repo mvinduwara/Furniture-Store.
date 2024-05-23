@@ -1,8 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-
-<!-- Mirrored from demo.hasthemes.com/parlo/parlo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Mar 2024 06:17:20 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -30,7 +27,7 @@
 <body>
     
 <div class="wrapper">
-    
+
   <!-- header-sestion -->
   <?php require "./content/header.php" ?>
   <!-- header-sestion -->
@@ -1525,7 +1522,8 @@
 
 <!-- All JS is here
 ============================================ -->
-
+<!-- script.js -->
+    <script src="assets/js/script.js"></script>
 <!-- jQuery JS -->
 <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 <!-- Popper JS -->
@@ -1540,7 +1538,4 @@
 <script src="assets/js/main.js"></script>
 
 </body>
-
-
-<!-- Mirrored from demo.hasthemes.com/parlo/parlo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Mar 2024 06:17:24 GMT -->
 </html>

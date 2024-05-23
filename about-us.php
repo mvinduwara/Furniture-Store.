@@ -1,9 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-
-<!-- Mirrored from demo.hasthemes.com/parlo/parlo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Mar 2024 06:17:36 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -343,8 +339,5 @@
     <script src="assets/js/main.js"></script>
 
 </body>
-
-
-<!-- Mirrored from demo.hasthemes.com/parlo/parlo/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Mar 2024 06:17:37 GMT -->
 
 </html>
