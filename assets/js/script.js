@@ -152,8 +152,7 @@ function review_adding(id){
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var text = request.responseText;
-            // alert(text);
-            if (text == "success") {
+            if (text == "Success") {
                 window.location.reload();
             } else {
                 document.getElementById("responseAlert").innerHTML = text;

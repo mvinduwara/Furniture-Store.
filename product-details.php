@@ -4,6 +4,8 @@ session_start();
 
 if (isset($_GET["id"])) {
     $product_id = $_GET["id"];
+
+
 ?>
 
     <!doctype html>
@@ -59,6 +61,10 @@ if (isset($_GET["id"])) {
             $product_resulset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id` WHERE `product`.`product_id` = '" . $product_id . "'");
             $product_resultset_data = $product_resulset->fetch_assoc();
 
+            $product_review_resulset = Database::search("SELECT * FROM `product_review` WHERE `product_id` = ' $product_id ' LIMIT 4");
+            $review_count = $product_review_resulset->num_rows;
+            $product_review_data = $product_review_resulset->fetch_assoc();
+
             ?>
 
             <div class="product-details-area pt-100 pb-95">
@@ -108,7 +114,7 @@ if (isset($_GET["id"])) {
                                         <i class="sli sli-star yellow"></i>
                                         <i class="sli sli-star yellow"></i>
                                     </div>
-                                    <span><a href="#">3 Reviews</a></span>
+                                    <span><a href="#"><?php echo $review_count ?> Reviews</a></span>
                                 </div>
                                 <p><?php echo $product_resultset_data["product_title"] ?></p>
                                 <div class="pro-details-list">
@@ -149,7 +155,7 @@ if (isset($_GET["id"])) {
                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
                                     </div>
                                     <div class="pro-details-cart btn-hover">
-                                        <a href="#">Add To Cart</a>
+                                        <a href="cart-page.php">Add To Cart</a>
                                     </div>
                                     <div class="pro-details-wishlist">
                                         <a title="Add To Wishlist" href="#"><i class="sli sli-heart"></i></a>
@@ -179,6 +185,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
             </div>
+            <!-- decriptio-box -->
             <div class="description-review-area pb-95">
                 <div class="container">
                     <div class="row">
@@ -187,7 +194,7 @@ if (isset($_GET["id"])) {
                                 <div class="description-review-topbar nav">
                                     <a class="active" data-toggle="tab" href="#des-details1">Description</a>
                                     <a data-toggle="tab" href="#des-details3">Additional information</a>
-                                    <a data-toggle="tab" href="#des-details2">Reviews (3)</a>
+                                    <a data-toggle="tab" href="#des-details2">Reviews <?php echo $review_count ?></a>
                                 </div>
                                 <div class="tab-content description-review-bottom">
                                     <div id="des-details1" class="tab-pane active">
@@ -205,28 +212,47 @@ if (isset($_GET["id"])) {
                                             </ul>
                                         </div>
                                     </div>
+
+                                    <!-- review-vsection-start -->
                                     <div id="des-details2" class="tab-pane">
                                         <div class="review-wrapper">
-
                                             <div class="single-review">
-                                                <div class="review-img">
-                                                    <img src="assets/img/product-details/client-3.jpg" alt="">
-                                                </div>
-                                                <div class="review-content">
-                                                    <p>“In convallis nulla et magna congue convallis. Donec eu nunc vel justo maximus posuere. Sed viverra nunc erat, a efficitur nibh”</p>
-                                                    <div class="review-top-wrap">
-                                                        <div class="review-name">
-                                                            <h4>Stella McGee</h4>
-                                                        </div>
-                                                        <div class="review-rating">
-                                                            <i class="sli sli-star"></i>
-                                                            <i class="sli sli-star"></i>
-                                                            <i class="sli sli-star"></i>
-                                                            <i class="sli sli-star"></i>
-                                                            <i class="sli sli-star"></i>
+                                                <?php
+                                                if (empty($product_review_data["product_review_description"]) && empty($product_review_data["product_review_name"])) {
+                                                ?>
+                                                    <div class="review-content">
+                                                        <div class="review-top-wrap">
+                                                            <div class="review-name">
+                                                                <h4> No Reviews</h4>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <div class="review-img">
+                                                        <img src="resources/img/person.jpg" alt="">
+                                                    </div>
+                                                    <div class="review-content">
+                                                        <p>“<?php echo $product_review_data["product_review_description"] ?>”</p>
+                                                        <div class="review-top-wrap">
+                                                            <div class="review-name">
+                                                                <h4><?php echo $product_review_data["product_review_name"] ?></h4>
+                                                            </div>
+                                                            <div class="review-rating">
+                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                                }
+
+                                                ?>
+
                                             </div>
                                         </div>
                                         <div class="ratting-form-wrapper">
@@ -259,7 +285,9 @@ if (isset($_GET["id"])) {
                                                     <i class="sli sli-star"></i>
                                                 </div>
                                             </div>
+                                            <!-- review-view-section-end-->
 
+                                            <!-- review-form-start -->
                                             <div class="ratting-form">
                                                 <form method="POST">
                                                     <div class="row">
@@ -294,9 +322,12 @@ if (isset($_GET["id"])) {
                                                     </div>
                                                 </form>
                                             </div>
+                                            <!-- review-form-end -->
+
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
