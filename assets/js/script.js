@@ -124,3 +124,45 @@ function user_login() {
     }
 
 }
+
+
+function review_adding(id){
+    var review_text = document.getElementById("review_text").value;
+    var review_name = document.getElementById("review_name").value;
+    var review_email = document.getElementById("review_email").value;
+
+    if (review_text.trim() === '') {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter review text";
+    }else if (review_name.trim() === '') {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter name";
+    }else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(review_email)) {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter a valid email address";
+    }else{
+
+    var form = new FormData();
+    form.append("review_text", review_text);
+    form.append("review_name", review_name);
+    form.append("review_email", review_email);
+    form.append("product_id", id);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            // alert(text);
+            if (text == "success") {
+                window.location.reload();
+            } else {
+                document.getElementById("responseAlert").innerHTML = text;
+                document.getElementById("responseAlert").className = "text-danger";
+            }
+        }
+    };
+    request.open("POST", "./process/review_adding_process.php", true);
+    request.send(form);
+
+}
+}
