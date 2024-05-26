@@ -165,3 +165,7 @@ function review_adding(id){
 
 }
 }
+
+function removecartproduct(){
+    alert("removecartproduct");
+}

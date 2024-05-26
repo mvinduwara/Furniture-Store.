@@ -101,18 +101,54 @@ if (isset($_SESSION["user"])) {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="product-thumbnail">
-                                                            <a href="#"><img src="assets/img/cart/cart-3.jpg" alt=""></a>
-                                                        </td>
-                                                        <td class="product-name"><a href="#">Product Name</a></td>
-                                                        <td class="product-price-cart"><span class="amount">$260.00</span></td>
-                                                        <td class="product-quantity">1</td>
-                                                        <td class="product-subtotal">$110.00</td>
-                                                        <td class="product-remove">
-                                                            <a href="#"><i class="sli sli-close"></i></a>
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                    $user_cart_data_resultset = Database::search("SELECT * FROM `product_cart` WHERE `user_id`='" . $user_id . "' ");
+                                                    $user_cart_data_count = $user_cart_data_resultset->num_rows;
+
+                                                    for ($i = 0; $i < $user_cart_data_count; $i++) {
+                                                        $user_cart_data = $user_cart_data_resultset->fetch_assoc();
+
+                                                        $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
+                                                        $product_data = $product_resulset->fetch_assoc();
+                                                        $shipping +=  (((int)$product_data["product_delivery_fee"]) * ((int)$user_cart_data["product_cart_quantity"]));
+                                                        $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
+
+                                                        $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $product_id . "' ");
+                                                        $product_image_data = $product_image_resultset->fetch_assoc();
+
+                                                    ?>
+                                                        <tr>
+                                                            <td class="product-thumbnail">
+                                                                <?php
+                                                                if (empty($product_image_data["product_image_path01"])) {
+                                                                ?>
+
+                                                                    <a href="#"><img src="resources/img/No-Image.jpg" alt=""></a>
+
+                                                                <?php
+                                                                } else {
+                                                                ?>
+
+                                                                    <a href=" #"><img src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>" alt="" style="width: 90px; height: 90px;"></a>
+
+                                                                <?php
+                                                                }
+                                                                ?>
+
+                                                            </td>
+                                                            <td class="product-name"><a href="#"><?php echo $product_data["product_name"]  ?></a></td>
+                                                            <td class="product-price-cart"><span class="amount">RS <?php echo $product_data["product_price"]  ?>.00</span></td>
+                                                            <td class="product-quantity"><?php echo $user_cart_data["product_cart_quantity"]  ?></td>
+                                                            <td class="product-subtotal">RS <?php echo $product_data["product_price"]  ?>.00</td>
+                                                            <td class="product-remove">
+                                                                <a href="#" onclick="removecartproduct();"><i class="sli sli-close"></i></a>
+                                                            </td>
+                                                        </tr>
+
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -200,16 +236,16 @@ if (isset($_SESSION["user"])) {
                                                 <div class="title-wrap">
                                                     <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                                 </div>
-                                                <h5>Total products <span>$260.00</span></h5>
+                                                <h5>Total products <span><?php echo $user_cart_data_count * ((int)$user_cart_data["product_cart_quantity"]) ?></span></h5>
                                                 <div class="total-shipping">
                                                     <h5>Total shipping</h5>
                                                     <ul>
-                                                        <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                                                        <li><input type="checkbox"> Express <span>$30.00</span></li>
+                                                        <li><input type="checkbox"> SubTatal <span>Rs <?php echo $sub_total  ?>.00</span></li>
+                                                        <li><input type="checkbox"> Delivery fee <span><?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count; ?></span></li>
                                                     </ul>
                                                 </div>
-                                                <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
-                                                <a href="#">Proceed to Checkout</a>
+                                                <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo ($shipping + $sub_total); ?> .00</span></h4>
+                                                <a href="checkout.php">Proceed to Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +257,7 @@ if (isset($_SESSION["user"])) {
                 <?php
                 }
                 ?>
-                
+
                 <!-- footer-start -->
                 <?php require "./content/footer.php"; ?>
                 <!-- footer-end-->
