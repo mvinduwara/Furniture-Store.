@@ -150,12 +150,17 @@ if (isset($_GET["id"])) {
                                         </div>
                                     </div> -->
                                 </div>
+
+                                <div class="col-12">
+                                    <p id="responseAlert"></p>
+                                </div>
+
                                 <div class="pro-details-quality">
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
                                     </div>
                                     <div class="pro-details-cart btn-hover">
-                                        <a href="cart-page.php">Add To Cart</a>
+                                        <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Add To Cart</a>
                                     </div>
                                     <div class="pro-details-wishlist">
                                         <a title="Add To Wishlist" href="#"><i class="sli sli-heart"></i></a>
@@ -239,12 +244,12 @@ if (isset($_GET["id"])) {
                                                             <div class="review-name">
                                                                 <h4><?php echo $product_review_data["product_review_name"] ?></h4>
                                                             </div>
-                                                            <div class="review-rating">
+                                                            <!-- <div class="review-rating">
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
-                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -752,14 +757,6 @@ if (isset($_GET["id"])) {
         </div>
 
 
-
-
-
-
-
-
-
-
         <!-- All JS is here
 ============================================ -->
 
@@ -783,5 +780,7 @@ if (isset($_GET["id"])) {
     </html>
 
 <?php
+}else {
+    header("Location:login-register.php");
 }
 ?>

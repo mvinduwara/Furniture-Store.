@@ -105,7 +105,7 @@ function user_login() {
         var form = new FormData();
         form.append("user_email", user_email);
         form.append("user_password", user_passowrd);
-        form.append("remember_me", remember_me.checked);
+        form.append("rememberme", remember_me.checked);
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
@@ -164,4 +164,67 @@ function review_adding(id){
     request.send(form);
 
 }
+}
+
+function addToCart(id , quantity){
+    
+  
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+             if(text === "Update Cart" || text === "Product added to the Cart"){
+                window.location="./cart-page.php";
+             }else{
+                document.getElementById("responseAlert").innerHTML = text;
+                document.getElementById("responseAlert").className = "text-danger";
+             }
+         }
+    }
+
+    request.open("GET", "./process/addToCartProcess.php?id=" + id + "&quantity=" + quantity ,true);
+    request.send();
+
+
+}
+
+function removecartproduct(id){
+    // alert(id);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+            //   alert(text);
+              if (text == "Product has been removed") {
+                   window.location.reload();
+              } else {
+                   alert(text);
+              }
+         }
+    }
+
+    request.open("GET", "./process/removeCartProcess.php?id=" + id, true);
+    request.send();
+}
+
+function signout(){
+    // alert("hitto");
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+              if (text == "success") {
+                   window.location = "./index.php";
+              } else {
+                   alert(text);
+              }
+
+         }
+    }
+    request.open("GET", "./process/signoutProcess.php", true);
+    request.send();
 }
