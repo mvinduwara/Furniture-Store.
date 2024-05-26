@@ -25,6 +25,7 @@
                                 <li class="angle-shape"><a href="#">Pages </a>
                                     <ul class="submenu">
                                         <li><a href="login-register.php">login/register </a></li>
+                                        <li><a onclick="signout();">sign out</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -39,11 +40,24 @@
                             <a class="search-active" href="#"><i class="sli sli-magnifier"></i></a>
                         </div>
                         <div class="cart-wrap">
-                            <button class="icon-cart-active">
-                                <span class="cart-price">
-                                    $00.00
-                                </span>
-                            </button>
+                            <?php
+
+                            if (isset($_SESSION["user"])) {
+                                $user_firstname = $_SESSION["user"]["user_firstname"];
+                                $user_lastname = $_SESSION["user"]["user_lastname"];
+
+                            ?>
+                                <button class="icon-cart-active">
+                                    <span class="cart-price">
+                                        <?php echo $user_firstname . '  '  . $user_lastname  ?>
+                                    </span>
+                                </button>
+
+                            <?php
+                            } 
+                            ?>
+                                
+
                             <div class="shopping-cart-content">
                                 <div class="shopping-cart-top">
                                     <h4>Shoping Cart</h4>
@@ -55,6 +69,7 @@
 
                                     if (isset($_SESSION["user"])) {
                                         $user_id = $_SESSION["user"]["user_id"];
+                                        $user_email = $_SESSION["user"]["user_email"];
 
                                         $user_cart_resultset = Database::search("SELECT * FROM `product_cart` WHERE `user_id`='" . $user_id . "'");
                                         $user_cart_count = $user_cart_resultset->num_rows;
@@ -64,7 +79,7 @@
 
                                             $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                             $product_data = $product_resulset->fetch_assoc();
-                                           
+
                                             $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                             $product_image_data = $product_image_resultset->fetch_assoc();
                                     ?>

@@ -244,12 +244,12 @@ if (isset($_GET["id"])) {
                                                             <div class="review-name">
                                                                 <h4><?php echo $product_review_data["product_review_name"] ?></h4>
                                                             </div>
-                                                            <div class="review-rating">
+                                                            <!-- <div class="review-rating">
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
                                                                 <i class="sli sli-star"></i>
-                                                                <i class="sli sli-star"></i>
+                                                                <i class="sli sli-star"></i> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -755,14 +755,6 @@ if (isset($_GET["id"])) {
             </div>
             <!-- Modal end -->
         </div>
-
-
-
-
-
-
-
-
 
 
         <!-- All JS is here

@@ -77,6 +77,7 @@ if (isset($_SESSION["user"])) {
                 <?php
                 } else {
                 ?>
+                    
                     <div class="cart-main-area pt-95 pb-100">
                         <div class="container">
                             <h3 class="cart-page-title">Your cart items</h3>

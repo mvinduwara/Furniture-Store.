@@ -199,7 +199,6 @@ function removecartproduct(id){
               var text = request.responseText;
             //   alert(text);
               if (text == "Product has been removed") {
-                   alert(text);
                    window.location.reload();
               } else {
                    alert(text);
@@ -209,6 +208,23 @@ function removecartproduct(id){
 
     request.open("GET", "./process/removeCartProcess.php?id=" + id, true);
     request.send();
+}
 
+function signout(){
+    // alert("hitto");
 
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+              if (text == "success") {
+                   window.location = "./index.php";
+              } else {
+                   alert(text);
+              }
+
+         }
+    }
+    request.open("GET", "./process/signoutProcess.php", true);
+    request.send();
 }
