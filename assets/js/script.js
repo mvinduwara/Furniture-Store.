@@ -189,6 +189,26 @@ function addToCart(id , quantity){
 
 }
 
-function removecartproduct(){
-    alert("removecartproduct");
+function removecartproduct(id){
+    // alert(id);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+            //   alert(text);
+              if (text == "Product has been removed") {
+                   alert(text);
+                   window.location.reload();
+              } else {
+                   alert(text);
+              }
+         }
+    }
+
+    request.open("GET", "./process/removeCartProcess.php?id=" + id, true);
+    request.send();
+
+
 }

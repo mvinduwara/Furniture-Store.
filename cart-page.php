@@ -5,11 +5,8 @@ session_start();
 if (isset($_SESSION["user"])) {
     $user_id = $_SESSION["user"]["user_id"];
 
-
-
-        $tatal = 0;
-        $sub_total = 0;
-        $shipping = 0;
+    $tatal = 0;
+    $sub_total = 0;
 
 ?>
 
@@ -109,7 +106,6 @@ if (isset($_SESSION["user"])) {
 
                                                         $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                                         $product_data = $product_resulset->fetch_assoc();
-                                                        $shipping += ((int)$user_cart_data["product_cart_quantity"]) + 1000;
                                                         $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
 
                                                         $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
@@ -140,7 +136,7 @@ if (isset($_SESSION["user"])) {
                                                             <td class="product-quantity"><?php echo $user_cart_data["product_cart_quantity"]  ?></td>
                                                             <td class="product-subtotal">RS <?php echo $product_data["product_price"]  ?>.00</td>
                                                             <td class="product-remove">
-                                                                <a href="#" onclick="removecartproduct();"><i class="sli sli-close"></i></a>
+                                                                <a href="#" onclick="removecartproduct(<?php echo $product_data['product_id']; ?>)"><i class="sli sli-close"></i></a>
                                                             </td>
                                                         </tr>
 
@@ -170,66 +166,7 @@ if (isset($_SESSION["user"])) {
 
                                     </form>
 
-                                    <div class="row" style="justify-content: end;">
-                                        <div class="col-lg-4 col-md-6">
-                                            <!-- <div class="cart-tax">
-                                                <div class="title-wrap">
-                                                    <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
-                                                </div>
-                                                <div class="tax-wrapper">
-                                                    <p>Enter your destination to get a shipping estimate.</p>
-                                                    <div class="tax-select-wrapper">
-                                                        <div class="tax-select">
-                                                            <label>
-                                                                * Country
-                                                            </label>
-                                                            <select class="email s-email s-wid">
-                                                                <option>Bangladesh</option>
-                                                                <option>Albania</option>
-                                                                <option>Åland Islands</option>
-                                                                <option>Afghanistan</option>
-                                                                <option>Belgium</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="tax-select">
-                                                            <label>
-                                                                * Region / State
-                                                            </label>
-                                                            <select class="email s-email s-wid">
-                                                                <option>Bangladesh</option>
-                                                                <option>Albania</option>
-                                                                <option>Åland Islands</option>
-                                                                <option>Afghanistan</option>
-                                                                <option>Belgium</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="tax-select">
-                                                            <label>
-                                                                * Zip/Postal Code
-                                                            </label>
-                                                            <input type="text">
-                                                        </div>
-                                                        <button class="cart-btn-2" type="submit">Get A Quote</button>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                        <!--                                         
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="discount-code-wrapper">
-                                                <div class="title-wrap">
-                                                    <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
-                                                </div>
-                                                <div class="discount-code">
-                                                    <p>Enter your coupon code if you have one.</p>
-                                                    <form>
-                                                        <input type="text" required="" name="name">
-                                                        <button class="cart-btn-2" type="submit">Apply Coupon</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
+                                    <div class="row" style="justify-content: end;">                                    
                                         <div class="col-lg-4 col-md-12">
                                             <div class="grand-totall">
                                                 <div class="title-wrap">
@@ -243,11 +180,12 @@ if (isset($_SESSION["user"])) {
                                                         <li><input type="checkbox"> Delivery fee <span><?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;   ?></span></li>
                                                     </ul>
                                                 </div>
-                                                <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo ($shipping + $sub_total); ?> .00</span></h4>
+                                                <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo (((int)$product_data["product_delivery_fee"]) * $user_cart_data_count + $sub_total); ?> .00</span></h4>
                                                 <a href="checkout.php">Proceed to Checkout</a>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

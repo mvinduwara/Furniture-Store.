@@ -50,34 +50,50 @@
                                     <a class="cart-close" href="#"><i class="sli sli-close"></i></a>
                                 </div>
                                 <ul>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
-                                            <div class="item-close">
-                                                <a href="#"><i class="sli sli-close"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">Product Name </a></h4>
-                                            <span>1 x 90.00</span>
-                                        </div>
-                                    </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                                            <div class="item-close">
-                                                <a href="#"><i class="sli sli-close"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <span>1 x 90.00</span>
-                                        </div>
-                                    </li>
+
+                                    <?php
+
+                                    if (isset($_SESSION["user"])) {
+                                        $user_id = $_SESSION["user"]["user_id"];
+
+                                        $user_cart_resultset = Database::search("SELECT * FROM `product_cart` WHERE `user_id`='" . $user_id . "'");
+                                        $user_cart_count = $user_cart_resultset->num_rows;
+
+                                        for ($i = 0; $i < $user_cart_count; $i++) {
+                                            $user_cart_data = $user_cart_resultset->fetch_assoc();
+
+                                            $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
+                                            $product_data = $product_resulset->fetch_assoc();
+                                            $shipping += ((int)$user_cart_data["product_cart_quantity"]) + 1000;
+                                                        $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
+
+                                            $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
+                                            $product_image_data = $product_image_resultset->fetch_assoc();
+                                    ?>
+
+                                            <li class="single-shopping-cart">
+                                                <div class="shopping-cart-img">
+                                                    <a href="#"><img alt="" src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>"></a>
+                                                    <div class="item-close">
+                                                        <a href="#"><i class="sli sli-close"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="#"><?php echo $product_data["product_name"];  ?></a></h4>
+                                                    <span><?php echo $user_cart_data["product_cart_quantity"]; ?>x RS <?php echo $product_data["product_price"];  ?>.00</span>
+                                                </div>
+                                            </li>
+
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
+
                                 </ul>
                                 <div class="shopping-cart-bottom">
                                     <div class="shopping-cart-total">
-                                        <h4>Total : <span class="shop-total">$260.00</span></h4>
+                                        <h4>Total : <span class="shop-total"></span></h4>
                                     </div>
                                     <div class="shopping-cart-btn btn-hover text-center">
                                         <a class="default-btn" href="checkout.php">checkout</a>
