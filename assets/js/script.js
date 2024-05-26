@@ -105,7 +105,7 @@ function user_login() {
         var form = new FormData();
         form.append("user_email", user_email);
         form.append("user_password", user_passowrd);
-        form.append("remember_me", remember_me.checked);
+        form.append("rememberme", remember_me.checked);
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {

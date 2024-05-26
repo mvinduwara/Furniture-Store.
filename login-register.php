@@ -69,24 +69,25 @@
 
                                             <!-- form-start -->
                                             <form action="#" method="post">
-
                                                 <?php
-                                                $user_email_address = "";
-                                                $user_password = "";
+                                                require "./content/connection.php";
+                                                $email = "";
+                                                $password = "";
 
-                                                if (isset($_COOKIE["email"])) {
-                                                    $user_email_address = $_COOKIE["email"];
+                                                if (isset($_COOKIE["user_email"])) {
+                                                    $email = $_COOKIE["user_email"];
                                                 }
-                                                if (isset($_COOKIE["password"])) {
-                                                    $user_password = $_COOKIE["password"];
+                                                if (isset($_COOKIE["user_password"])) {
+                                                    $password = $_COOKIE["user_password"];
                                                 }
+
                                                 ?>
 
-                                                <input type="text" id="users_name" placeholder="Useremail" required>
-                                                <input type="password" id="users_password" placeholder="Password" required>
+                                                <input type="email" id="users_name" placeholder="Useremail" value="<?php echo($email); ?>" >
+                                                <input type="password" id="users_password" placeholder="Password" value="<?php echo($password); ?>" >
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
-                                                        <input type="checkbox" id="remember_me">
+                                                        <input type="checkbox" id="remember_me" value="">
                                                         <label id="remember_me">Remember me</label>
                                                         <a href="#">Forgot Password?</a>
                                                     </div>
