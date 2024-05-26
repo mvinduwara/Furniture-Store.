@@ -155,7 +155,7 @@ if (isset($_GET["id"])) {
                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
                                     </div>
                                     <div class="pro-details-cart btn-hover">
-                                        <a href="cart-page.php">Add To Cart</a>
+                                        <a href="cart-page.php?id=<?php echo $product_id ?>">Add To Cart</a>
                                     </div>
                                     <div class="pro-details-wishlist">
                                         <a title="Add To Wishlist" href="#"><i class="sli sli-heart"></i></a>

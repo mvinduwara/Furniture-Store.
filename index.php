@@ -822,10 +822,10 @@ session_start();
                                     <div class="ht-product-content">
                                         <div class="ht-product-content-inner">
                                             <div class="ht-product-categories"><a href="#"><?php echo $product_resultset_data["product_quantity"]; ?></a></div>
+                                           
                                             <h4 class="ht-product-title"><a href="#"><?php echo $product_resultset_data["product_name"]; ?></a></h4>
                                             <div class="ht-product-price">
                                                 <span class="new">RS <?php echo $product_resultset_data["product_price"]; ?>.00</span><br>
-                                               
                                             </div>
                                             <div class="ht-product-ratting-wrap">
                                                 <span class="ht-product-ratting">
@@ -843,7 +843,9 @@ session_start();
                                                     <i class="sli sli-star"></i>
                                                 </span>
                                             </div>
+                                            
                                         </div>
+                                        <div class="ht-product-categories mt-2">Delivery fee Rs.1000.00</div>
                                         <div class="ht-product-action">
                                             <ul>
                                                 <li><a href="#"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
