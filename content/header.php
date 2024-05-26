@@ -64,9 +64,7 @@
 
                                             $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                             $product_data = $product_resulset->fetch_assoc();
-                                            $shipping += ((int)$user_cart_data["product_cart_quantity"]) + 1000;
-                                                        $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
-
+                                           
                                             $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                             $product_image_data = $product_image_resultset->fetch_assoc();
                                     ?>
