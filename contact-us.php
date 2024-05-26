@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -81,18 +82,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- form-section-start -->
                     <div class="col-lg-7 col-md-6">
                         <div class="contact-from contact-shadow">
-                            <form id="contact-form" action="http://whizthemes.com/mail-php/contact/mail.php" method="post">
-                                <input name="name" type="text" placeholder="Name">
-                                <input name="email" type="email" placeholder="Email">
-                                <input name="subject" type="text" placeholder="Subject">
-                                <textarea name="message" placeholder="Your Message"></textarea>
-                                <button class="submit" type="submit">Send Message</button>
+                            <p class="form-messege text-danger"></p>
+                            <form id="contact-form" action="./process/contactproess.php" method="POST">
+                                <input name="user_name" type="text" placeholder="Name">
+                                <input name="user_email" type="email" placeholder="Email">
+                                <input name="user_subject" type="text" placeholder="Subject">
+                                <textarea name="user_message" placeholder="Your Message"></textarea>
+                                <button class="submit" type="submit" value="submit">Send Message</button>
                             </form>
-                            <p class="form-messege"></p>
+
                         </div>
                     </div>
+                    <!-- form-section-end -->
                 </div>
                 <div class="contact-map pt-100">
                     <div id="map"></div>
@@ -250,4 +255,5 @@
     <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>

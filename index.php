@@ -845,7 +845,7 @@ session_start();
                                             </div>
                                             
                                         </div>
-                                        <div class="ht-product-categories mt-2">Delivery fee Rs.1000.00</div>
+                                        <div class="ht-product-categories mt-2">Delivery fee Rs.<?php echo $product_resultset_data["product_delivery_fee"];  ?>.00</div>
                                         <div class="ht-product-action">
                                             <ul>
                                                 <li><a href="#"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
