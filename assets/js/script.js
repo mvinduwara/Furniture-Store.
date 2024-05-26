@@ -166,6 +166,29 @@ function review_adding(id){
 }
 }
 
+function addToCart(id , quantity){
+    
+  
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+             if(text === "Update Cart" || text === "Product added to the Cart"){
+                window.location="./cart-page.php";
+             }else{
+                document.getElementById("responseAlert").innerHTML = text;
+                document.getElementById("responseAlert").className = "text-danger";
+             }
+         }
+    }
+
+    request.open("GET", "./process/addToCartProcess.php?id=" + id + "&quantity=" + quantity ,true);
+    request.send();
+
+
+}
+
 function removecartproduct(){
     alert("removecartproduct");
 }

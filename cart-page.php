@@ -5,8 +5,7 @@ session_start();
 if (isset($_SESSION["user"])) {
     $user_id = $_SESSION["user"]["user_id"];
 
-    if (isset($_GET["id"])) {
-        $product_id = $_GET["id"];
+
 
         $tatal = 0;
         $sub_total = 0;
@@ -110,10 +109,10 @@ if (isset($_SESSION["user"])) {
 
                                                         $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                                         $product_data = $product_resulset->fetch_assoc();
-                                                        $shipping +=  (((int)$product_data["product_delivery_fee"]) * ((int)$user_cart_data["product_cart_quantity"]));
+                                                        $shipping += ((int)$user_cart_data["product_cart_quantity"]) + 1000;
                                                         $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
 
-                                                        $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $product_id . "' ");
+                                                        $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                                         $product_image_data = $product_image_resultset->fetch_assoc();
 
                                                     ?>
@@ -241,7 +240,7 @@ if (isset($_SESSION["user"])) {
                                                     <h5>Total shipping</h5>
                                                     <ul>
                                                         <li><input type="checkbox"> SubTatal <span>Rs <?php echo $sub_total  ?>.00</span></li>
-                                                        <li><input type="checkbox"> Delivery fee <span><?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count; ?></span></li>
+                                                        <li><input type="checkbox"> Delivery fee <span><?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;   ?></span></li>
                                                     </ul>
                                                 </div>
                                                 <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo ($shipping + $sub_total); ?> .00</span></h4>
@@ -288,9 +287,7 @@ if (isset($_SESSION["user"])) {
 
         </html>
 
-    <?php
-    }
-    ?>
+    
 
 <?php
 } else {
