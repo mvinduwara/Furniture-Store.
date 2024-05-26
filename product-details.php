@@ -163,7 +163,7 @@ if (isset($_GET["id"])) {
                                         <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Add To Cart</a>
                                     </div>
                                     <div class="pro-details-wishlist">
-                                        <a title="Add To Wishlist" href="#"><i class="sli sli-heart"></i></a>
+                                        <a title="Add To Wishlist" onclick="addtowishlist(<?php echo $product_data['id']; ?> ,document.querySelector('.cart-plus-minus-box').value )"><i class="sli sli-heart"></i></a>
                                     </div>
                                     <div class="pro-details-compare">
                                         <a title="Add To Compare" href="#"><i class="sli sli-refresh"></i></a>
@@ -343,6 +343,8 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
             </div>
+
+            <!-- related-product-section-start -->
             <div class="product-area pb-70">
                 <div class="container">
                     <div class="section-title text-center pb-60">
@@ -623,6 +625,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
             </div>
+            <!-- related-product-section-end -->
 
 
             <!-- footer-start -->
