@@ -25,6 +25,7 @@
                                 <li class="angle-shape"><a href="#">Pages </a>
                                     <ul class="submenu">
                                         <li><a href="login-register.php">login/register </a></li>
+                                        <li><a href="my-account.php">My account </a></li>
                                         <li><a onclick="signout();">sign out</a></li>
                                     </ul>
                                 </li>
