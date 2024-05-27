@@ -23,7 +23,7 @@ if (isset($_SESSION["user"])) {
             $current_qty = $cart_data["product_cart_quantity"];
             $new_qty =  $product_quantity ;
     
-            if($product_qty != $new_qty){
+            if($product_qty <= $new_qty){
     
                 Database::iud("UPDATE `product_cart` SET `product_cart_quantity`='".$new_qty."' WHERE `product_id`='".$product_id."' AND `user_id`='".$user_id."'");
                 echo ("Update Cart");
