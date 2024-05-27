@@ -191,7 +191,7 @@ if (isset($_SESSION["user"])) {
                                             for ($i = 0; $i < $user_address_count; $i++) {
                                                 $user_address_data = $user_address_resultset->fetch_assoc();
 
-                                                if ($user_address_data == 0) {
+                                                if ($user_address_count == 0) {
                                             ?>
 
                                                     <!-- address Tab Content Start -->
@@ -206,20 +206,20 @@ if (isset($_SESSION["user"])) {
                                                         <div class="myaccount-content">
                                                             <h3>Edit your address Details</h3>
                                                             <div class="account-details-form">
-                                                                <form action="#">
+                                                                <form action="">
                                                                     <div class="row">
 
                                                                         <div class="col-lg-6">
                                                                             <div class="single-input-item">
                                                                                 <label for="Address_number" class="required">Address number</label>
-                                                                                <input type="text" id="Address_number">" />
+                                                                                <input type="text" id="Address_number"> />
                                                                             </div>
                                                                         </div>
 
                                                                         <div class="col-lg-6">
                                                                             <div class="single-input-item">
                                                                                 <label for="Address_line01" class="required">Address line 01</label>
-                                                                                <input type="text" id="Address_line01"  />
+                                                                                <input type="text" id="Address_line01" />
                                                                             </div>
                                                                         </div>
 
@@ -227,12 +227,12 @@ if (isset($_SESSION["user"])) {
 
                                                                     <div class="single-input-item">
                                                                         <label for="Address_line02" class="required">Address Line 02</label>
-                                                                        <input type="text" id="Address_line02"  />
+                                                                        <input type="text" id="Address_line02" />
                                                                     </div>
 
                                                                     <div class="single-input-item">
                                                                         <label for="postal_code" class="required">Country Code</label>
-                                                                        <input type="text" id="postal_code"/>
+                                                                        <input type="text" id="postal_code" />
                                                                     </div>
 
                                                                     <div class="single-input-item">
@@ -265,7 +265,7 @@ if (isset($_SESSION["user"])) {
                                                         <div class="myaccount-content">
                                                             <h3>Edit your address Details</h3>
                                                             <div class="account-details-form">
-                                                                <form action="#">
+                                                                <form action="">
                                                                     <div class="row">
 
                                                                         <div class="col-lg-6">
@@ -314,114 +314,126 @@ if (isset($_SESSION["user"])) {
                                             }
                                             ?>
 
+                                            <?php
+                                            for ($i = 0; $i < $user_count; $i++) {
+                                                $user_data = $user_resultset->fetch_assoc();
 
-                                            <!-- account detail Tab Content Start -->
-                                            <div class="tab-pane fade" id="account-info" role="tabpanel">
-                                                <div class="myaccount-content">
-                                                    <h3>Account Details</h3>
-                                                    <div class="account-details-form">
+                                            ?>
+                                                <!-- account detail Tab Content Start -->
+                                                <div class="tab-pane fade" id="account-info" role="tabpanel">
+                                                    <div class="myaccount-content">
+                                                        <h3>Account Details</h3>
+                                                        <div class="account-details-form">
 
-                                                        <form action="#">
+                                                            <form action="#">
 
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="first-name" class="required">First Name</label>
-                                                                        <input type="text" id="first-name" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="last-name" class="required">Last Name</label>
-                                                                        <input type="text" id="last-name" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="first-name" class="required">Contact Number</label>
-                                                                        <input type="text" id="first-name" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="last-name" class="required">Email Address</label>
-                                                                        <input type="text" id="last-name" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="first-name" class="required">Gender</label>
-                                                                        <input type="text" id="first-name" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="last-name" class="required">joined Date</label>
-                                                                        <input type="text" id="last-name" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="single-input-item">
-                                                                        <label for="first-name" class="required" required>Birth Date</label>
-                                                                        <input type="text" id="first-name" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="single-input-item">
-                                                                <label for="display-name" class="required">Display Name</label>
-                                                                <input type="text" id="display-name" />
-                                                            </div>
-
-
-                                                            <div class="single-input-item">
-                                                                <label for="email" class="required">Email Addres</label>
-                                                                <input type="email" id="email" />
-                                                            </div>
-
-                                                            <fieldset>
-                                                                <legend>Password change</legend>
-                                                                <div class="single-input-item">
-                                                                    <label for="current-pwd" class="required">Current Password</label>
-                                                                    <input type="password" id="current-pwd" />
-                                                                </div>
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="single-input-item">
-                                                                            <label for="new-pwd" class="required">New Password</label>
-                                                                            <input type="password" id="new-pwd" />
+                                                                            <label for="first_name" class="required">First Name</label>
+                                                                            <input type="text" id="first_name" value="<?php echo $user_data["user_firstname"] ?>" />
                                                                         </div>
                                                                     </div>
+
                                                                     <div class="col-lg-6">
                                                                         <div class="single-input-item">
-                                                                            <label for="confirm-pwd" class="required">Confirm Password</label>
-                                                                            <input type="password" id="confirm-pwd" />
+                                                                            <label for="last_name" class="required">Last Name</label>
+                                                                            <input type="text" id="last_name" value="<?php echo $user_data["user_lastname"] ?>" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </fieldset>
-                                                            <div class="single-input-item">
-                                                                <button class="check-btn sqr-btn ">Save Changes</button>
-                                                            </div>
-                                                        </form>
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="single-input-item">
+                                                                            <label for="contact_number" class="required">Contact Number</label>
+                                                                            <input type="text" id="contact_number" value="<?php echo $user_data["user_contact"] ?>" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-6">
+                                                                        <div class="single-input-item">
+                                                                            <label for="email" class="required">Email Address</label>
+                                                                            <input type="text" id="email" value="<?php echo $user_data["user_email"] ?>" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="single-input-item">
+                                                                            <label for="Gender" class="required">Gender</label>
+                                                                            <input type="text" id="Gender" value="<?php echo $user_data["user_gender"] ?>" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-6">
+                                                                        <div class="single-input-item">
+                                                                            <label for="joined_date" class="required">joined Date</label>
+                                                                            <input type="date" id="joined_date" value="<?php echo $user_data["user_joined_date"] ?>" readonly />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="single-input-item">
+                                                                            <label for="joined_date" class="required" required>Birth Date</label>
+                                                                            <input type="date" id="joined_date" value="<?php echo $user_data["user_birthdate"] ?>" readonly />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="single-input-item">
+                                                                    <label for="display-name" class="required">Display Name</label>
+                                                                    <input type="text" id="display-name" value="<?php echo $user_data["user_firstname"] . " " . $user_data["user_lastname"] ?>" readonly />
+                                                                </div>
+
+                                                                <div class="single-input-item">
+                                                                    <label for="password" class="required">Current password</label>
+                                                                    <input type="text" id="password" value="<?php echo $user_data["user_password"] ?>" readonly />
+                                                                </div>
+
+                                                                <div class="single-input-item">
+                                                                    <button class="check-btn sqr-btn " onclick="changeuserdetails()">Save Changes</button>
+                                                                </div>
+
+                                                                <!-- password-chamge -->
+                                                                <fieldset>
+                                                                    <legend>Password change</legend>
+                                                                    <div class="single-input-item">
+                                                                        <label for="current-pwd" class="required">Current Password</label>
+                                                                        <input type="password" id="current-pwd" />
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <div class="single-input-item">
+                                                                                <label for="new-pwd" class="required">New Password</label>
+                                                                                <input type="password" id="new-pwd" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                            <div class="single-input-item">
+                                                                                <label for="confirm-pwd" class="required">Confirm Password</label>
+                                                                                <input type="password" id="confirm-pwd" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </fieldset>
+                                                                <div class="single-input-item" >
+                                                                    <button class="check-btn sqr-btn"  onclick="changepassword();">Change Password</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- account detail Tab Content End -->
+                                                <!-- account detail Tab Content End -->
+
+                                            <?php
+                                            }
+                                            ?>
 
                                         </div>
                                     </div>

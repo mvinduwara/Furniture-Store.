@@ -274,3 +274,16 @@ function userAddressUpdate(id){
 
     alert(Address_number + " " + Address_line01 + " " + Address_line02 + " " + postal_code + "" + id);
 }
+
+
+// change-user_details
+function changeuserdetails(){
+    alert("hello");
+}
+
+
+
+// change-user_password
+function changepassword(){
+    alert("hello");
+}
