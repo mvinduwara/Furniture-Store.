@@ -75,6 +75,8 @@ function user_register() {
 
 }
 
+
+
 // user-login-process
 function user_login() {
 
@@ -126,6 +128,8 @@ function user_login() {
 }
 
 
+
+// review -adding
 function review_adding(id){
     var review_text = document.getElementById("review_text").value;
     var review_name = document.getElementById("review_name").value;
@@ -166,8 +170,11 @@ function review_adding(id){
 }
 }
 
+
+
+// add-to cart
 function addToCart(id , quantity){
-    
+    // alert(id + " " + quantity);
   
     var request = new XMLHttpRequest();
 
@@ -189,8 +196,9 @@ function addToCart(id , quantity){
 
 }
 
+
+// remove from cart
 function removecartproduct(id){
-    // alert(id);
 
     var request = new XMLHttpRequest();
 
@@ -210,8 +218,10 @@ function removecartproduct(id){
     request.send();
 }
 
+
+
+// user-sign-out
 function signout(){
-    // alert("hitto");
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -230,25 +240,25 @@ function signout(){
 }
 
 
+// add to watchlist
 function addtowishlist(id ){
-    // alert("malahuttai");
+    // alert(id);
 
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
          if (request.readyState == 4 && request.status == 200) {
               var text = request.responseText;
-              alert(text);
-            //  if(text === "Update Cart" || text === "Product added to the Cart"){
-            //     window.location="./cart-page.php";
-            //  }else{
-            //     document.getElementById("responseAlert").innerHTML = text;
-            //     document.getElementById("responseAlert").className = "text-danger";
-            //  }
+             if(text === "sucess"){
+                window.location="./wishlist.php";
+             }else{
+                document.getElementById("responseAlert").innerHTML = text;
+                document.getElementById("responseAlert").className = "text-danger";
+             }
          }
     }
 
-    request.open("POST", "./process/addToWatchlistProcess.php?id=" + id ,true);
+    request.open("GET", "./process/addToWatchlistProcess.php?id=" + id ,true);
     request.send();
 
 

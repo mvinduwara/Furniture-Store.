@@ -62,44 +62,45 @@ if (isset($_SESSION["user"])) {
                     <h3 class="cart-page-title">Your watchlist items</h3>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <form action="#">
+                                <div class="table-content table-responsive cart-table-content">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Product Name</th>
+                                                <th>Until Price</th>
+                                                <th>Qty</th>
+                                                <th>Subtotal</th>
+                                                <th>Add To Cart</th>
+                                            </tr>
+                                        </thead>
 
-                            <?php
-                            $watchlist_resultset = Database::search("SELECT * FROM `product_watchlist` WHERE `user_id` = '" . $user_id . "'");
-                            $watchlist_num = $watchlist_resultset->num_rows;
+                                        <?php
+                                        $watchlist_resultset = Database::search("SELECT * FROM `product_watchlist` WHERE `user_id` = '" . $user_id . "'");
+                                        $watchlist_num = $watchlist_resultset->num_rows;
 
-                            for ($i = 0; $i < $watchlist_num; $i++) {
-                                $user_watchlist_data = $watchlist_resultset->fetch_assoc();
+                                        for ($i = 0; $i < $watchlist_num; $i++) {
+                                            $user_watchlist_data = $watchlist_resultset->fetch_assoc();
 
-                                $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_watchlist_data["product_id"] . "' ");
-                                $product_data = $product_resulset->fetch_assoc();
+                                            $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_watchlist_data["product_id"] . "' ");
+                                            $product_data = $product_resulset->fetch_assoc();
 
-                                $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_watchlist_data["product_id"] . "' ");
-                                $product_image_data = $product_image_resultset->fetch_assoc();
+                                            $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_watchlist_data["product_id"] . "' ");
+                                            $product_image_data = $product_image_resultset->fetch_assoc();
 
-                                if ($watchlist_num == 0) {
+                                            if ($watchlist_num == 0) {
 
-                            ?>
-                                    <div class="customer-zone mb-20 p-5">
-                                        <p class="cart-page-title">you have no item add to watchlist yet? <a class="checkout-click1" href="shop.php">Click here to shop</a></p>
-                                    </div>
+                                        ?>
+                                                <div class="customer-zone mb-20 p-5">
+                                                    <p class="cart-page-title">you have no item add to watchlist yet? <a class="checkout-click1" href="shop.php">Click here to shop</a></p>
+                                                </div>
 
 
-                                <?php
-                                } else {
-                                ?>
-                                    <form action="#">
-                                        <div class="table-content table-responsive cart-table-content">
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Product Name</th>
-                                                        <th>Until Price</th>
-                                                        <th>Qty</th>
-                                                        <th>Subtotal</th>
-                                                        <th>Add To Cart</th>
-                                                    </tr>
-                                                </thead>
+                                            <?php
+                                            } else {
+                                            ?>
+
                                                 <tbody>
 
                                                     <tr>
@@ -130,17 +131,18 @@ if (isset($_SESSION["user"])) {
                                                     </tr>
 
                                                 </tbody>
-                                            </table>
-                                        </div>
-                                    </form>
 
-                                <?php
-                                }
-                                ?>
+                                            <?php
+                                            }
+                                            ?>
 
-                            <?php
-                            }
-                            ?>
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </table>
+                                </div>
+                            </form>
 
                         </div>
                     </div>
