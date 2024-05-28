@@ -332,10 +332,13 @@ if (isset($_SESSION["user"])) {
                                                 <div class="tab-pane fade" id="account-info" role="tabpanel">
                                                     <div class="myaccount-content">
                                                         <h3>Account Details</h3>
+
+                                                        <div class="col-12">
+                                                            <p id="responseAlert2"></p>
+                                                        </div>
+
                                                         <div class="account-details-form">
-
                                                             <form action="#">
-
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="single-input-item">
@@ -372,7 +375,7 @@ if (isset($_SESSION["user"])) {
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="single-input-item">
-                                                                            <label for="Gender" class="required">Gender</label>
+                                                                            <label for="Gender" class="required">Gender(male/female)</label>
                                                                             <input type="text" id="Gender" value="<?php echo $user_data["user_gender"] ?>" />
                                                                         </div>
                                                                     </div>
@@ -406,7 +409,7 @@ if (isset($_SESSION["user"])) {
                                                                 </div>
 
                                                                 <div class="single-input-item">
-                                                                    <button class="check-btn sqr-btn " onclick="changeuserdetails()">Save Changes</button>
+                                                                    <button class="check-btn sqr-btn" type="button" onclick="changeuserdetails()">Save Changes</button>
                                                                 </div>
 
                                                                 <!-- password-chamge -->

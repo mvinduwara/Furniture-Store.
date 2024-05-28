@@ -265,7 +265,7 @@ function addtowishlist(id) {
 }
 
 // user-addtess-update
-function userAddressUpdate(id) {
+function userAddressUpdate() {
 
     var Address_number = document.getElementById("Address_number").value;
     var Address_line01 = document.getElementById("Address_line01").value;
@@ -316,11 +316,69 @@ function userAddressUpdate(id) {
 
 // change-user_details
 function changeuserdetails() {
-    // var   = document.getElementById("").value;
-    // var   = document.getElementById("").value;
-    // var   = document.getElementById("").value;
-    // var   = document.getElementById("").value;
-    // var   = document.getElementById("").value;
+    var user_first_name  = document.getElementById("first_name").value;
+    var user_last_name  = document.getElementById("last_name").value;
+    var user_contact_number  = document.getElementById("contact_number").value;
+    var user_email  = document.getElementById("email").value;
+    var user_Gender  = document.getElementById("Gender").value;
+
+    // alert(user_first_name + " " + user_last_name + " " + user_contact_number + " " + user_email + " " + user_Gender);
+
+    if (user_first_name.trim() === '') {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter first name";
+    }else if(user_last_name.trim() === '') {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter last name";
+    }else if(!/^\d{10}$/.test(user_contact_number)) {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter a valid 10-digit mobile number";
+    } else if (user_contact_number.length !== 10) {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Mobile number must be 10 digits long";
+    }else if(user_email.trim() === '') {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter your email address";
+    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(user_email)) {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter a valid email address";
+    } else if (user_email.length < 1) {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Email address must be at least 1 characters long";
+    } else if (user_email.length > 25) {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Email address must be less than 25 characters long";
+    }else if(user_Gender.trim() === '') {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter gender name";
+    } else if (user_Gender.trim() !== "Female" && user_Gender.trim() !== "Male") {
+        document.getElementById("responseAlert2").className = "text-danger";
+        document.getElementById("responseAlert2").innerHTML = "Please enter 'Female' or 'Male' for gender";
+    }else{
+
+    var form = new FormData();
+    form.append("user_first_name", user_first_name);
+    form.append("user_last_name", user_last_name);
+    form.append("user_contact_number", user_contact_number);
+    form.append("user_email", user_email);
+    form.append("user_Gender", user_Gender);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            if (text == "success") {
+                window.location.reload();
+            } else {
+                document.getElementById("responseAlert2").innerHTML = text;
+                document.getElementById("responseAlert2").className = "text-danger";
+            }
+        }
+    }
+    request.open("POST", "./process/user_detail_upadate&add_process.php", true);
+    request.send(form);
+}
+
 }
 
 
