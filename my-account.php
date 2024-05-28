@@ -205,6 +205,11 @@ if (isset($_SESSION["user"])) {
 
                                                         <div class="myaccount-content">
                                                             <h3>Edit your address Details</h3>
+
+                                                            <div class="col-12">
+                                                                <p id="responseAlert"></p>
+                                                            </div>
+
                                                             <div class="account-details-form">
                                                                 <form action="">
                                                                     <div class="row">
@@ -264,10 +269,14 @@ if (isset($_SESSION["user"])) {
 
                                                         <div class="myaccount-content">
                                                             <h3>Edit your address Details</h3>
+
+                                                            <div class="col-12">
+                                                                <p id="responseAlert"></p>
+                                                            </div>
+
                                                             <div class="account-details-form">
                                                                 <form action="">
                                                                     <div class="row">
-
                                                                         <div class="col-lg-6">
                                                                             <div class="single-input-item">
                                                                                 <label for="Address_number" class="required">Address number</label>
@@ -295,7 +304,7 @@ if (isset($_SESSION["user"])) {
                                                                     </div>
 
                                                                     <div class="single-input-item">
-                                                                        <button class="check-btn sqr-btn" onclick="userAddressUpdate();">Save Changes</button>
+                                                                        <button class="check-btn sqr-btn" type="button" onclick="userAddressUpdate(<?php echo $user_address_data['user_id']; ?>);">Save Changes</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -379,8 +388,8 @@ if (isset($_SESSION["user"])) {
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="single-input-item">
-                                                                            <label for="joined_date" class="required" required>Birth Date</label>
-                                                                            <input type="date" id="joined_date" value="<?php echo $user_data["user_birthdate"] ?>" readonly />
+                                                                            <label for="birth_date" class="required" required>Birth Date</label>
+                                                                            <input type="date" id="birth_date" value="<?php echo $user_data["user_birthdate"] ?>" readonly />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -422,8 +431,8 @@ if (isset($_SESSION["user"])) {
                                                                         </div>
                                                                     </div>
                                                                 </fieldset>
-                                                                <div class="single-input-item" >
-                                                                    <button class="check-btn sqr-btn"  onclick="changepassword();">Change Password</button>
+                                                                <div class="single-input-item">
+                                                                    <button class="check-btn sqr-btn" onclick="changepassword();">Change Password</button>
                                                                 </div>
                                                             </form>
                                                         </div>
