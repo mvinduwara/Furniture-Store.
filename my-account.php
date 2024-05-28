@@ -415,27 +415,32 @@ if (isset($_SESSION["user"])) {
                                                                 <!-- password-chamge -->
                                                                 <fieldset>
                                                                     <legend>Password change</legend>
+
+                                                                    <div class="col-12">
+                                                                        <p id="responseAlert3"></p>
+                                                                    </div>
+
                                                                     <div class="single-input-item">
-                                                                        <label for="current-pwd" class="required">Current Password</label>
-                                                                        <input type="password" id="current-pwd" />
+                                                                        <label for="current_pwd" class="required">Current Password</label>
+                                                                        <input type="password" id="current_pwd" />
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-lg-6">
                                                                             <div class="single-input-item">
-                                                                                <label for="new-pwd" class="required">New Password</label>
-                                                                                <input type="password" id="new-pwd" />
+                                                                                <label for="new_pwd" class="required">New Password</label>
+                                                                                <input type="password" id="new_pwd" />
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-6">
                                                                             <div class="single-input-item">
-                                                                                <label for="confirm-pwd" class="required">Confirm Password</label>
-                                                                                <input type="password" id="confirm-pwd" />
+                                                                                <label for="confirm_pwd" class="required">Confirm Password</label>
+                                                                                <input type="password" id="confirm_pwd" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </fieldset>
                                                                 <div class="single-input-item">
-                                                                    <button class="check-btn sqr-btn" onclick="changepassword();">Change Password</button>
+                                                                    <button class="check-btn sqr-btn" type="button" onclick="changepassword();">Change Password</button>
                                                                 </div>
                                                             </form>
                                                         </div>
