@@ -83,9 +83,8 @@ require "./content/connection.php";
                                             $product_data = $product_resulset->fetch_assoc();
 
                                         ?>
-
+                                            <!--Product card Start-->
                                             <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
-                                                <!--Product card Start-->
                                                 <div class="ht-product ht-product-action-on-hover ht-product-category-right-bottom mb-30">
                                                     <div class="ht-product-inner">
                                                         <div class="ht-product-image-wrap">
@@ -152,8 +151,8 @@ require "./content/connection.php";
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Product card End-->
                                             </div>
+                                            <!--Product card End-->
 
                                         <?php
                                         }
@@ -161,9 +160,9 @@ require "./content/connection.php";
 
                                     </div>
                                 </div>
-
-
                             </div>
+
+                            <!-- pagination-section-start -->
                             <div class="pro-pagination-style text-center mt-30">
                                 <ul>
                                     <li><a class="prev" href="#"><i class="sli sli-arrow-left"></i></a></li>
@@ -172,8 +171,12 @@ require "./content/connection.php";
                                     <li><a class="next" href="#"><i class="sli sli-arrow-right"></i></a></li>
                                 </ul>
                             </div>
+                            <!-- pagination-section-end -->
+
                         </div>
                     </div>
+
+                    <!-- prodct-search-area-start -->
                     <div class="col-lg-3">
                         <div class="sidebar-style mr-30">
                             <div class="sidebar-widget">
@@ -297,6 +300,8 @@ require "./content/connection.php";
                             </div>
                         </div>
                     </div>
+                    <!-- prodct-search-area-end -->
+
                 </div>
             </div>
         </div>
