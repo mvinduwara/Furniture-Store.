@@ -137,6 +137,16 @@ require "./content/connection.php";
                                                                 </div>
                                                             </div>
                                                             <div class="ht-product-categories mt-2">Delivery fee Rs.<?php echo $product_data["product_delivery_fee"];  ?>.00</div>
+                                                            <?php if ($product_data["status_id"] == 1) {
+                                                            ?>
+                                                                <span class="text-success">Available</span>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <span class="text-danger">Not Available</span>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                             <div class="ht-product-action">
                                                                 <ul>
                                                                     <li><a href="#"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
