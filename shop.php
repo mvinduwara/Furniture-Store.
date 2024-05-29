@@ -1,6 +1,6 @@
 <?php
 require "./content/connection.php";
-
+$pageno;
 ?>
 
 <!doctype html>
@@ -74,13 +74,31 @@ require "./content/connection.php";
                         <div class="shop-bottom-area mt-35">
                             <div class="tab-content jump">
                                 <div id="shop-1" class="tab-pane active">
-                                    <div class="row ht-products">
+
+                                    <div class="row ht-products" id="product_id">
                                         <?php
+                                        if (isset($_GET["page"])) {
+                                            $pageno = $_GET["page"];
+                                        } else {
+                                            $pageno = 1;
+                                        }
+
                                         $product_resulset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`");
                                         $product_count = $product_resulset->num_rows;
 
-                                        for ($x = 0; $x < $product_count; $x++) {
-                                            $product_data = $product_resulset->fetch_assoc();
+
+                                        $results_per_page = 9;
+                                        $number_of_pages = ceil($product_count / $results_per_page);
+
+                                        $page_results = ($pageno - 1) * $results_per_page;
+                                        $product_list_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
+                                        ORDER BY `product_price` ASC LIMIT  $results_per_page  OFFSET  $page_results ");
+
+
+                                        $product_list_count = $product_list_resultset->num_rows;
+
+                                        for ($x = 0; $x < $product_list_count; $x++) {
+                                            $product_list_data = $product_resulset->fetch_assoc();
 
                                         ?>
                                             <!--Product card Start-->
@@ -89,14 +107,14 @@ require "./content/connection.php";
                                                     <div class="ht-product-inner">
                                                         <div class="ht-product-image-wrap">
                                                             <?php
-                                                            if (empty($product_data["product_image_path01"])) {
+                                                            if (empty($product_list_data["product_image_path01"])) {
                                                             ?>
                                                                 <a href="#" class="ht-product-image"> <img src="resources/img/No-Image.jpg" alt="Universal Product Style" style="height: 150px;"> </a>
 
                                                             <?php
                                                             } else {
                                                             ?>
-                                                                <a href="product-details.php?id=<?php echo $product_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                                <a href="product-details.php?id=<?php echo $product_list_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_list_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                                             <?php
                                                             }
@@ -113,11 +131,11 @@ require "./content/connection.php";
                                                         </div>
                                                         <div class="ht-product-content">
                                                             <div class="ht-product-content-inner">
-                                                                <div class="ht-product-categories"><a href="#"><?php echo $product_data["product_quantity"]  ?></a></div>
-                                                                <h4 class="ht-product-title"><a href="product-details.html"><?php echo $product_data["product_name"] ?></a></h4>
+                                                                <div class="ht-product-categories"><a href="#"><?php echo $product_list_data["product_quantity"]  ?></a></div>
+                                                                <h4 class="ht-product-title"><a href="product-details.html"><?php echo $product_list_data["product_name"] ?></a></h4>
 
                                                                 <div class="ht-product-price">
-                                                                    <span class="new">Rs <?php echo $product_data["product_price"] ?>.00</span>
+                                                                    <span class="new">Rs <?php echo $product_list_data["product_price"] ?>.00</span>
                                                                 </div>
                                                                 <div class="ht-product-ratting-wrap">
                                                                     <span class="ht-product-ratting">
@@ -136,8 +154,8 @@ require "./content/connection.php";
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <div class="ht-product-categories mt-2">Delivery fee Rs.<?php echo $product_data["product_delivery_fee"];  ?>.00</div>
-                                                            <?php if ($product_data["status_id"] == 1) {
+                                                            <div class="ht-product-categories mt-2">Delivery fee Rs.<?php echo $product_list_data["product_delivery_fee"];  ?>.00</div>
+                                                            <?php if ($product_list_data["status_id"] == 1) {
                                                             ?>
                                                                 <span class="text-success">Available</span>
                                                             <?php
@@ -169,16 +187,49 @@ require "./content/connection.php";
                                         ?>
 
                                     </div>
+
                                 </div>
                             </div>
 
                             <!-- pagination-section-start -->
                             <div class="pro-pagination-style text-center mt-30">
                                 <ul>
-                                    <li><a class="prev" href="#"><i class="sli sli-arrow-left"></i></a></li>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a class="next" href="#"><i class="sli sli-arrow-right"></i></a></li>
+                                    <li><a class="prev" href="
+                                                <?php if ($pageno <= 1) {
+                                                    echo ("#");
+                                                } else {
+                                                    echo "?page=" . ($pageno - 1);
+                                                } ?>"><i class="sli sli-arrow-left"></i></a></li>
+
+                                    <?php
+
+                                    for ($y = 1; $y <= $number_of_pages; $y++) {
+                                        if ($y == $pageno) {
+                                    ?>
+
+                                            <li><a class="active" href="<?php echo "?page=" . ($y); ?>"><?php echo $y; ?></a></li>
+
+                                        <?php
+                                        } else {
+                                        ?>
+
+
+                                            <li><a href="<?php echo "?page=" . ($y); ?>"><?php echo $y; ?></a></li>
+
+                                    <?php
+                                        }
+                                    }
+
+                                    ?>
+
+                                    
+
+                                    <li><a class="next" href="
+                                                <?php if ($pageno >= $number_of_pages) {
+                                                    echo ("#");
+                                                } else {
+                                                    echo "?page=" . ($pageno + 1);
+                                                } ?>"><i class="sli sli-arrow-right"></i></a></li>
                                 </ul>
                             </div>
                             <!-- pagination-section-end -->
