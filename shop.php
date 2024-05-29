@@ -87,7 +87,7 @@ $pageno;
                                         $product_count = $product_resulset->num_rows;
 
 
-                                        $results_per_page = 9;
+                                        $results_per_page = 8;
                                         $number_of_pages = ceil($product_count / $results_per_page);
 
                                         $page_results = ($pageno - 1) * $results_per_page;
