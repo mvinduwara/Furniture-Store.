@@ -265,14 +265,14 @@ function addtowishlist(id) {
 }
 
 // user-addtess-update
-function userAddressUpdate() {
+function userAddressUpdate(id) {
 
     var Address_number = document.getElementById("Address_number").value;
     var Address_line01 = document.getElementById("Address_line01").value;
     var Address_line02 = document.getElementById("Address_line02").value;
     var postal_code = document.getElementById("postal_code").value;
 
-    // alert(Address_number + " " + Address_line01 + " " + Address_line02 + " " + postal_code + "" + id);
+    alert(Address_number + " " + Address_line01 + " " + Address_line02 + " " + postal_code + "" + id);
 
     if (Address_number.trim() === '') {
         document.getElementById("responseAlert").className = "text-danger";
@@ -409,26 +409,26 @@ function changepassword() {
         document.getElementById("responseAlert3").innerHTML = "Password must be at least 8 characters long";
     } else {
 
-    var form = new FormData();
-    form.append("user_current_password", user_current_password);
-    form.append("user_new_password", user_new_password);
-    form.append("user_confirm_new_password", user_confirm_new_password);
+        var form = new FormData();
+        form.append("user_current_password", user_current_password);
+        form.append("user_new_password", user_new_password);
+        form.append("user_confirm_new_password", user_confirm_new_password);
 
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            var text = request.responseText;
-            if (text == "success") {
-               document.getElementById("responseAlert3").innerHTML = "Password changed successfully please reload the page";
-               document.getElementById("responseAlert3").className = "text-dark";
-            } else {
-                document.getElementById("responseAlert3").innerHTML = text;
-                document.getElementById("responseAlert3").className = "text-danger";
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                if (text == "success") {
+                    document.getElementById("responseAlert3").innerHTML = "Password changed successfully please reload the page";
+                    document.getElementById("responseAlert3").className = "text-dark";
+                } else {
+                    document.getElementById("responseAlert3").innerHTML = text;
+                    document.getElementById("responseAlert3").className = "text-danger";
+                }
             }
         }
+        request.open("POST", "./process/user_password_upadate_process.php", true);
+        request.send(form);
     }
-    request.open("POST", "./process/user_password_upadate_process.php", true);
-    request.send(form);
-}
 
 }
