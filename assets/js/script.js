@@ -265,14 +265,14 @@ function addtowishlist(id) {
 }
 
 // user-addtess-update
-function userAddressUpdate() {
+function userAddressUpdate(id) {
 
     var Address_number = document.getElementById("Address_number").value;
     var Address_line01 = document.getElementById("Address_line01").value;
     var Address_line02 = document.getElementById("Address_line02").value;
     var postal_code = document.getElementById("postal_code").value;
 
-    // alert(Address_number + " " + Address_line01 + " " + Address_line02 + " " + postal_code + "" + id);
+    alert(Address_number + " " + Address_line01 + " " + Address_line02 + " " + postal_code + "" + id);
 
     if (Address_number.trim() === '') {
         document.getElementById("responseAlert").className = "text-danger";

@@ -4,6 +4,8 @@ session_start();
 
 if (isset($_SESSION["user"])) {
     $user_id = $_SESSION["user"]["user_id"];
+    $user_firstname = $_SESSION["user"]["user_firstname"];
+    $user_lastname = $_SESSION["user"]["user_lastname"];
 
     $user_resultset = Database::search("SELECT * FROM `user` WHERE `user_id` = '" . $user_id . "'");
     $user_count = $user_resultset->num_rows;
@@ -90,13 +92,14 @@ if (isset($_SESSION["user"])) {
                                                 <div class="myaccount-content">
                                                     <h3>Dashboard</h3>
                                                     <div class="welcome">
-                                                        <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
+                                                        <p>Hello, <strong><?php echo $user_firstname. ' '.$user_lastname ?></strong></p>
                                                     </div>
 
                                                     <p class="mb-0">From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
                                                 </div>
                                             </div>
                                             <!-- Single Tab Content End -->
+
                                             <!-- Single Tab Content Start -->
                                             <div class="tab-pane fade" id="orders" role="tabpanel">
                                                 <div class="myaccount-content">
@@ -144,7 +147,7 @@ if (isset($_SESSION["user"])) {
                                             <!-- Single Tab Content Start -->
                                             <div class="tab-pane fade" id="download" role="tabpanel">
                                                 <div class="myaccount-content">
-                                                    <h3>Downloads</h3>
+                                                    <h3>Watchlist</h3>
                                                     <div class="myaccount-table table-responsive text-center">
                                                         <table class="table table-bordered">
                                                             <thead class="thead-light">
@@ -160,12 +163,6 @@ if (isset($_SESSION["user"])) {
                                                                     <td>Haven - Free Real Estate PSD Template</td>
                                                                     <td>Aug 22, 2018</td>
                                                                     <td>Yes</td>
-                                                                    <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>HasTech - Profolio Business Template</td>
-                                                                    <td>Sep 12, 2018</td>
-                                                                    <td>Never</td>
                                                                     <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
                                                                 </tr>
                                                             </tbody>
