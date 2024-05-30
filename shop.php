@@ -75,7 +75,7 @@ $pageno;
                             <div class="tab-content jump">
                                 <div id="shop-1" class="tab-pane active">
 
-                                    <div class="row ht-products" id="product_id">
+                                    <div class="row ht-products">
                                         <?php
                                         if (isset($_GET["page"])) {
                                             $pageno = $_GET["page"];
@@ -83,7 +83,7 @@ $pageno;
                                             $pageno = 1;
                                         }
 
-                                        $product_resulset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`");
+                                        $product_resulset = Database::search("SELECT * FROM `product`");
                                         $product_count = $product_resulset->num_rows;
 
 
@@ -91,13 +91,13 @@ $pageno;
                                         $number_of_pages = ceil($product_count / $results_per_page);
 
                                         $page_results = ($pageno - 1) * $results_per_page;
-                                        $product_list_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                                        ORDER BY `product_price` ASC LIMIT  $results_per_page  OFFSET  $page_results ");
-
+                                        $product_list_resultset = Database::search("SELECT * FROM `product` 
+                                        LIMIT  " . $results_per_page . " OFFSET " . $page_results . " ");
 
                                         $product_list_count = $product_list_resultset->num_rows;
 
                                         for ($x = 0; $x < $product_list_count; $x++) {
+
                                             $product_list_data = $product_resulset->fetch_assoc();
 
                                         ?>
@@ -106,15 +106,20 @@ $pageno;
                                                 <div class="ht-product ht-product-action-on-hover ht-product-category-right-bottom mb-30">
                                                     <div class="ht-product-inner">
                                                         <div class="ht-product-image-wrap">
-                                                            <?php
-                                                            if (empty($product_list_data["product_image_path01"])) {
+                                                            <?php 
+                                                            $product_data_id = $product_list_data['product_id'];
+                                                            $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id`='".$product_data_id."' ");
+                                                            $product_image_data = $product_image_resultset->fetch_assoc();
+            
+                                                           
+                                                            if (empty($product_image_data["product_image_path01"])) {
                                                             ?>
                                                                 <a href="#" class="ht-product-image"> <img src="resources/img/No-Image.jpg" alt="Universal Product Style" style="height: 150px;"> </a>
 
                                                             <?php
                                                             } else {
                                                             ?>
-                                                                <a href="product-details.php?id=<?php echo $product_list_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_list_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                                <a href="product-details.php?id=<?php echo $product_image_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                                             <?php
                                                             }
@@ -222,7 +227,7 @@ $pageno;
 
                                     ?>
 
-                                    
+
 
                                     <li><a class="next" href="
                                                 <?php if ($pageno >= $number_of_pages) {
