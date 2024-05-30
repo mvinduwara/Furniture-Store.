@@ -235,6 +235,7 @@ session_start();
 
                             for ($i = 0; $i < $product_type2_count; $i++) {
                                 $product_type2_data = $product_type2_resultset->fetch_assoc();
+                                $product_model = $product_type2_data["product_model_has_brand_id"];
                             ?>
                                 <!--Product Start-->
                                 <div class="ht-product ht-product-action-on-hover ht-product-category-right-bottom mb-30">
@@ -370,6 +371,7 @@ session_start();
 
                             for ($i = 0; $i < $product_type2_count; $i++) {
                                 $product_type3_data = $product_type3_resultset->fetch_assoc();
+                                $product_model = $product_type3_data["product_model_has_brand_id"];
                             ?>
 
                                 <!--Product Start-->

@@ -338,6 +338,7 @@ if (isset($_GET["id"])) {
 
                         for ($x = 0; $x < $product_type_count; $x++) {
                             $product_type_data = $product_type_resultset->fetch_assoc();
+                            $product_model = $product_type_data["product_model_has_brand_id"];
 
                         ?>
                             <!--Product Start-->
