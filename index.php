@@ -257,7 +257,7 @@ session_start();
                                                 <ul>
                                                     <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                     <li><a href="wishlist.php"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                    <li><a href="compare-page.php?id=<?php echo $product_type2_data["product_id"]; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
+                                                    <li><a href="compare-page.php?id=<?php echo $product_type2_data["product_id"]; ?>&model=<?php echo $product_type2_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                     <li><a href="cart-page.php"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                                 </ul>
                                             </div>
@@ -365,7 +365,7 @@ session_start();
                         <div class="ht-products product-slider-active owl-carousel">
                             <?php
                             $product_type3_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                            WHERE `product_category_id` = '2'");
+                            WHERE `product_category_id` = '3'");
                             $product_type3_count = $product_type3_resultset->num_rows;
 
                             for ($i = 0; $i < $product_type2_count; $i++) {
@@ -393,7 +393,7 @@ session_start();
                                                 <ul>
                                                     <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                     <li><a href="wishlist.php"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                    <li><a href="compare-page.php?id=<?php echo $product_type3_data["product_id"]; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
+                                                    <li><a href="compare-page.php?id=<?php echo $product_type3_data["product_id"]; ?>&model=<?php echo $product_type3_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                     <li><a href="cart-page.php"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                                 </ul>
                                             </div>
@@ -518,7 +518,7 @@ session_start();
                                             <ul>
                                                 <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                 <li><a href="#"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                <li><a href="compare-page.php?id=<?php echo $product_resultset_data["product_id"]; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
+                                                <li><a href="compare-page.php?id=<?php echo $product_resultset_data["product_id"]; ?>&model=<?php echo $product_resultset_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                 <li><a href="#"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                             </ul>
                                         </div>
