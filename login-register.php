@@ -83,13 +83,13 @@
 
                                                 ?>
 
-                                                <input type="email" id="users_name" placeholder="Useremail" value="<?php echo($email); ?>" >
-                                                <input type="password" id="users_password" placeholder="Password" value="<?php echo($password); ?>" >
+                                                <input type="email" id="users_name" placeholder="Useremail" value="<?php echo ($email); ?>">
+                                                <input type="password" id="users_password" placeholder="Password" value="<?php echo ($password); ?>">
                                                 <div class="button-box">
                                                     <div class="login-toggle-btn">
                                                         <input type="checkbox" id="remember_me" value="">
                                                         <label id="remember_me">Remember me</label>
-                                                        <a href="#">Forgot Password?</a>
+                                                        <a onclick="forgot_password();">Forgot Password?</a>
                                                     </div>
                                                     <button type="button" onclick="user_login();">Login</button>
                                                 </div>
@@ -134,6 +134,47 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                    </div>
+                    <fieldset class="p-5">
+                        <legend>Password change</legend>
+
+                        <div class="col-12">
+                            <p id="responseAlert1"></p>
+                        </div>
+
+                        <div class="single-input-item">
+                            <label for="verification_code" class="required">Enter recieved verification_code</label>
+                            <input type="text" id="verification_code" />
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-6">
+                                <div class="single-input-item">
+                                    <label for="new_password" class="required">Enter New Password</label>
+                                    <input type="password" id="new_password" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="single-input-item">
+                                    <label for="confirm_password" class="required">Enter Confirm Password</label>
+                                    <input type="password" id="confirm_password" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="single-input-item p-5">
+                        <button class="check-btn sqr-btn" type="button" onclick="change_password();">Change Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal end -->
 
         <!-- footer-start -->
         <?php require "./content/footer.php"; ?>
