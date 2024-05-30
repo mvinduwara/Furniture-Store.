@@ -99,6 +99,7 @@ $pageno;
                                         for ($x = 0; $x < $product_list_count; $x++) {
 
                                             $product_list_data = $product_resulset->fetch_assoc();
+                                            $product_model = $product_list_data["product_model_has_brand_id"];
 
                                         ?>
                                             <!--Product card Start-->
@@ -129,7 +130,7 @@ $pageno;
                                                                 <ul>
                                                                     <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                                     <li><a href="wishlist.html"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                                    <li><a href="compare-page.html"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
+                                                                    <li><a  href="compare-page.php?id=<?php echo $product_list_data["product_id"]; ?>&model=<?php echo $product_list_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                                     <li><a href="cart-page.html"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                                                 </ul>
                                                             </div>
