@@ -432,3 +432,92 @@ function changepassword() {
     }
 
 }
+
+// forgot-password
+var bm;
+function forgot_password() {
+
+    var Useremail = document.getElementById("users_name").value;
+
+    // alert(Useremail);
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            if (text == "success") {
+
+                var m = document.getElementById("exampleModal");
+                bm = new bootstrap.Modal(m);
+                bm.show();
+
+           } else {
+            document.getElementById("responseAlert").innerHTML = text;
+            document.getElementById("responseAlert").className = "text-danger";
+           }
+        }
+    }
+    request.open("GET", "./process/forgot_password_process.php?email=" + Useremail, true);
+    request.send();
+
+}
+
+
+// change_password
+function change_password() {
+
+    var Useremail = document.getElementById("users_name").value;
+    var verificatino_code = document.getElementById("verification_code").value;
+    var new_password = document.getElementById("new_password").value;
+    var current_password = document.getElementById("confirm_password").value;
+
+    // alert(Useremail + " " + verificatino_code + " " + new_password + " " + current_password);
+
+    
+    if (verificatino_code.trim() === '') {
+        document.getElementById("responseAlert1").className = "text-danger";
+        document.getElementById("responseAlert1").innerHTML = "Please enter your verification code";
+    } else if (new_password.trim() === '') {
+        document.getElementById("responseAlert1").className = "text-danger";
+        document.getElementById("responseAlert1").innerHTML = "Please enter a new password";
+    } else if (current_password.trim() === '') {
+        document.getElementById("responseAlert1").className = "text-danger";
+        document.getElementById("responseAlert1").innerHTML = "Please confirm your new password";
+    } else if (new_password !== current_password) {
+        document.getElementById("responseAlert1").className = "text-danger";
+        document.getElementById("responseAlert1").innerHTML = "New passwords do not match";
+    } else if (new_password.length < 5) {
+        document.getElementById("responseAlert1").className = "text-danger";
+        document.getElementById("responseAlert1").innerHTML = "Password must be at least 8 characters long";
+    } else {
+
+    var form = new FormData()   
+    form.append("email", Useremail);
+    form.append("verification_code", verificatino_code);
+    form.append("new_password", new_password);
+    form.append("current_password", current_password);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+         if (request.readyState == 4 && request.status == 200) {
+              var text = request.responseText;
+              if (text == "success") {
+
+                   document.getElementById("responseAlert1").innerHTML = "Your password has been updated";
+                   document.getElementById("responseAlert1").className = "text-dark";
+                   bm.hide();
+                   window.location.reload();
+
+              } else {
+
+                document.getElementById("responseAlert1").innerHTML = text;
+                document.getElementById("responseAlert1").className = "text-danger";
+                
+              }
+         }
+    };
+    request.open("POST", "./process/resetPasswordProcess.php", true);
+    request.send(form);
+
+    }
+
+}
