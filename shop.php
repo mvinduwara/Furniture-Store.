@@ -63,7 +63,6 @@ $pageno;
                                         <option value="">Sort by newness</option>
                                         <option value="">A to Z</option>
                                         <option value=""> Z to A</option>
-                                        <option value="">In stock</option>
                                     </select>
                                 </div>
                                 <p>Showing 1–12 of 20 result</p>
@@ -258,30 +257,25 @@ $pageno;
                                 </div>
                             </div>
                             <div class="sidebar-widget">
-                                <h4 class="pro-sidebar-title">Refine By </h4>
+                                <h4 class="pro-sidebar-title">Availability </h4>
                                 <div class="sidebar-widget-list mt-30">
                                     <ul>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox"> <a href="#">On Sale <span>4</span> </a>
+                                                <input type="checkbox"> <a href="#">Out of stock </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">New <span>5</span></a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">In Stock <span>6</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">In Stock </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="sidebar-widget mt-45">
                                 <h4 class="pro-sidebar-title">Filter By Price </h4>
                                 <div class="price-filter mt-10">
@@ -297,56 +291,19 @@ $pageno;
                                     <ul>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Green <span>7</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Date Old to New  </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Cream <span>8</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Date New to Old  </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Blue <span>9</span> </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Black <span>3</span> </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="sidebar-widget mt-40">
-                                <h4 class="pro-sidebar-title">Size </h4>
-                                <div class="sidebar-widget-list mt-20">
-                                    <ul>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">XL <span>4</span> </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">L <span>5</span> </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">SM <span>6</span> </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">XXL <span>7</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Best Selling  </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
