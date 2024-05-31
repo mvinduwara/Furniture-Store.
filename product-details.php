@@ -333,7 +333,7 @@ if (isset($_GET["id"])) {
                     <div class="ht-products product-slider-active owl-carousel">
                         <?php
                         $product_type_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                        WHERE `product`.`product_category_id` = '" . $product_related_cat . "' ORDER BY `product_datetime_added` DESC");
+                        WHERE `product`.`product_category_id` = '" . $product_related_cat . "' AND `status_id`='1' ORDER BY `product_datetime_added` DESC");
                         $product_type_count = $product_type_resultset->num_rows;
 
                         for ($x = 0; $x < $product_type_count; $x++) {
