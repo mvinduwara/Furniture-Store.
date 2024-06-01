@@ -92,17 +92,17 @@ require "./content/connection.php";
                                         $number_of_pages = ceil($product_count / $results_per_page);
 
                                         while ($product_list_data = $product_resulset->fetch_assoc()) {
-                                            ?>
+                                        ?>
                                             <!--Product card Start-->
                                             <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
                                                 <div class="ht-product ht-product-action-on-hover ht-product-category-right-bottom mb-30">
                                                     <div class="ht-product-inner">
                                                         <div class="ht-product-image-wrap">
-                                                            <?php 
+                                                            <?php
                                                             $product_data_id = $product_list_data['product_id'];
-                                                            $product_image_resultset = Database::search("SELECT * FROM product_images WHERE product_id='".$product_data_id."' ");
+                                                            $product_image_resultset = Database::search("SELECT * FROM product_images WHERE product_id='" . $product_data_id . "' ");
                                                             $product_image_data = $product_image_resultset->fetch_assoc();
-            
+
                                                             if (empty($product_image_data["product_image_path01"])) {
                                                             ?>
                                                                 <a href="#" class="ht-product-image"> <img src="resources/img/No-Image.jpg" alt="Universal Product Style" style="height: 150px;"> </a>
@@ -118,7 +118,7 @@ require "./content/connection.php";
                                                                 <ul>
                                                                     <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                                     <li><a href="wishlist.html"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                                    <li><a  href="compare-page.php?id=<?php echo $product_list_data["product_id"]; ?>&model=<?php echo $product_list_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
+                                                                    <li><a href="compare-page.php?id=<?php echo $product_list_data["product_id"]; ?>&model=<?php echo $product_list_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                                     <li><a href="cart-page.html"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                                                 </ul>
                                                             </div>
@@ -188,13 +188,13 @@ require "./content/connection.php";
                                     <?php
                                     for ($page = 1; $page <= $number_of_pages; $page++) {
                                         if ($pageno == $page) {
-                                            ?>
+                                    ?>
                                             <li><a class="active" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a></li>
                                         <?php
                                         } else {
                                         ?>
                                             <li><a href="?page=<?php echo $page; ?>"><?php echo $page; ?></a></li>
-                                        <?php
+                                    <?php
                                         }
                                     }
                                     ?>
@@ -210,8 +210,8 @@ require "./content/connection.php";
                         </div>
                     </div>
 
-                     <!-- prodct-search-area-start -->
-                     <div class="col-lg-3">
+                    <!-- prodct-search-area-start -->
+                    <div class="col-lg-3">
                         <div class="sidebar-style mr-30">
                             <div class="sidebar-widget">
                                 <h4 class="pro-sidebar-title">Search </h4>
@@ -250,7 +250,7 @@ require "./content/connection.php";
                                     <div class="price-slider-amount">
                                         <input type="text" id="amount" name="price" placeholder="Add Your Price" />
                                     </div>
-                                  
+
                                 </div>
                             </div>
 
@@ -258,28 +258,30 @@ require "./content/connection.php";
                                 <h4 class="pro-sidebar-title">Colour </h4>
                                 <div class="sidebar-widget-list mt-20">
                                     <ul>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Date Old to New  </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Date New to Old  </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Best Selling  </a>
-                                                <span class="checkmark"></span>
-                                            </div>
-                                        </li>
+                                        <?php
+                                        $category_resultset = Database::search("SELECT * FROM `product_category`");
+                                        $category_count = $category_resultset->num_rows;
+
+                                        for ($x = 0; $x < $category_count; $x++) {
+                                            $category_data = $category_resultset->fetch_assoc();
+
+                                        ?>
+
+                                            <li>
+                                                <div class="sidebar-widget-list-left">
+                                                    <input type="checkbox" value="<?php echo $category_data["product_category_id"]; ?>"> <a href="#"><?php echo $category_data["product_category_name"];  ?></a>
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                            </li>
+
+                                        <?php
+                                        }
+
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="sidebar-widget mt-50">
+                            <!-- <div class="sidebar-widget mt-50">
                                 <h4 class="pro-sidebar-title">Tag </h4>
                                 <div class="sidebar-widget-tag mt-25">
                                     <ul>
@@ -290,7 +292,7 @@ require "./content/connection.php";
                                         <li><a href="#">Fashion</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- prodct-search-area-end -->
@@ -419,6 +421,6 @@ require "./content/connection.php";
 
         <!-- all js here -->
         <?php require "./content/allscript.php" ?>
-    </body>
+</body>
 
-    </html>
+</html>
