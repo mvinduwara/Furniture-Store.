@@ -145,7 +145,7 @@ session_start();
                         <div class="ht-products product-slider-active owl-carousel">
                             <?php
                             $product_type1_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                            WHERE `product_category_id` = '1'");
+                            WHERE `product_category_id` = '1' AND `status_id`='1'");
                             $product_type1_count = $product_type1_resultset->num_rows;
 
                             for ($i = 0; $i < $product_type1_count; $i++) {
@@ -230,7 +230,7 @@ session_start();
                         <div class="ht-products product-slider-active owl-carousel">
                             <?php
                             $product_type2_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                            WHERE `product_category_id` = '2'");
+                            WHERE `product_category_id` = '2' AND `status_id`='1'");
                             $product_type2_count = $product_type2_resultset->num_rows;
 
                             for ($i = 0; $i < $product_type2_count; $i++) {
@@ -366,7 +366,7 @@ session_start();
                         <div class="ht-products product-slider-active owl-carousel">
                             <?php
                             $product_type3_resultset = Database::search("SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_id`
-                            WHERE `product_category_id` = '3'");
+                            WHERE `product_category_id` = '3' AND `status_id`='1'");
                             $product_type3_count = $product_type3_resultset->num_rows;
 
                             for ($i = 0; $i < $product_type2_count; $i++) {
