@@ -260,6 +260,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-5">
                             <div class="your-order-area">
                                 <h3>Your order</h3>
@@ -272,7 +273,6 @@
                                         </div>
                                         <div class="your-order-middle">
                                             <ul>
-                                                <li>Product Name X 1 <span>$329 </span></li>
                                                 <li>Product Name X 1 <span>$329 </span></li>
                                             </ul>
                                         </div>
@@ -293,14 +293,16 @@
                                             </ul>
                                         </div>
                                     </div>
+
+
                                     <div class="payment-method">
-                                        <div class="pay-top sin-payment">
+                                        <!-- <div class="pay-top sin-payment">
                                             <input id="payment_method_1" class="input-radio" type="radio" value="cheque" checked="checked" name="payment_method">
                                             <label for="payment_method_1"> Direct Bank Transfer </label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="pay-top sin-payment">
                                             <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
                                             <label for="payment-method-2">Check payments</label>
@@ -308,20 +310,20 @@
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                                             </div>
                                         </div>
-                                        <div class="pay-top sin-payment">
+                                        <!-- <div class="pay-top sin-payment">
                                             <input id="payment-method-3" class="input-radio" type="radio" value="cheque" name="payment_method">
                                             <label for="payment-method-3">Cash on delivery </label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                                             </div>
-                                        </div>
-                                        <div class="pay-top sin-payment sin-payment-3">
+                                        </div> -->
+                                        <!-- <div class="pay-top sin-payment sin-payment-3">
                                             <input id="payment-method-4" class="input-radio" type="radio" value="cheque" name="payment_method">
                                             <label for="payment-method-4">PayPal <img alt="" src="assets/img/icon-img/payment.png"><a href="#">What is PayPal?</a></label>
                                             <div class="payment-box payment_method_bacs">
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="Place-order mt-40">
