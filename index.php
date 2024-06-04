@@ -49,7 +49,7 @@ session_start();
                                     <h1 class="animated">Wooden Craft</h1>
                                     <p class="animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader.</p>
                                     <div class="slider-btn btn-hover">
-                                        <a class="animated" href="shop.html">Shop Now <i class="sli sli-basket-loaded"></i></a>
+                                        <a class="animated" href="shop.php">Shop Now <i class="sli sli-basket-loaded"></i></a>
                                     </div>
                                 </div>
                             </div>
