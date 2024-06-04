@@ -3,7 +3,7 @@ require "./content/connection.php";
 ?>
 
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html lang="zxx">
 
 <head>
     <meta charset="utf-8">
@@ -29,7 +29,7 @@ require "./content/connection.php";
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
+<body onload="advanced_search()">
     <div class="wrapper">
 
         <!-- header-sestion -->
@@ -51,25 +51,19 @@ require "./content/connection.php";
         </div>
         <!--navigation-section-end-->
 
-        <div class="shop-area pt-95 pb-100">
+        <div class="shop-area pt-95 pb-100" >
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-lg-9">
                         <div class="shop-top-bar">
                             <div class="select-shoing-wrap">
-                                <div class="shop-select">
-                                    <select>
-                                        <option value="">Sort by newness</option>
-                                        <option value="">A to Z</option>
-                                        <option value=""> Z to A</option>
-                                    </select>
-                                </div>
+
                                 <p>Showing 1–12 of 20 result</p>
                             </div>
 
                         </div>
 
-                        <div class="shop-bottom-area mt-35">
+                        <div class="shop-bottom-area mt-35" id="product_selected">
                             <div class="tab-content jump">
                                 <div id="shop-1" class="tab-pane active">
 
@@ -211,8 +205,8 @@ require "./content/connection.php";
                     </div>
 
                     <!-- prodct-search-area-start -->
-                    <div class="col-lg-3">
-                        <div class="sidebar-style mr-30">
+                    <div class="col-lg-3" >
+                        <div class="sidebar-style mr-30" id="product_search_parent">
                             <div class="sidebar-widget">
                                 <h4 class="pro-sidebar-title">Search </h4>
                                 <div class="pro-sidebar-search mb-50 mt-25">
@@ -230,13 +224,19 @@ require "./content/connection.php";
                                     <ul>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox"> <a href="#">Out of stock </a>
+                                                <input type="checkbox" value="2" id="ofs" name="availabilty"> <a href="">Out of stock </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">In Stock </a>
+                                                <input type="checkbox" value="1" id="is" name="availabilty"> <a href="#">In Stock </a>
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="sidebar-widget-list-left">
+                                                <input type="checkbox" id="clear01"> <a href="">Clear All </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
@@ -246,16 +246,33 @@ require "./content/connection.php";
 
                             <div class="sidebar-widget mt-45">
                                 <h4 class="pro-sidebar-title">Filter By Price </h4>
-                                <div class="price-filter mt-10">
-                                    <div class="price-slider-amount">
-                                        <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                    </div>
-
+                                <div class="sidebar-widget-list mt-30">
+                                    <ul>
+                                        <li>
+                                            <div class="sidebar-widget-list-left">
+                                                <input type="checkbox" value="1" id="lth" > <a href="#">Low to Hight </a>
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="sidebar-widget-list-left">
+                                                <input type="checkbox" value="2" id="htl"> <a href="#">Hight to Low </a>
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="sidebar-widget-list-left">
+                                                <input type="checkbox" id="clear02"> <a href="#">Clear All </a>
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 
+
                             <div class="sidebar-widget mt-50">
-                                <h4 class="pro-sidebar-title">Colour </h4>
+                                <h4 class="pro-sidebar-title">Category </h4>
                                 <div class="sidebar-widget-list mt-20">
                                     <ul>
                                         <?php
@@ -269,7 +286,7 @@ require "./content/connection.php";
 
                                             <li>
                                                 <div class="sidebar-widget-list-left">
-                                                    <input type="checkbox" value="<?php echo $category_data["product_category_id"]; ?>"> <a href="#"><?php echo $category_data["product_category_name"];  ?></a>
+                                                    <input type="checkbox" value="<?php echo $category_data["product_category_id"]; ?>" id="<?php echo $category_data["product_category_id"];  ?>" name="category"> <a href="#"><?php echo $category_data["product_category_name"];  ?></a>
                                                     <span class="checkmark"></span>
                                                 </div>
                                             </li>
@@ -278,6 +295,12 @@ require "./content/connection.php";
                                         }
 
                                         ?>
+                                        <li>
+                                            <div class="sidebar-widget-list-left">
+                                                <input type="checkbox" id="clear03"> <a href="#">Clear All </a>
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -303,124 +326,8 @@ require "./content/connection.php";
         <!-- footer-section-start -->
         <?php require "./content/footer.php" ?>
         <!-- footer-section-end -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog  modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-7 col-sm-12 col-xs-12">
-                                <div class="tab-content quickview-big-img">
-                                    <div id="pro-1" class="tab-pane fade show active">
-                                        <img src="assets/img/product/quickview-l1.jpg" alt="">
-                                    </div>
-                                    <div id="pro-2" class="tab-pane fade">
-                                        <img src="assets/img/product/quickview-l2.jpg" alt="">
-                                    </div>
-                                    <div id="pro-3" class="tab-pane fade">
-                                        <img src="assets/img/product/quickview-l3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="quickview-wrap mt-15">
-                                    <div class="quickview-slide-active owl-carousel nav owl-nav-style owl-nav-style-2" role="tablist">
-                                        <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
-                                        <a data-toggle="tab" href="#pro-2"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
-                                        <a data-toggle="tab" href="#pro-3"><img src="assets/img/product/quickview-s3.jpg" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-sm-12 col-xs-12">
-                                <div class="product-details-content quickview-content">
-                                    <h2>Products Name Here</h2>
-                                    <div class="product-details-price">
-                                        <span>$18.00 </span>
-                                        <span class="old">$20.00 </span>
-                                    </div>
-                                    <div class="pro-details-rating-wrap">
-                                        <div class="pro-details-rating">
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star"></i>
-                                        </div>
-                                        <span><a href="#">3 Reviews</a></span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                                    <div class="pro-details-quality">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
-                                        </div>
-                                        <div class="pro-details-cart btn-hover">
-                                            <a href="#">Add To Cart</a>
-                                        </div>
-                                        <div class="pro-details-wishlist">
-                                            <a href="#"><i class="sli sli-heart"></i></a>
-                                        </div>
-                                        <div class="pro-details-compare">
-                                            <a href="#"><i class="sli sli-refresh"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="pro-details-meta">
-                                        <span>Categories :</span>
-                                        <ul>
-                                            <li><a href="#">Minimal,</a></li>
-                                            <li><a href="#">Furniture</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pro-details-meta">
-                                        <span>Tag :</span>
-                                        <ul>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Decor</a></li>
-                                            <li><a href="#">Furniture</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pro-details-social-info">
-                                        <span>Share :</span>
-                                        <div class="social-info">
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="sli sli-social-twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="sli sli-social-tumblr"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="sli sli-social-facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="sli sli-social-dribbble"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="sli sli-social-linkedin"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="pro-details-policy">
-                                        <ul>
-                                            <li><img src="assets/img/icon/policy.png" alt=""><span>Security Policy (Edit With Customer Reassurance Module)</span></li>
-                                            <li><img src="assets/img/icon/policy-2.png" alt=""><span>Delivery Policy (Edit With Customer Reassurance Module)</span></li>
-                                            <li><img src="assets/img/icon/policy-3.png" alt=""><span>Return Policy (Edit With Customer Reassurance Module)</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- all js here -->
-        <?php require "./content/allscript.php" ?>
+       
+        <script src="assets/js/script.js"></script>
 </body>
 
 </html>
