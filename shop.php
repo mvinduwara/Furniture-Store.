@@ -57,7 +57,6 @@ require "./content/connection.php";
                     <div class="col-lg-9">
                         <div class="shop-top-bar">
                             <div class="select-shoing-wrap">
-
                                 <p>Showing 1–12 of 20 result</p>
                             </div>
 
@@ -208,15 +207,14 @@ require "./content/connection.php";
                     <div class="col-lg-3" >
                         <div class="sidebar-style mr-30" id="product_search_parent">
                             <div class="sidebar-widget">
-                                <h4 class="pro-sidebar-title">Search </h4>
+                                <h4 class="pro-sidebar-title">Search</h4>
+
                                 <div class="pro-sidebar-search mb-50 mt-25">
-                                    <form class="pro-sidebar-search-form" action="#">
-                                        <input type="text" placeholder="Search here...">
-                                        <button>
-                                            <i class="sli sli-magnifier"></i>
-                                        </button>
-                                    </form>
+                                    <div class="pro-sidebar-search-form">
+                                        <input type="text" placeholder="Search here..." id="search_input" onkeypress="search(event);">         
+                                    </div>
                                 </div>
+
                             </div>
                             <div class="sidebar-widget">
                                 <h4 class="pro-sidebar-title">Availability </h4>
@@ -304,18 +302,7 @@ require "./content/connection.php";
                                     </ul>
                                 </div>
                             </div>
-                            <!-- <div class="sidebar-widget mt-50">
-                                <h4 class="pro-sidebar-title">Tag </h4>
-                                <div class="sidebar-widget-tag mt-25">
-                                    <ul>
-                                        <li><a href="#">Clothing</a></li>
-                                        <li><a href="#">Accessories</a></li>
-                                        <li><a href="#">For Men</a></li>
-                                        <li><a href="#">Women</a></li>
-                                        <li><a href="#">Fashion</a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
                     <!-- prodct-search-area-end -->

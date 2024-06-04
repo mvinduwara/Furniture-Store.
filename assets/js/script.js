@@ -627,3 +627,24 @@ function sortproduct() {
     request.send(form);
 
 }
+
+function search(event) {
+if (event.keyCode === 13) {
+    var inputValue = document.getElementById("search_input").value;
+
+    var form = new FormData();
+    form.append("search_input", inputValue);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            document.getElementById("product_selected").innerHTML = text;
+        }
+    };
+
+    request.open("POST", "./process/product_search_process.php", true);
+    request.send(form);
+}
+
+}
