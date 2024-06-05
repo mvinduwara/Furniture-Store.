@@ -219,9 +219,9 @@ if (isset($_SESSION["user"]) && isset($_POST["delivery"]) && isset($_POST["sub_t
                                             <a href="#">Place Order</a>
                                         </div>
 
-                                        <form action="checkout.php" method="POST">
+                                        <form action="check.php" method="POST">
                                             <input type="hidden" name="delivery" value="<?php echo $delivery ?> ">
-                                            <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>">
+                                            <input type="hidden" name="total" value="<?php echo $sub_total + $delivery ?>">
                                             <input type="hidden" name="quantity" value="<?php echo $quantity ?> ">
                                             <button type="submit">Link Text</button>
                                         </form>
