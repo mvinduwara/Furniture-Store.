@@ -611,7 +611,7 @@ function sortproduct() {
         });
     }
 
-   
+
     var form = new FormData();
     form.append("avilability", avilability);
     form.append("category", category);
@@ -629,22 +629,64 @@ function sortproduct() {
 }
 
 function search(event) {
-if (event.keyCode === 13) {
-    var inputValue = document.getElementById("search_input").value;
+    if (event.keyCode === 13) {
+        var inputValue = document.getElementById("search_input").value;
+
+        var form = new FormData();
+        form.append("search_input", inputValue);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                document.getElementById("product_selected").innerHTML = text;
+            }
+        };
+
+        request.open("POST", "./process/product_search_process.php", true);
+        request.send(form);
+    }
+
+}
+
+
+function ProductSingleViewModal(id) {
+
+    console.log("id => " + id);
 
     var form = new FormData();
-    form.append("search_input", inputValue);
+    form.append("id", id);
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            var text = request.responseText;
-            document.getElementById("product_selected").innerHTML = text;
+            var text = JSON.parse(request.responseText);
+            console.log(text);
+            console.log(text["product_image_path01"]);
+            $('.product-details-content h2').text(text["product_name"]);
+            $('.product_Id_P').text("Product ID : "+text["product_id"]);
+            $('.product-details-price span').text(text["product_price"]);
+            $('.product_Description_P').text(text["product_description"]);
+            $('.pro-details-list ul li[0]').text(text["product_dimentions"]);
+            $('.pro-details-list ul li[1]').text(text["product_material"]);
+
+            $('.modal-img-1').attr('src','./product_img/path1/'+ encodeURIComponent(text["product_image_path01"]));
+            $('.modal-img-2').attr('src','./product_img/path2/'+ encodeURIComponent(text["product_image_path02"]));
+            $('.modal-img-3').attr('src','./product_img/path3/'+ encodeURIComponent(text["product_image_path03"]));
+            $('.modal-img-4').attr('src','./product_img/path4/'+ encodeURIComponent(text["product_image_path04"]));
+
+            // $('#productID').text(id);
+            $('#exampleModal').modal('show');
+
         }
     };
 
-    request.open("POST", "./process/product_search_process.php", true);
+    request.open("POST", "./process/loadModalData.php", true);
     request.send(form);
-}
+
+
+
+    // $('#exampleModal').modal('show');
+    // document.getElementById("exampleModal").style.display = "flex";
 
 }

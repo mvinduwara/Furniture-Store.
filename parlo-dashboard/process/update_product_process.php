@@ -1,5 +1,5 @@
 <?php
-require "../../content/connection.php";
+require "../../../viva-project/content/connection.php";
 
 $product_id = $_POST["product_id"];
 $product_name = $_POST["product_name"];

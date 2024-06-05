@@ -51,7 +51,7 @@ require "./content/connection.php";
         </div>
         <!--navigation-section-end-->
 
-        <div class="shop-area pt-95 pb-100" >
+        <div class="shop-area pt-95 pb-100">
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-lg-9">
@@ -109,7 +109,7 @@ require "./content/connection.php";
 
                                                             <div class="ht-product-action">
                                                                 <ul>
-                                                                    <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
+                                                                    <li><a type="button" onclick="ProductSingleViewModal(<?php echo $product_list_id['product_id']; ?>)"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                                     <li><a href="wishlist.html"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
                                                                     <li><a href="compare-page.php?id=<?php echo $product_list_data["product_id"]; ?>&model=<?php echo $product_list_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                                     <li><a href="cart-page.html"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
@@ -204,14 +204,14 @@ require "./content/connection.php";
                     </div>
 
                     <!-- prodct-search-area-start -->
-                    <div class="col-lg-3" >
+                    <div class="col-lg-3">
                         <div class="sidebar-style mr-30" id="product_search_parent">
                             <div class="sidebar-widget">
                                 <h4 class="pro-sidebar-title">Search</h4>
 
                                 <div class="pro-sidebar-search mb-50 mt-25">
                                     <div class="pro-sidebar-search-form">
-                                        <input type="text" placeholder="Search here..." id="search_input" onkeypress="search(event);">         
+                                        <input type="text" placeholder="Search here..." id="search_input" onkeypress="search(event);">
                                     </div>
                                 </div>
 
@@ -248,7 +248,7 @@ require "./content/connection.php";
                                     <ul>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value="1" id="lth" > <a href="#">Low to Hight </a>
+                                                <input type="checkbox" value="1" id="lth"> <a href="#">Low to Hight </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
@@ -302,7 +302,7 @@ require "./content/connection.php";
                                     </ul>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!-- prodct-search-area-end -->
@@ -313,7 +313,7 @@ require "./content/connection.php";
         <!-- footer-section-start -->
         <?php require "./content/footer.php" ?>
         <!-- footer-section-end -->
-       
+
         <script src="assets/js/script.js"></script>
 </body>
 

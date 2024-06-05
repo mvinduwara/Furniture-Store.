@@ -1,5 +1,5 @@
 <?php
-require "../content/connection.php";
+require "../../viva-project/content/connection.php";
 session_start();
 
 if (isset($_SESSION["admin"])) {
@@ -11,7 +11,6 @@ if (isset($_SESSION["admin"])) {
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
     <head>
-
         <!-- META DATA -->
         <meta charset="UTF-8">
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>

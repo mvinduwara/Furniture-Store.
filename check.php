@@ -19,7 +19,7 @@
 
         require __DIR__ . '/vendor/autoload.php';
 
-        $stripe_secret_key = "sk_test_51POCJL2Nk5TrDRMKauVeWILmasqokWGaSVbfwatJhaVeXNIeHtL8StifzShLFbnh7C6ljbCqa0oKLKvanRK8owLI00ERQpc88Y";
+        $stripe_secret_key = "sk_test_51PLoHVGxG440qEZg74pFz4N49WIzdm8sTI61y7ETIV5MRmAZhBFGHcyggGQGyu9bI1716HpjShlBK7J6zF0P2ZbP00RdmruroJ";
 
         \Stripe\Stripe::setApiKey($stripe_secret_key);
 
@@ -32,7 +32,7 @@
 
             $checkout_session = \Stripe\Checkout\Session::create([
                 "mode" => "payment",
-                "success_url" => "http://localhost/viva-project/success.php",
+                "success_url" => "http://localhost/clozet/success.php",
                 "cancel_url" => "http://localhost/clozet/cancel.php",
                 "payment_method_types" => ['card'],
 

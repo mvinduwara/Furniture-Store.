@@ -1,6 +1,6 @@
 <?php 
 
-require "../../content/connection.php";
+require "../../../viva-project/content/connection.php";
 
 $product_id = $_GET["product_id"];
 

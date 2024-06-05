@@ -1,6 +1,5 @@
 <?php
-require "../content/connection.php";
-session_start();
+require "../../viva-project/content/connection.php";session_start();
 
 if (isset($_SESSION["admin"])) {
 

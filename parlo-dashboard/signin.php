@@ -68,10 +68,9 @@
                                         <div class="card-sigin">
 
                                             <div class="mb-5 d-flex">
-                                                <a href="index.html"><img src="build/assets/img/brand/favicon.png" class="sign-favicon-a ht-40" alt="logo">
-                                                    <img src="build/assets/img/brand/favicon-white.png" class="sign-favicon-b ht-40" alt="logo">
+                                                <a href="index.html"><img src="resources/img/logo.png" class="sign-favicon-a ht-40" alt="logo">
+                                                    <img src="resources/img/logo.png" class="sign-favicon-b ht-40" alt="logo">
                                                 </a>
-                                                <h1 class="main-logo1 ms-1 me-0 my-auto tx-28">Va<span>le</span>x</h1>
                                             </div>
 
                                             <div class="card-sigin">

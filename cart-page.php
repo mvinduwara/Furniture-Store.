@@ -188,7 +188,7 @@ if (isset($_SESSION["user"])) {
                                                 <input type="hidden" name="delivery" value="<?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count; ?>">
                                                 <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>">
                                                 <input type="hidden" name="quantity" value="<?php echo $user_cart_data_count * ((int)$user_cart_data["product_cart_quantity"]) ?>">
-                                                <button type="submit">Link Text</button>
+                                                <button type="submit" class="btn btn-danger">Link Text</button>
                                             </form>
 
                                         </div>
