@@ -2,11 +2,12 @@
 require "./content/connection.php";
 session_start();
 
-if (isset($_SESSION["user"])) {
+if (isset($_SESSION["user"]) && isset($_POST["delivery"]) && isset($_POST["sub_total"])) {
 
     $user_id = $_SESSION["user"]["user_id"];
-    $_total = $_GET["total"];
-    $delivery_fee  = $_GET["delivery"];
+    $delivery = $_POST["delivery"];
+    $sub_total = $_POST["sub_total"];
+    $quantity = $_POST["quantity"];
 
 ?>
     <!doctype html>
@@ -171,6 +172,7 @@ if (isset($_SESSION["user"])) {
                                 </div>
 
                                 <div class="col-lg-5">
+
                                     <div class="your-order-area">
                                         <h3>Your order</h3>
                                         <div class="your-order-wrap gray-bg-4">
@@ -182,28 +184,27 @@ if (isset($_SESSION["user"])) {
                                                 </div>
                                                 <div class="your-order-middle">
                                                     <ul>
-                                                        <li>Product Name X 1 <span>$329 </span></li>
+                                                        <li>Product Quantity <span><?php echo $quantity ?> </span></li>
                                                     </ul>
                                                 </div>
                                                 <div class="your-order-info order-subtotal">
                                                     <ul>
-                                                        <li>Subtotal <span>$329 </span></li>
+                                                        <li>Subtotal <span>Rs <?php echo $sub_total ?>.00</span></li>
                                                     </ul>
                                                 </div>
                                                 <div class="your-order-info order-shipping">
                                                     <ul>
-                                                        <li>Shipping <p> <br><?php echo $delivery_fee  ?></p>
+                                                        <li>Shipping <p><?php echo $delivery ?> <br></p>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="your-order-info order-total">
                                                     <ul>
-                                                        <li>Total <span>Rs.<?php echo $_total  ?></span></li>
+                                                        <li>Total <span>Rs.<?php echo $sub_total + $delivery ?></span></li>
                                                     </ul>
                                                 </div>
+
                                             </div>
-
-
                                             <div class="payment-method">
                                                 <div class="pay-top sin-payment">
                                                     <input id="payment-method-2" class="input-radio" type="radio" value="cheque" name="payment_method">
@@ -217,6 +218,15 @@ if (isset($_SESSION["user"])) {
                                         <div class="Place-order mt-40">
                                             <a href="#">Place Order</a>
                                         </div>
+
+                                        <form action="checkout.php" method="POST">
+                                            <input type="hidden" name="delivery" value="<?php echo $delivery ?> ">
+                                            <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>">
+                                            <input type="hidden" name="quantity" value="<?php echo $quantity ?> ">
+                                            <button type="submit">Link Text</button>
+                                        </form>
+
+
                                     </div>
                                 </div>
                             </div>

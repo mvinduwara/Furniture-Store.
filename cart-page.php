@@ -105,13 +105,10 @@ if (isset($_SESSION["user"])) {
                                                     $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                                     $product_data = $product_resulset->fetch_assoc();
                                                     $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
-                                                    $grand_total = ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;
+                                                    $delivery = ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;
 
                                                     $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
                                                     $product_image_data = $product_image_resultset->fetch_assoc();
-
-
-
 
 
                                                 ?>
@@ -169,6 +166,8 @@ if (isset($_SESSION["user"])) {
 
                                 </form>
 
+
+
                                 <div class="row" style="justify-content: end;">
                                     <div class="col-lg-4 col-md-12">
                                         <div class="grand-totall">
@@ -184,7 +183,14 @@ if (isset($_SESSION["user"])) {
                                                 </ul>
                                             </div>
                                             <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo (((int)$product_data["product_delivery_fee"]) * $user_cart_data_count + $sub_total); ?> .00</span></h4>
-                                            <a href="checkout.php?user_id=<?php echo $_SESSION["user"]["user_id"]; ?>&total=<?php echo $grand_total; ?>">Proceed to Checkout</a>
+
+                                            <form action="checkout.php" method="POST">
+                                                <input type="hidden" name="delivery" value="<?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count; ?>">
+                                                <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>">
+                                                <input type="hidden" name="quantity" value="<?php echo $user_cart_data_count * ((int)$user_cart_data["product_cart_quantity"]) ?>">
+                                                <button type="submit">Link Text</button>
+                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -205,6 +211,8 @@ if (isset($_SESSION["user"])) {
 
             <!-- All JS is here
 ============================================ -->
+
+            
 
             <!-- script.js -->
             <script src="assets/js/script.js"></script>
