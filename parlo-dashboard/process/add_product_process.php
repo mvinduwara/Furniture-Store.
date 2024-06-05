@@ -77,7 +77,7 @@ if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]
                 $new_file_type = ".webp";
             }
             if ($new_file_type == ".webp") {
-                $file_name_1 = "product_img/path1/" . $product_title . "-" . $new_file_type;
+                $file_name_1 = "../../viva-project/product_img/path1" . $product_title . "-" . $new_file_type;
             } else {
                 echo ("File type of image 1 does not allowed to upload . ");
             }
@@ -97,7 +97,7 @@ if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]
                 $new_file_type = ".webp";
             }
             if ($new_file_type == ".webp") {
-                $file_name_2 = "product_img/path2/" . $product_title . "-" . $new_file_type;
+                $file_name_2 = "../../viva-project/product_img/path2" . $product_title . "-" . $new_file_type;
             } else {
                 echo ("File type of image 2 does not allowed to upload . ");
             }
@@ -117,7 +117,7 @@ if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]
                 $new_file_type = ".webp";
             }
             if ($new_file_type = ".webp") {
-                $file_name_3 = "product_img/path3/" . $product_title . "-" . $new_file_type;
+                $file_name_3 = "../../viva-project/product_img/path3" . $product_title . "-" . $new_file_type;
             } else {
                 echo ("File type of image 3 does not allowed to upload . ");
             }
@@ -137,7 +137,7 @@ if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]
                 $new_file_type = ".webp";
             }
             if ($new_file_type = ".webp") {
-                $file_name_4 = "product_img/path4/" . $product_title . "-" . $new_file_type;
+                $file_name_4 = "../../viva-project/product_img/path4" . $product_title . "-" . $new_file_type;
             } else {
                 echo ("File type of image 4 does not allowed to upload . ");
             }
