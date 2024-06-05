@@ -9,7 +9,7 @@ if (isset($_GET["id"])) {
 ?>
 
     <!doctype html>
-    <html class="no-js" lang="zxx">
+    <html lang="zxx">
 
     <head>
         <meta charset="utf-8">
@@ -137,15 +137,27 @@ if (isset($_GET["id"])) {
                                     <div class="cart-plus-minus">
                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
                                     </div>
+
+
                                     <div class="pro-details-cart btn-hover">
                                         <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Add To Cart</a>
                                     </div>
+                                    <?php $price = $product_resultset_data["product_price"]; 
+                                          $delivery_fee = $product_resultset_data["product_delivery_fee"];
+                                          $product_name = $product_resultset_data["product_name"];  ?>
+                                    <div class="pro-details-cart btn-hover">
+                                        <a onclick="Buynow(<?php echo $price; ?>, document.querySelector('.cart-plus-minus-box').value, '<?php echo $delivery_fee; ?>', '<?php echo $product_name; ?>');">Buy Now</a>
+                                    </div>
+
+
+
                                     <!-- <div class="pro-details-cart btn-hover">
-                                        <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Buy Now</a>
+                                        <a onclick="Buynow(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Buy Now</a>
                                     </div> -->
                                     <div class="pro-details-wishlist">
                                         <a title="Add To Wishlist" onclick="addtowishlist(<?php echo $product_resultset_data['product_id'] ?> )"><i class="sli sli-heart"></i></a>
                                     </div>
+
                                     <div class="pro-details-compare">
                                         <a title="Add To Compare" href="#"><i class="sli sli-refresh"></i></a>
                                     </div>
@@ -346,7 +358,7 @@ if (isset($_GET["id"])) {
                         ?>
                             <!--Product Start-->
                             <div class="ht-product ht-product-action-on-hover ht-product-category-right-bottom mb-30">
-                            <div class="ht-product-inner">
+                                <div class="ht-product-inner">
                                     <div class="ht-product-image-wrap">
                                         <?php
                                         if (empty($product_type_data["product_image_path01"])) {

@@ -188,7 +188,7 @@ function review_adding(id) {
 
 
 // add-to cart
-function addToCart(id, quantity) {
+function addToCart(id, quantity,) {
     // alert(id + " " + quantity);
 
     var request = new XMLHttpRequest();
@@ -210,6 +210,16 @@ function addToCart(id, quantity) {
 
 
 }
+
+function Buynow(price, quantity,delivery_fee) {
+    // Construct the URL with query parameters
+    const url = `./Check-out.php?pc=${price}&qtr=${quantity}&df=${delivery_fee}`;
+    
+    // Redirect the browser to the constructed URL
+    window.location.href = url;
+}
+
+
 
 
 // remove from cart
@@ -690,3 +700,5 @@ function ProductSingleViewModal(id) {
     // document.getElementById("exampleModal").style.display = "flex";
 
 }
+
+
