@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Parlo - eCommerce Bootstrap 4 Template</title>
+        <title>Parlo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -140,6 +140,9 @@ if (isset($_GET["id"])) {
                                     <div class="pro-details-cart btn-hover">
                                         <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Add To Cart</a>
                                     </div>
+                                    <!-- <div class="pro-details-cart btn-hover">
+                                        <a onclick="addToCart(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Buy Now</a>
+                                    </div> -->
                                     <div class="pro-details-wishlist">
                                         <a title="Add To Wishlist" onclick="addtowishlist(<?php echo $product_resultset_data['product_id'] ?> )"><i class="sli sli-heart"></i></a>
                                     </div>
@@ -168,7 +171,7 @@ if (isset($_GET["id"])) {
                     </div>
                 </div>
             </div>
-            <!-- decriptio-box -->
+            <!-- decription-box -->
             <div class="description-review-area pb-95">
                 <div class="container">
                     <div class="row">

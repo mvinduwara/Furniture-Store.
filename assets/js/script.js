@@ -1,3 +1,18 @@
+
+function advanced_search() {
+    // Get the parent element
+    const product_search_parent = document.getElementById("product_search_parent");
+
+    // Get all checkbox elements within the parent element
+    const checkboxes = product_search_parent.querySelectorAll("input[type=checkbox]");
+
+    // Loop through the checkboxes and add the onchange event listener
+    for (let j = 0; j < checkboxes.length; j++) {
+        checkboxes[j].addEventListener("change", sortproduct);
+    }
+
+}
+
 // user-registration-function
 function user_register() {
 
@@ -450,10 +465,10 @@ function forgot_password() {
                 bm = new bootstrap.Modal(m);
                 bm.show();
 
-           } else {
-            document.getElementById("responseAlert").innerHTML = text;
-            document.getElementById("responseAlert").className = "text-danger";
-           }
+            } else {
+                document.getElementById("responseAlert").innerHTML = text;
+                document.getElementById("responseAlert").className = "text-danger";
+            }
         }
     }
     request.open("GET", "./process/forgot_password_process.php?email=" + Useremail, true);
@@ -472,7 +487,7 @@ function change_password() {
 
     // alert(Useremail + " " + verificatino_code + " " + new_password + " " + current_password);
 
-    
+
     if (verificatino_code.trim() === '') {
         document.getElementById("responseAlert1").className = "text-danger";
         document.getElementById("responseAlert1").innerHTML = "Please enter your verification code";
@@ -490,34 +505,188 @@ function change_password() {
         document.getElementById("responseAlert1").innerHTML = "Password must be at least 8 characters long";
     } else {
 
-    var form = new FormData()   
-    form.append("email", Useremail);
-    form.append("verification_code", verificatino_code);
-    form.append("new_password", new_password);
-    form.append("current_password", current_password);
+        var form = new FormData()
+        form.append("email", Useremail);
+        form.append("verification_code", verificatino_code);
+        form.append("new_password", new_password);
+        form.append("current_password", current_password);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                if (text == "success") {
+
+                    document.getElementById("responseAlert1").innerHTML = "Your password has been updated";
+                    document.getElementById("responseAlert1").className = "text-dark";
+                    bm.hide();
+                    window.location.reload();
+
+                } else {
+
+                    document.getElementById("responseAlert1").innerHTML = text;
+                    document.getElementById("responseAlert1").className = "text-danger";
+
+                }
+            }
+        };
+        request.open("POST", "./process/resetPasswordProcess.php", true);
+        request.send(form);
+
+    }
+
+}
+
+function sortproduct() {
+
+    if (document.getElementById("clear01").checked) {
+        location.reload(true);
+    } else if (document.getElementById("clear02").checked) {
+        location.reload(true);
+    } else if (document.getElementById("clear03").checked) {
+        location.reload(true);
+    }
+
+    // stock avilability
+    let ofs = document.getElementById("ofs");
+    let is = document.getElementById("is");
+    let avilability = "";
+
+    // price
+    let lth = document.getElementById("lth");
+    let htl = document.getElementById("htl");
+    let price = "";
+
+    // category
+    let cat1 = document.getElementById("1");
+    let cat2 = document.getElementById("2");
+    let cat3 = document.getElementById("3");
+    let cat4 = document.getElementById("4");
+    let category = "";
+
+    // stock avilability 2
+    if (ofs.checked) {
+        avilability = ofs.value;
+    } else if (is.checked) {
+        avilability = is.value;
+    }
+
+    if (cat1.checked) {
+        category = cat1.value;
+    } else if (cat2.checked) {
+        category = cat2.value;
+    } else if (cat3.checked) {
+        category = cat3.value;
+    } else if (cat4.checked) {
+        category = cat4.value;
+    }
+
+    // stock avalability Part
+    const gender_part = document.querySelectorAll('input[name="availabilty"]');
+
+    for (let i = 0; i < gender_part.length; i++) {
+        gender_part[i].addEventListener('click', function () {
+            // Loop through all the gender_part in the group
+            for (let j = 0; j < gender_part.length; j++) {
+                // Uncheck any that are checked except for the one that was clicked
+                if (gender_part[j] !== this && gender_part[j].checked) {
+                    gender_part[j].checked = false;
+                }
+            }
+        });
+    }
+
+    // category Part
+    const category_part = document.querySelectorAll('input[name="category"]');
+
+    for (let i = 0; i < category_part.length; i++) {
+        category_part[i].addEventListener('click', function () {
+            // Loop through all the gender_part in the group
+            for (let j = 0; j < category_part.length; j++) {
+                // Uncheck any that are checked except for the one that was clicked
+                if (category_part[j] !== this && category_part[j].checked) {
+                    category_part[j].checked = false;
+                }
+            }
+        });
+    }
+
+
+    var form = new FormData();
+    form.append("avilability", avilability);
+    form.append("category", category);
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-         if (request.readyState == 4 && request.status == 200) {
-              var text = request.responseText;
-              if (text == "success") {
-
-                   document.getElementById("responseAlert1").innerHTML = "Your password has been updated";
-                   document.getElementById("responseAlert1").className = "text-dark";
-                   bm.hide();
-                   window.location.reload();
-
-              } else {
-
-                document.getElementById("responseAlert1").innerHTML = text;
-                document.getElementById("responseAlert1").className = "text-danger";
-                
-              }
-         }
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            document.getElementById("product_selected").innerHTML = text;
+        }
     };
-    request.open("POST", "./process/resetPasswordProcess.php", true);
+    request.open("POST", "./process/sortProductProcess.php", true);
     request.send(form);
 
+}
+
+function search(event) {
+    if (event.keyCode === 13) {
+        var inputValue = document.getElementById("search_input").value;
+
+        var form = new FormData();
+        form.append("search_input", inputValue);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                document.getElementById("product_selected").innerHTML = text;
+            }
+        };
+
+        request.open("POST", "./process/product_search_process.php", true);
+        request.send(form);
     }
+
+}
+
+
+function ProductSingleViewModal(id) {
+
+    console.log("id => " + id);
+
+    var form = new FormData();
+    form.append("id", id);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = JSON.parse(request.responseText);
+            console.log(text);
+            console.log(text["product_image_path01"]);
+            $('.product-details-content h2').text(text["product_name"]);
+            $('.product_Id_P').text("Product ID : "+text["product_id"]);
+            $('.product-details-price span').text(text["product_price"]);
+            $('.product_Description_P').text(text["product_description"]);
+            $('.pro-details-list ul li[0]').text(text["product_dimentions"]);
+            $('.pro-details-list ul li[1]').text(text["product_material"]);
+
+            $('.modal-img-1').attr('src','./product_img/path1/'+ encodeURIComponent(text["product_image_path01"]));
+            $('.modal-img-2').attr('src','./product_img/path2/'+ encodeURIComponent(text["product_image_path02"]));
+            $('.modal-img-3').attr('src','./product_img/path3/'+ encodeURIComponent(text["product_image_path03"]));
+            $('.modal-img-4').attr('src','./product_img/path4/'+ encodeURIComponent(text["product_image_path04"]));
+
+            // $('#productID').text(id);
+            $('#exampleModal').modal('show');
+
+        }
+    };
+
+    request.open("POST", "./process/loadModalData.php", true);
+    request.send(form);
+
+
+
+    // $('#exampleModal').modal('show');
+    // document.getElementById("exampleModal").style.display = "flex";
 
 }

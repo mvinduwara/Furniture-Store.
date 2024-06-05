@@ -49,7 +49,7 @@ session_start();
                                     <h1 class="animated">Wooden Craft</h1>
                                     <p class="animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader.</p>
                                     <div class="slider-btn btn-hover">
-                                        <a class="animated" href="shop.html">Shop Now <i class="sli sli-basket-loaded"></i></a>
+                                        <a class="animated" href="shop.php">Shop Now <i class="sli sli-basket-loaded"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +518,9 @@ session_start();
 
                                         <div class="ht-product-action">
                                             <ul>
-                                                <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
+                                                <li><a type="button" onclick="ProductSingleViewModal(<?php echo $product_resultset_data['product_id']; ?>)"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
+                                                <!-- <li><button data-toggle="modal" data-target="#exampleModal" onclick="ProductSingleViewModal(<?php echo $product_resultset_data['product_id']; ?>)"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></button></li> -->
+                                                <!-- <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li> -->
                                                 <li><a href="#"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
                                                 <li><a href="compare-page.php?id=<?php echo $product_resultset_data["product_id"]; ?>&model=<?php echo $product_resultset_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                 <li><a href="#"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
@@ -708,12 +710,15 @@ session_start();
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
                     </div>
+
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-5 col-sm-12 col-xs-12">
+
                                 <div class="tab-content quickview-big-img">
                                     <div id="pro-1" class="tab-pane fade show active">
                                         <img src="assets/img/product/quickview-l1.jpg" alt="">
@@ -729,96 +734,33 @@ session_start();
                                     </div>
                                 </div>
                                 <!-- Thumbnail Large Image End -->
+
                                 <!-- Thumbnail Image End -->
                                 <div class="quickview-wrap mt-15">
                                     <div class="quickview-slide-active owl-carousel nav nav-style-2" role="tablist">
-                                        <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
-                                        <a data-toggle="tab" href="#pro-2"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
-                                        <a data-toggle="tab" href="#pro-3"><img src="assets/img/product/quickview-s3.jpg" alt=""></a>
-                                        <a data-toggle="tab" href="#pro-4"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
+                                        <a class="active" data-toggle="tab" href="#pro-1"><img class="modal-img-1" src="" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-2"><img class="modal-img-2" src="" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-3"><img class="modal-img-3" src="" alt=""></a>
+                                        <a data-toggle="tab" href="#pro-4"><img class="modal-img-4" src="" alt=""></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="product-details-content quickview-content">
-                                    <h2>Products Name Here</h2>
+                                    <h2></h2>
+                                    <p class="product_Id_P"></p>
                                     <div class="product-details-price">
-                                        <span>$18.00 </span>
-                                        <span class="old">$20.00 </span>
+                                        <span></span>
                                     </div>
                                     <div class="pro-details-rating-wrap">
-                                        <div class="pro-details-rating">
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star yellow"></i>
-                                            <i class="sli sli-star"></i>
-                                            <i class="sli sli-star"></i>
-                                        </div>
                                         <span>3 Reviews</span>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco</p>
+                                    <p class="product_Description_P"></p>
                                     <div class="pro-details-list">
                                         <ul>
                                             <li>- 0.5 mm Dail</li>
                                             <li>- Inspired vector icons</li>
                                             <li>- Very modern style </li>
-                                        </ul>
-                                    </div>
-                                    <div class="pro-details-size-color">
-                                        <div class="pro-details-color-wrap">
-                                            <span>Color</span>
-                                            <div class="pro-details-color-content">
-                                                <ul>
-                                                    <li class="blue"></li>
-                                                    <li class="maroon active"></li>
-                                                    <li class="gray"></li>
-                                                    <li class="green"></li>
-                                                    <li class="yellow"></li>
-                                                    <li class="white"></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="pro-details-size">
-                                            <span>Size</span>
-                                            <div class="pro-details-size-content">
-                                                <ul>
-                                                    <li><a href="#">s</a></li>
-                                                    <li><a href="#">m</a></li>
-                                                    <li><a href="#">l</a></li>
-                                                    <li><a href="#">xl</a></li>
-                                                    <li><a href="#">xxl</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pro-details-quality">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                                        </div>
-                                        <div class="pro-details-cart">
-                                            <a href="#">Add To Cart</a>
-                                        </div>
-                                        <div class="pro-details-wishlist">
-                                            <a title="Add To Wishlist" href="#"><i class="sli sli-heart"></i></a>
-                                        </div>
-                                        <div class="pro-details-compare">
-                                            <a title="Add To Compare" href="#"><i class="sli sli-refresh"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="pro-details-meta">
-                                        <span>Categories :</span>
-                                        <ul>
-                                            <li><a href="#">Minimal,</a></li>
-                                            <li><a href="#">Furniture,</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pro-details-meta">
-                                        <span>Tag :</span>
-                                        <ul>
-                                            <li><a href="#">Fashion, </a></li>
-                                            <li><a href="#">Furniture,</a></li>
-                                            <li><a href="#">Electronic</a></li>
                                         </ul>
                                     </div>
                                 </div>
