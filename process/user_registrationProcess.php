@@ -17,12 +17,7 @@ if ($userCount > 0) {
 } else {
 
     Database::iud("INSERT INTO `user`(`user_firstname`,`user_lastname`,`user_email`,`user_password`,`user_contact`,`user_gender`,`user_birthdate`,`user_joined_date`,`user_status_id`) 
-    VALUES ('" . $user_first_name . "','" . $user_last_name . "','" . $user_email_address . "','" . $user_password . "','" . $user_contact . "','" . $user_gender . "','".$user_birthdate."',NOW(),'1')");
+    VALUES ('" . $user_first_name . "','" . $user_last_name . "','" . $user_email_address . "','" . $user_password . "','" . $user_contact . "','" . $user_gender . "','" . $user_birthdate . "',NOW(),'1')");
 
     echo ("success");
-
 }
-?>
-
-
-

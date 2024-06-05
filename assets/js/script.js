@@ -188,7 +188,7 @@ function review_adding(id) {
 
 
 // add-to cart
-function addToCart(id, quantity) {
+function addToCart(id, quantity,) {
     // alert(id + " " + quantity);
 
     var request = new XMLHttpRequest();
@@ -210,6 +210,16 @@ function addToCart(id, quantity) {
 
 
 }
+
+function Buynow(product_ID,price, quantity,delivery_fee) {
+    // Construct the URL with query parameters
+    const url = `./Check-out.php?product_ID=${product_ID}&pc=${price}&qtr=${quantity}&df=${delivery_fee}`;
+    
+    // Redirect the browser to the constructed URL
+    window.location.href = url;
+}
+
+
 
 
 // remove from cart
@@ -688,5 +698,154 @@ function ProductSingleViewModal(id) {
 
     // $('#exampleModal').modal('show');
     // document.getElementById("exampleModal").style.display = "flex";
+
+}
+
+
+function BuyNow(id,price,quantity,delivery_fee,total_price) {
+
+    var form = new FormData();
+    form.append("id", id);
+    form.append("price", price);
+    form.append("quantity", quantity);
+    form.append("delivery_fee", delivery_fee);
+    form.append("total_price", total_price);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            console.log(text);
+
+            $('#exampleModal').modal('show');
+
+        }
+    };
+
+    request.open("POST", "./process/BuyNow.php", true);
+    request.send(form);
+
+}
+
+function ModalLogIn(){
+
+    var user_email = document.getElementById("modalEmail").value;
+    var user_passowrd = document.getElementById("modalPassword").value;
+    var remember_me = document.getElementById("remember_me_modal");
+
+    if (user_email.trim() === '') {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter registered email address";
+    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(user_email)) {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter a valid email address";
+    } else if (user_email.length < 1) {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Email address must be at least 1 characters long";
+    } else if (user_email.length > 25) {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Email address must be less than 25 characters long";
+    } else if (user_passowrd.trim() === '') {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter password!";
+    } else if (user_passowrd.trim() === '') {
+        document.getElementById("responseAlert").className = "text-danger";
+        document.getElementById("responseAlert").innerHTML = "Please enter a password";
+    } else {
+
+        var form = new FormData();
+        form.append("user_email", user_email);
+        form.append("user_password", user_passowrd);
+        form.append("rememberme", remember_me.checked);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                if (text == "success") {
+                    window.location = "./check.php";
+                } else {
+                    document.getElementById("responseAlert").innerHTML = text;
+                    document.getElementById("responseAlert").className = "text-danger";
+                }
+            }
+        };
+        request.open("POST", "./process/user_loginprocess.php", true);
+        request.send(form);
+    }
+
+}
+
+function ModalSignUp() {
+
+    var user_First_name = document.getElementById("user_first_name_modal").value;
+    var user_last_name = document.getElementById("user_last_name_modal").value;
+    var user_email_address = document.getElementById("user_email_modal").value;
+    var user_password = document.getElementById("user_password_modal").value;
+    var user_gender = document.getElementById("user_Gender_modal").value;
+    var user_contact = document.getElementById("user_phone_modal").value;
+    var user_birthdate = document.getElementById("user_birthdate_modal").value;
+
+    if (user_First_name.trim() === '') {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter first name";
+    } else if (user_last_name.trim() === '') {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter last name";
+    } else if (user_email_address.trim() === '') {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter your email address";
+    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(user_email_address)) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter a valid email address";
+    } else if (user_email_address.length < 1) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Email address must be at least 1 characters long";
+    } else if (user_email_address.length > 25) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Email address must be less than 25 characters long";
+    } else if (user_password.trim() === '') {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter a password";
+    } else if (user_gender.trim() === '') {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please select a gender";
+    } else if (!/^\d{10}$/.test(user_contact)) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter a valid 10-digit mobile number";
+    } else if (user_contact.length !== 10) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("error_text_register").innerHTML = "Mobile number must be 10 digits long";
+    } else if (!/^\d{4}-\d{2}-\d{2}$/.test(user_birthdate)) {
+        document.getElementById("responseAlertSignUp").className = "text-danger";
+        document.getElementById("responseAlertSignUp").innerHTML = "Please enter a valid birthdate in the format YYYY-MM-DD";
+    } else {
+
+        var form = new FormData();
+        form.append("user_first_name", user_First_name);
+        form.append("user_last_name", user_last_name);
+        form.append("user_email_address", user_email_address);
+        form.append("user_password", user_password);
+        form.append("user_gender", user_gender);
+        form.append("user_contact", user_contact);
+        form.append("user_birthdate", user_birthdate);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                console.log("text => "+text);      
+                if (text == "success") {
+                    window.location = "./check.php";
+                } else {
+                    document.getElementById("responseAlertSignUp").innerHTML = text;
+                    document.getElementById("responseAlertSignUp").className = "text-danger";
+                }
+            }
+        };
+        request.open("POST", "./process/user_registrationProcess.php", true);
+        request.send(form);
+
+    }
 
 }

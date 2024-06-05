@@ -16,6 +16,16 @@
     if (isset($_SESSION["user"]["user_firstname"])) {
         $username = $_SESSION["user"]["user_lastname"];
 
+        $product_quantity;
+        $product_price;
+        
+        if (isset($_SESSION["order"])) {
+            $product_quantity = $_SESSION["order"]["quantity"];
+            $product_price = $_SESSION["order"]["total_price"];
+        } else {
+            $product_quantity = $_POST['quantity'];
+            $product_price = $_POST['total'];
+        }
 
         require __DIR__ . '/vendor/autoload.php';
 
@@ -23,8 +33,7 @@
 
         \Stripe\Stripe::setApiKey($stripe_secret_key);
 
-        $product_quantity = $_POST['quantity'];
-        $product_price = $_POST['total'];
+
         // $product_delivery = $_POST['delivery'];
 
 
@@ -39,7 +48,7 @@
                 "line_items" => [
                     [
                         "price_data" => [
-                            "currency" => "USD",
+                            "currency" => "LKR",
                             "unit_amount" => $product_price,
                             "product_data" => [
                                 "name" => $product_quantity,
