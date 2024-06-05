@@ -5,6 +5,10 @@ session_start();
 if (isset($_SESSION["user"])) {
     $user_id = $_SESSION["user"]["user_id"];
 
+    if (isset($_SESSION["order"])) {
+        unset($_SESSION['order']);
+    }
+
     $tatal = 0;
     $sub_total = 0;
 

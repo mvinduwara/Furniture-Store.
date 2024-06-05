@@ -2,6 +2,7 @@
 require "./content/connection.php";
 
 $quantity = $_GET["qtr"];
+$product_ID = $_GET["product_ID"];
 $product_price = $_GET["pc"];
 $delivery_fee = $_GET["df"];
 
@@ -32,6 +33,8 @@ $delivery_fee = $_GET["df"];
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+
 </head>
 
 <body>
@@ -58,62 +61,11 @@ $delivery_fee = $_GET["df"];
         <div class="checkout-main-area pt-70 pb-70">
             <div class="container">
 
-
-                <div class="customer-zone mb-20">
-                    <p class="cart-page-title">Please Enter Billing Detail! <a class="checkout-click3" href="login-register.php"></a></p>
-                </div>
-
-
-
                 <div class="checkout-wrap pt-30">
                     <div class="row">
-                        <div class="col-lg-7">
-                            <div class="billing-info-wrap mr-50">
-                                <h3>Billing Details</h3>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>First Name <abbr class="required" title="required" id="first_name">*</abbr></label>
-                                            <input type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="billing-info mb-20">
-                                            <label>Last Name <abbr class="required" title="required" id="last_name">*</abbr></label>
-                                            <input type="text" value="">
-                                        </div>
-                                    </div>
 
-                                    <div class="col-lg-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Street Address <abbr class="required" title="required">*</abbr></label>
-                                            <input class="billing-address" placeholder="House number and street name" type="text" value="" id="address_line">
-                                            <input placeholder="Apartment, suite, unit etc." type="text" value="" id="address_line2">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Phone <abbr class="required" title="required" id="phone">*</abbr></label>
-                                            <input type="text" value="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="billing-info mb-20">
-                                            <label>Email Address <abbr class="required" title="required" id="email">*</abbr></label>
-                                            <input type="text" value="">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="additional-info-wrap">
-                                    <label>Order notes</label>
-                                    <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5">
+                        <div class="col-lg-6 offset-3">
 
                             <div class="your-order-area">
                                 <h3>Your order</h3>
@@ -158,13 +110,11 @@ $delivery_fee = $_GET["df"];
                                         </div>
                                     </div>
                                 </div>
+                                <div>
+                                    <button onclick="BuyNow(<?php echo $product_ID ?>,<?php echo  $product_price ?>,<?php echo  $quantity ?>,<?php echo  $delivery_fee ?>,<?php echo $product_price * $quantity + $delivery_fee ?>00);" type="submit" class="btn btn-danger">Buy Now</button>
+                                </div>
 
-                                <form action="check.php" method="POST">
-                                    <input type="hidden" name="delivery" value="<?php echo $delivery ?> ">
-                                    <input type="hidden" name="total" value="<?php echo $sub_total + $delivery ?>">
-                                    <input type="hidden" name="quantity" value="<?php echo $quantity ?> ">
-                                    <button type="submit" class="btn btn-danger">Link Text</button>
-                                </form>
+
 
 
 
@@ -177,6 +127,84 @@ $delivery_fee = $_GET["df"];
 
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                    </div>
+                    <fieldset class="p-5">
+                        <legend>Log In</legend>
+
+                        <div class="single-input-item">
+                            <label for="verification_code" class="required">Email</label>
+                            <input type="email" id="modalEmail" />
+                        </div>
+                        <div class="single-input-item">
+                            <label for="verification_code" class="required">Password</label>
+                            <input type="password" id="modalPassword" />
+                        </div>
+                        <div class="single-input-item d-flex align-items-center w-100">
+                            <input type="checkbox" id="remember_me_modal" value="">
+                            <label for="verification_code" class="required">Remember Me</label>
+                        </div>
+                        <div class="single-input-item">
+                            <p id="responseAlert"></p>
+                        </div>
+                    </fieldset>
+                    <div class="single-input-item p-5">
+                        <button class="check-btn sqr-btn" type="button" onclick="ModalLogIn();">Log In</button>
+                        <button id="modalSignUp" class="check-btn sqr-btn" type="button">Don't Have an Account ? Sign Up</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                    </div>
+                    <fieldset class="p-5">
+                        <legend>Sign Up</legend>
+
+                        <div class="single-input-item">
+                            <input type="text" id="user_first_name_modal" placeholder="First Name" required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="text" id="user_last_name_modal" placeholder="Last Name"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="email" id="user_email_modal" placeholder="Email"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="password" id="user_password_modal" placeholder="Password"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="text" id="user_Gender_modal" placeholder="Male/Female"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="date" id="user_birthdate_modal" placeholder="Register Data"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <input type="text" id="user_phone_modal" placeholder="Phone Number"  required/>
+                        </div>
+                        <div class="single-input-item mt-1">
+                            <p id="responseAlertSignUp"></p>
+                        </div>
+                    </fieldset>
+                    <div class="single-input-item p-5">
+                        <button class="check-btn sqr-btn" type="button" onclick="ModalSignUp();">Sign Up</button>
+                        <button id="modalLogIn" class="check-btn sqr-btn" type="button">Already Have an Account ? Log In</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- compare main wrapper end -->
 
         <!-- footer-start -->
@@ -187,6 +215,21 @@ $delivery_fee = $_GET["df"];
 
     <!-- All JS is here
 ============================================ -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('modalSignUp').addEventListener('click', function() {
+                $('#exampleModal').modal('hide');
+                $('#exampleModal2').modal('show');
+            })
+            document.getElementById('modalLogIn').addEventListener('click', function() {
+                $('#exampleModal2').modal('hide');
+                $('#exampleModal').modal('show');
+            })
+
+        });
+    </script>
 
     <!-- script.js -->
     <script src="assets/js/script.js"></script>
@@ -202,6 +245,7 @@ $delivery_fee = $_GET["df"];
     <script src="assets/js/ajax-mail.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
 
 </body>
 

@@ -146,7 +146,7 @@ if (isset($_GET["id"])) {
                                           $delivery_fee = $product_resultset_data["product_delivery_fee"];
                                           $product_name = $product_resultset_data["product_name"];  ?>
                                     <div class="pro-details-cart btn-hover">
-                                        <a onclick="Buynow(<?php echo $price; ?>, document.querySelector('.cart-plus-minus-box').value, '<?php echo $delivery_fee; ?>', '<?php echo $product_name; ?>');">Buy Now</a>
+                                        <a onclick="Buynow(<?php echo $product_id; ?>,<?php echo $price; ?>, document.querySelector('.cart-plus-minus-box').value, '<?php echo $delivery_fee; ?>', '<?php echo $product_name; ?>');">Buy Now</a>
                                     </div>
 
 
