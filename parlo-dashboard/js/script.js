@@ -339,3 +339,46 @@ function deleteuser(x){
     request.send();
 }
 
+function search(event) {
+    if (event.keyCode === 13) {
+        var inputValue = document.getElementById("search_input").value;
+
+        var form = new FormData();
+        form.append("search_input", inputValue);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                document.getElementById("searchTable").innerHTML = text;
+                // alert(text);
+            }
+        };
+
+        request.open("POST", "./process/product_search_process.php", true);
+        request.send(form);
+    }
+
+}
+
+function searchuser(event) {
+    if (event.keyCode === 13) {
+        var inputValue = document.getElementById("search_user").value;
+
+        var form = new FormData();
+        form.append("search_user", inputValue);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var text = request.responseText;
+                document.getElementById("searchTable").innerHTML = text;
+                // alert(text);
+            }
+        };
+
+        request.open("POST", "./process/user_search_process.php", true);
+        request.send(form);
+    }
+
+}

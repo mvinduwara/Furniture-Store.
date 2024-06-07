@@ -76,8 +76,8 @@ if (isset($_SESSION["admin"])) {
 									<button onclick="window.print();"><i class="fa fa-file" aria-hidden="true"></i></button>
 								</div>
 
-								<div class="main-header-center d-sm-none d-md-none d-lg-block col-8 offset-2">
-									<input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"></button>
+								<div class="main-header-center d-lg-block col-8 offset-2">
+									<input class="form-control" placeholder="Search for anything..." type="search" id="search_input" onkeypress="search(event);"> <button class="btn"></button>
 								</div>
 
 								<div class="card-body">
@@ -93,7 +93,7 @@ if (isset($_SESSION["admin"])) {
 													<th>action</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="searchTable">
 												<?php
 												$product_resultset = Database::search("SELECT * FROM `product`
 												INNER JOIN `status` ON `status`.`status_id` = `product`.`status_id` ");
@@ -112,7 +112,7 @@ if (isset($_SESSION["admin"])) {
 														<td><?php echo $product_data["product_datetime_added"] ?></td>
 														<td><?php echo $product_data["status_type"]  ?></td>
 														<td>
-															<button type="button" class="btn btn-outline-danger btn-sm button-icon "><i class="fe fe-plus "><a href="update-product.php?product_id=<?php echo $product_id; ?>"></i>More</a></button>
+															<button type="button" class="btn btn-danger btn-sm button-icon "><i class="fe fe-plus "><a href="update-product.php?product_id=<?php echo $product_id; ?>"></i>More</a></button>
 														</td>
 														<td><button type="button" class="btn btn-icon  btn-dark" onclick="changestatusproduct('<?php echo $product_id; ?>')"><i class="fa fa-random"></i></button></td>
 														<td><button type="button" class="btn btn-icon  btn-danger" onclick="deleteproduct('<?php echo $product_id; ?>')"><i class="fa fa-trash"></i></button></td>

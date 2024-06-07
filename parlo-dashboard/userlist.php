@@ -78,8 +78,8 @@ if (isset($_SESSION["admin"])) {
 									<button onclick="window.print();"><i class="fa fa-file" aria-hidden="true"></i></button>
 								</div>
 
-								<div class="main-header-center d-sm-none d-md-none d-lg-block col-8 offset-2">
-									<input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i class="fas fa-search d-none d-md-block"></i></button>
+								<div class="main-header-center d-lg-block col-8 offset-2">
+									<input class="form-control" placeholder="Search for anything..." type="search" id="search_user" onkeypress="searchuser(event);"> <button class="btn"></button>
 								</div>
 
 								<div class="card-body">
@@ -95,7 +95,7 @@ if (isset($_SESSION["admin"])) {
 													<th>action</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="searchTable">
 												<?php
 												$user_resultset = Database::search("SELECT * FROM `user` 
 											INNER JOIN `status` ON `status`.`status_id` = `user`.`user_status_id` ");
