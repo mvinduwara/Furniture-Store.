@@ -2,6 +2,7 @@
 require "./content/connection.php";
 
 $quantity = $_GET["qtr"];
+$Product_Name = $_GET["pn"];
 $product_ID = $_GET["product_ID"];
 $product_price = $_GET["pc"];
 $delivery_fee = $_GET["df"];
@@ -78,6 +79,11 @@ $delivery_fee = $_GET["df"];
                                         </div>
                                         <div class="your-order-middle">
                                             <ul>
+                                                <li>Product Name <span><?php echo $Product_Name  ?> </span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-middle">
+                                            <ul>
                                                 <li>Product Quantity <span><?php echo $quantity  ?> </span></li>
                                             </ul>
                                         </div>
@@ -111,7 +117,7 @@ $delivery_fee = $_GET["df"];
                                     </div>
                                 </div>
                                 <div>
-                                    <button onclick="BuyNow(<?php echo $product_ID ?>,<?php echo  $product_price ?>,<?php echo  $quantity ?>,<?php echo  $delivery_fee ?>,<?php echo $product_price * $quantity + $delivery_fee ?>00);" type="submit" class="btn btn-danger">Buy Now</button>
+                                    <button onclick="BuyNow('<?php echo $product_ID ?>','<?php echo $Product_Name ?>','<?php echo  $product_price ?>','<?php echo  $quantity ?>','<?php echo  $delivery_fee ?>','<?php echo $product_price * $quantity + $delivery_fee ?>');" type="submit" class="btn btn-danger">Buy Now</button>
                                 </div>
 
 

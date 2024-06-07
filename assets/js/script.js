@@ -211,11 +211,9 @@ function addToCart(id, quantity,) {
 
 }
 
-function Buynow(product_ID,price, quantity,delivery_fee) {
-    // Construct the URL with query parameters
-    const url = `./Check-out.php?product_ID=${product_ID}&pc=${price}&qtr=${quantity}&df=${delivery_fee}`;
-    
-    // Redirect the browser to the constructed URL
+function Buynow(product_ID, price, quantity, delivery_fee,Product_Name) {
+    const url = `./Check-out.php?product_ID=${product_ID}&pn=${Product_Name}&pc=${price}&qtr=${quantity}&df=${delivery_fee}`;
+
     window.location.href = url;
 }
 
@@ -674,16 +672,16 @@ function ProductSingleViewModal(id) {
             console.log(text);
             console.log(text["product_image_path01"]);
             $('.product-details-content h2').text(text["product_name"]);
-            $('.product_Id_P').text("Product ID : "+text["product_id"]);
+            $('.product_Id_P').text("Product ID : " + text["product_id"]);
             $('.product-details-price span').text(text["product_price"]);
             $('.product_Description_P').text(text["product_description"]);
             $('.pro-details-list ul li[0]').text(text["product_dimentions"]);
             $('.pro-details-list ul li[1]').text(text["product_material"]);
 
-            $('.modal-img-1').attr('src','./product_img/path1/'+ encodeURIComponent(text["product_image_path01"]));
-            $('.modal-img-2').attr('src','./product_img/path2/'+ encodeURIComponent(text["product_image_path02"]));
-            $('.modal-img-3').attr('src','./product_img/path3/'+ encodeURIComponent(text["product_image_path03"]));
-            $('.modal-img-4').attr('src','./product_img/path4/'+ encodeURIComponent(text["product_image_path04"]));
+            $('.modal-img-1').attr('src', './product_img/path1/' + encodeURIComponent(text["product_image_path01"]));
+            $('.modal-img-2').attr('src', './product_img/path2/' + encodeURIComponent(text["product_image_path02"]));
+            $('.modal-img-3').attr('src', './product_img/path3/' + encodeURIComponent(text["product_image_path03"]));
+            $('.modal-img-4').attr('src', './product_img/path4/' + encodeURIComponent(text["product_image_path04"]));
 
             // $('#productID').text(id);
             $('#exampleModal').modal('show');
@@ -702,10 +700,11 @@ function ProductSingleViewModal(id) {
 }
 
 
-function BuyNow(id,price,quantity,delivery_fee,total_price) {
+function BuyNow(id,productName, price, quantity, delivery_fee, total_price) {
 
     var form = new FormData();
     form.append("id", id);
+    form.append("productName", productName);
     form.append("price", price);
     form.append("quantity", quantity);
     form.append("delivery_fee", delivery_fee);
@@ -716,8 +715,11 @@ function BuyNow(id,price,quantity,delivery_fee,total_price) {
         if (request.readyState == 4 && request.status == 200) {
             var text = request.responseText;
             console.log(text);
-
-            $('#exampleModal').modal('show');
+            if (text == "success") {
+                window.location = './check.php';
+            } else {
+                $('#exampleModal').modal('show');
+            }
 
         }
     };
@@ -727,7 +729,7 @@ function BuyNow(id,price,quantity,delivery_fee,total_price) {
 
 }
 
-function ModalLogIn(){
+function ModalLogIn() {
 
     var user_email = document.getElementById("modalEmail").value;
     var user_passowrd = document.getElementById("modalPassword").value;
@@ -834,7 +836,7 @@ function ModalSignUp() {
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
                 var text = request.responseText;
-                console.log("text => "+text);      
+                console.log("text => " + text);
                 if (text == "success") {
                     window.location = "./check.php";
                 } else {
