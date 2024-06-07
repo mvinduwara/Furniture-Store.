@@ -47,7 +47,7 @@ session_start();
                             <div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
                                 <div class="slider-content slider-animated-1">
                                     <h1 class="animated">Wooden Craft</h1>
-                                    <p class="animated">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader.</p>
+                                    <p class="animated">In the new collection of sofas, tables and chairs, brass, the material of choice, interacts with stone, fabric and leather.</p>
                                     <div class="slider-btn btn-hover">
                                         <a class="animated" href="shop.php">Shop Now <i class="sli sli-basket-loaded"></i></a>
                                     </div>
@@ -458,7 +458,6 @@ session_start();
                     <div class="col-lg-10 ml-auto mr-auto">
                         <div class="testimonial-active owl-carousel nav-style-1">
                             <div class="single-testimonial text-center">
-                                <img src="assets/img/testimonial/testi-1.png" alt="">
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. Lorem ipsum dolor sit amet, consectetur adipiscing elit, didunt.</p>
                                 <div class="client-info">
                                     <img src="assets/img/icon-img/testi.png" alt="">
@@ -466,7 +465,6 @@ session_start();
                                 </div>
                             </div>
                             <div class="single-testimonial text-center">
-                                <img src="assets/img/testimonial/testi-2.png" alt="">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit.</p>
                                 <div class="client-info">
                                     <img src="assets/img/icon-img/testi.png" alt="">

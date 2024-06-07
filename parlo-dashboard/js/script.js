@@ -320,3 +320,22 @@ function  deleteproduct(x){
 
 }
 
+function deleteuser(x){
+    // alert(x);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            if (text == "success") {
+                window.location.reload();
+
+            } else {
+                alert(text);
+            }
+        }
+    }
+    request.open("GET", "./process/delete_user_process.php?user_id=" + x , true);
+    request.send();
+}
+

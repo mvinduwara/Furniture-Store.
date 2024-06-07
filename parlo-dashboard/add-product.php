@@ -121,20 +121,20 @@ if (isset($_SESSION["admin"])) {
                                                 <div class="form-group col-4">
                                                     <label class="form-label">Select model</label>
                                                     <select class="form-control select2-no-search" data-bs-placeholder="" id="model_id">
-                                                        <?php 
+                                                        <?php
                                                         $product_model_resultset = Database::search("SELECT * FROM `product_model`");
                                                         $product_model_count = $product_model_resultset->num_rows;
 
                                                         for ($i = 0; $i < $product_model_count; $i++) {
                                                             $product_model_data = $product_model_resultset->fetch_assoc();
-                                                            ?>
-                                                             <option value="<?php echo $product_model_data["product_model_id"];  ?>"><?php echo $product_model_data["product_model_type"];  ?></option>
+                                                        ?>
+                                                            <option value="<?php echo $product_model_data["product_model_id"];  ?>"><?php echo $product_model_data["product_model_type"];  ?></option>
 
 
                                                         <?php
                                                         }
                                                         ?>
-                                                       
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -142,37 +142,37 @@ if (isset($_SESSION["admin"])) {
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product name</label>
-                                                    <input type="text" class="form-control"  placeholder="product_name" id="product_name">
+                                                    <input type="text" class="form-control" placeholder="product_name" id="product_name">
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product title</label>
-                                                    <input type="text" class="form-control"  placeholder="product_tile" id="product_title">
+                                                    <input type="text" class="form-control" placeholder="product_tile" id="product_title">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product quantity</label>
-                                                    <input type="text" class="form-control"  placeholder="product_quantity" id="product_quantity" >
+                                                    <input type="text" class="form-control" placeholder="product_quantity" id="product_quantity">
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product designer name</label>
-                                                    <input type="text" class="form-control"  placeholder="product_designer" id="product_designer_name" >
+                                                    <input type="text" class="form-control" placeholder="product_designer" id="product_designer_name">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product dimention</label>
-                                                    <input type="text" class="form-control"  placeholder="product_dimention" id="product_dimention" >
+                                                    <input type="text" class="form-control" placeholder="product_dimention" id="product_dimention">
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product Type</label>
-                                                    <input type="text" class="form-control"  placeholder="product_type" id="product_type" >
+                                                    <input type="text" class="form-control" placeholder="product_type" id="product_type">
                                                 </div>
                                                 <div class="form-group col-6">
                                                     <label for="exampleInputPassword1">product material</label>
-                                                    <input type="text" class="form-control"  placeholder="product_material" id="product_material" >
+                                                    <input type="text" class="form-control" placeholder="product_material" id="product_material">
                                                 </div>
                                             </div>
 
@@ -199,7 +199,7 @@ if (isset($_SESSION["admin"])) {
                                                         <div class="input-group-text">
                                                             <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                                         </div>
-                                                        <input class="form-control"  placeholder="MM/DD/YYYY" type="date" id="product_adding_date">
+                                                        <input class="form-control" placeholder="MM/DD/YYYY" type="date" id="product_adding_date">
                                                     </div>
                                                 </div>
                                             </div>
@@ -279,12 +279,10 @@ if (isset($_SESSION["admin"])) {
             <!-- MAIN-FOOTER -->
             <div class="main-footer">
                 <div class="container-fluid pd-t-0 ht-100p">
-                    <span> Copyright © <span id="year"></span> <a href="javascript:void(0);" class="text-primary">Valex</a>.
-                        Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);"> Spruko
-                        </a> All rights reserved.</span>
+                    <span> Copyright © <span id="year"></span><span>All rights reserved.</span>
                 </div>
             </div>
-            <!-- END MAIN-FOOTER -->
+            <!-- MAIN-FOOTER -->
 
         </div>
         <!-- END PAGE-->

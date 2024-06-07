@@ -70,11 +70,16 @@ if (isset($_SESSION["admin"])) {
 					<div class="row mt-3">
 						<div class="col-lg-12">
 							<div class="card">
+
 								<div class="card-header">
 									<h3 class="card-title">Product management</h3>
 									<button onclick="window.print();"><i class="fa fa-file" aria-hidden="true"></i></button>
-									
 								</div>
+
+								<div class="main-header-center d-sm-none d-md-none d-lg-block col-8 offset-2">
+									<input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"></button>
+								</div>
+
 								<div class="card-body">
 									<div class="table-responsive">
 										<table class="table table-bordered border text-nowrap mb-0" id="basic-edit">
@@ -110,7 +115,7 @@ if (isset($_SESSION["admin"])) {
 															<button type="button" class="btn btn-outline-danger btn-sm button-icon "><i class="fe fe-plus "><a href="update-product.php?product_id=<?php echo $product_id; ?>"></i>More</a></button>
 														</td>
 														<td><button type="button" class="btn btn-icon  btn-dark" onclick="changestatusproduct('<?php echo $product_id; ?>')"><i class="fa fa-random"></i></button></td>
-														<td><button type="button" class="btn btn-icon  btn-danger" onclick="deleteproduct('<?php echo $product_id; ?>')" ><i class="fa fa-trash"></i></button></td>
+														<td><button type="button" class="btn btn-icon  btn-danger" onclick="deleteproduct('<?php echo $product_id; ?>')"><i class="fa fa-trash"></i></button></td>
 													</tr>
 
 												<?php
@@ -133,9 +138,7 @@ if (isset($_SESSION["admin"])) {
 			<!-- MAIN-FOOTER -->
 			<div class="main-footer">
 				<div class="container-fluid pd-t-0 ht-100p">
-					<span> Copyright © <span id="year"></span> <a href="javascript:void(0);" class="text-primary">Valex</a>.
-						Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);"> Spruko
-						</a> All rights reserved.</span>
+					<span> Copyright © <span id="year"></span><span>All rights reserved.</span>
 				</div>
 			</div>
 			<!-- END MAIN-FOOTER -->
@@ -145,7 +148,7 @@ if (isset($_SESSION["admin"])) {
 
 
 		<!-- SCRIPTS -->
-		<script src="js/script.js" ></script>
+		<script src="js/script.js"></script>
 		<!-- BACK TO TOP -->
 		<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
 

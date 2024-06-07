@@ -104,7 +104,7 @@ if (isset($_SESSION["admin"])) {
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="exampleInputPassword1">product title</label>
-                                                <input type="text" class="form-control" id="product_title" placeholder="Password" value="<?php echo $product_detail_data["product_title"];  ?>">
+                                                <input type="text" class="form-control" id="product_title" placeholder="product title" value="<?php echo $product_detail_data["product_title"];  ?>">
                                             </div>
                                         </div>
 
@@ -196,11 +196,11 @@ if (isset($_SESSION["admin"])) {
 
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path1<?php echo $product_image_data["product_image_path01"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="l0" />
+                                                                <img src="../../viva-project/product_img/path1/<?php echo $product_image_data["product_image_path01"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="l0" />
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path2<?php echo $product_image_data["product_image_path02"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="j0" />
+                                                                <img src="../../viva-project/product_img/path2/<?php echo $product_image_data["product_image_path02"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="j0" />
                                                             </div>
 
                                                             <div class="col-3">
