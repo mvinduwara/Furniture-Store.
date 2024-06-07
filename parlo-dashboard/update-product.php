@@ -104,7 +104,7 @@ if (isset($_SESSION["admin"])) {
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="exampleInputPassword1">product title</label>
-                                                <input type="text" class="form-control" id="product_title" placeholder="Password" value="<?php echo $product_detail_data["product_title"];  ?>">
+                                                <input type="text" class="form-control" id="product_title" placeholder="product title" value="<?php echo $product_detail_data["product_title"];  ?>">
                                             </div>
                                         </div>
 

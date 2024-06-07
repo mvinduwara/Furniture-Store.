@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -26,7 +27,7 @@
 
 <body>
     <div class="wrapper">
-        
+
         <!-- header-sestion -->
         <?php require "./content/header.php" ?>
         <!-- header-sestion -->
@@ -60,15 +61,15 @@
                         <div class="story-details pl-50">
                             <div class="story-details-top">
                                 <h2>WELCOME TO <span>parlo</span></h2>
-                                <p>Parlo provide how all this mistaken idea of denouncing pleasure and sing pain was born an will give you a complete account of the system, and expound the actual teachings of the eat explorer. </p>
+                                <p>From the hallway to the bedroom, each room of our home speaks volumes about us, makes our tastes visible and conveys our style through the choices we make with regards to furnishing. Archiproducts’ “Furniture” section offers a wide selection of furniture for the living area, sofas and armchairs for the relax area as well as tables and chairs for the dining area, next to bookshelves and cabin units and a rich section for the sleeping area that includes the kids bedrooms. </p>
                             </div>
                             <div class="story-details-bottom">
-                                <h4>WE START AT 2015</h4>
-                                <p>Parlo provide how all this mistaken idea of denouncing pleasure and sing pain was born an will give you a complete account of the system, and expound the actual teachings of the eat explorer.</p>
+                                <h4>The value of a quality piece of furniture</h4>
+                                <p>Once in a lifetime (and even more) we might need to move out and want some pieces of furniture to come along, for their intrinsic emotional value that goes well beyond their strict economic one. This is why it is better to opt for furnishing elements that last through time, designed and manufactured by designers and firms that care for the quality and use of the raw materials. Some pieces of furniture have entered the history of design and are at current exhibited by the most prestigious museums in the world; on the contrary our home furnishing needs to be used on a daily basis and in order to stand the test of time they have to be made with an aim to endure. Choosing a design piece of furniture means making a long-term choice, that we won’t have to repeat in a short time.</p>
                             </div>
                             <div class="story-details-bottom">
-                                <h4>WIN BEST ONLINE SHOP AT 2017</h4>
-                                <p>Parlo provide how all this mistaken idea of denouncing pleasure and sing pain was born an will give you a complete account of the system, and expound the actual teachings of the eat explorer. </p>
+                                <h4>Design furniture: from the living to the sleeping area</h4>
+                                <p>A full project of interior design encompasses a multitude of products, objects and models of the most diverse shapes and materials. From iconic classic-inspired pieces to more modular contemporary solutions, the furnishing composition can make use of elements with common or contrasting characteristics, for a striking mix&match effect. In tinier apartments, the living area is often the only open space that includes an area for relaxation, the dining area and an open kitchen. Also in larger apartments, open space can be an aesthetic choice to make the spaces and their functions look more homogeneous and fluid. </p>
                             </div>
                         </div>
 
@@ -76,25 +77,26 @@
                 </div>
             </div>
         </div>
-        <div class="banner-area pb-100">
+        <div class="banner-area pb-120">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-banner mb-30 scroll-zoom">
-                            <a href="#"><img class="animated" src="assets/img/banner/banner-9.png" alt=""></a>
-                            <div class="banner-content banner-position-6">
-                                <h3>Black Friday</h3>
-                                <h2>Wall Lighting <br>Black.</h2>
-                                <a href="#">Shop Now</a>
+                            <a href="product-details.html"><img src="assets/img/banner/banner-4.png" alt=""></a>
+                            <div class="banner-content banner-position-3">
+                                <h3>Black Monday</h3>
+                                <h2>Wooden Lamp <br>Save 30%</h2>
+                                <a href="product-details.html">Shop Now</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div class="single-banner mb-30 text-center scroll-zoom">
-                            <a href="#"><img class="animated" src="assets/img/banner/banner-10.png" alt=""></a>
-                            <div class="banner-content-3 banner-position-7">
-                                <h2>Wall Lighting Black.</h2>
-                                <a href="#">Shop Now</a>
+                        <div class="single-banner mb-30 scroll-zoom">
+                            <a href="product-details.html"><img src="assets/img/banner/banner-5.png" alt=""></a>
+                            <div class="banner-content banner-position-4">
+                                <h3>Black Monday</h3>
+                                <h2>Wooden Lamp <br>Save 30%</h2>
+                                <a href="product-details.html">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -165,163 +167,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="team-area pt-95 pb-70">
-            <div class="container">
-                <div class="section-title text-center pb-60">
-                    <h2>Team Members</h2>
-                    <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="team-wrapper mb-30">
-                            <div class="team-img">
-                                <a href="#">
-                                    <img src="assets/img/team/team-1.jpg" alt="">
-                                </a>
-                                <div class="team-action">
-                                    <a class="facebook" href="#">
-                                        <i class="sli sli-social-facebook"></i>
-                                    </a>
-                                    <a class="twitter" title="Wishlist" href="#">
-                                        <i class="sli sli-social-twitter"></i>
-                                    </a>
-                                    <a class="instagram" href="#">
-                                        <i class="sli sli-social-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="team-content text-center">
-                                <h4>Mr.Mike Banding</h4>
-                                <span>Manager </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="team-wrapper mb-30">
-                            <div class="team-img">
-                                <a href="#">
-                                    <img src="assets/img/team/team-3.jpg" alt="">
-                                </a>
-                                <div class="team-action">
-                                    <a class="facebook" href="#">
-                                        <i class="sli sli-social-facebook"></i>
-                                    </a>
-                                    <a class="twitter" title="Wishlist" href="#">
-                                        <i class="sli sli-social-twitter"></i>
-                                    </a>
-                                    <a class="instagram" href="#">
-                                        <i class="sli sli-social-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="team-content text-center">
-                                <h4>Mr.Peter Pan</h4>
-                                <span>Developer </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="team-wrapper mb-30">
-                            <div class="team-img">
-                                <a href="#">
-                                    <img src="assets/img/team/team-2.jpg" alt="">
-                                </a>
-                                <div class="team-action">
-                                    <a class="facebook" href="#">
-                                        <i class="sli sli-social-facebook"></i>
-                                    </a>
-                                    <a class="twitter" title="Wishlist" href="#">
-                                        <i class="sli sli-social-twitter"></i>
-                                    </a>
-                                    <a class="instagram" href="#">
-                                        <i class="sli sli-social-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="team-content text-center">
-                                <h4>Ms.Sophia</h4>
-                                <span>Designer </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="team-wrapper mb-30">
-                            <div class="team-img">
-                                <a href="#">
-                                    <img src="assets/img/team/team-4.jpg" alt="">
-                                </a>
-                                <div class="team-action">
-                                    <a class="facebook" href="#">
-                                        <i class="sli sli-social-facebook"></i>
-                                    </a>
-                                    <a class="twitter" title="Wishlist" href="#">
-                                        <i class="sli sli-social-twitter"></i>
-                                    </a>
-                                    <a class="instagram" href="#">
-                                        <i class="sli sli-social-instagram"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="team-content text-center">
-                                <h4>Mr.John Lee</h4>
-                                <span>Chairmen </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="footer-area bg-paleturquoise">
-            <div class="container">
-                <div class="footer-top text-center pt-45 pb-45">
-                    <nav>
-                        <ul>
-                            <li><a href="#">Home </a></li>
-                            <li><a href="#">Shop </a></li>
-                            <li><a href="#">Accessories </a></li>
-                            <li><a href="#">Contact </a></li>
-                            <li><a href="#">About </a></li>
-                            <li><a href="#">Blog </a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="footer-bottom border-top-1 pt-20">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 col-md-5 col-12">
-                            <div class="footer-social pb-20">
-                                <a href="#">Facebok</a>
-                                <a href="#">Twitter</a>
-                                <a href="#">Linkedin</a>
-                                <a href="#">Instagram</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="copyright text-center pb-20">
-                                <p>Copyright © All Right Reserved</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-3 col-12">
-                            <div class="payment-mathod pb-20">
-                                <a href="#"><img src="assets/img/icon-img/payment.png" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </div>    
+
+         <!-- footer-start -->
+         <?php require "./content/footer.php"; ?>
+        <!-- footer-end-->
     </div>
-
-
-
-
-
-
-
-
-
 
     <!-- All JS is here
 ============================================ -->

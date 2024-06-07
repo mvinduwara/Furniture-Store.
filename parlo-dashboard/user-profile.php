@@ -234,10 +234,9 @@ session_start();
 			<!-- MAIN-FOOTER -->
 			<div class="main-footer">
 				<div class="container-fluid pd-t-0 ht-100p">
-					<span> Copyright © <span id="year"></span> <a href="javascript:void(0);" class="text-primary">Valex</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);"> Spruko </a> All rights reserved.</span>
+					<span> Copyright © <span id="year"></span><span>All rights reserved.</span>
 				</div>
 			</div>
-			<!-- END MAIN-FOOTER -->
 
 		</div>
 		<!-- END PAGE-->
