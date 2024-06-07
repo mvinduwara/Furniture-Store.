@@ -29,7 +29,6 @@
                                     <div class="tab-pane tab-content-show active" id="side14">
                                         <ul class="sidemenu-list">
                                             <li><a class="slide-item" href="index.php">Dashboard</a></li>
-                                            <li><a class="slide-item" href="#">not link</a>
                                         </ul>
                                     </div>
                                 </div>
@@ -51,8 +50,6 @@
                                     <div class="tab-pane tab-content-show active" id="side17">
                                         <ul class="sidemenu-list">
                                             <li><a class="slide-item" href="userlist.php">user list</a></li>
-                                            <li><a class="slide-item" href="#">not link</a></li>
-                                            <li><a class="slide-item" href="#">not link</a></li>
                                         </ul>
                                     </div>
                                 </div>

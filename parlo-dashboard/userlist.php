@@ -74,7 +74,7 @@ if (isset($_SESSION["admin"])) {
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Product management</h3>
+									<h3 class="card-title">User management</h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -109,7 +109,9 @@ if (isset($_SESSION["admin"])) {
 														<td>
 															<button type="button" class="btn btn-outline-danger btn-sm button-icon "><i class="fe fe-plus "><a href="user-profile.php?user_id=<?php echo $user_id; ?>"></i>More</a></button>
 														</td>
-														<td><button type="button" class="btn btn-icon  btn-danger" ><i class="fe fe-trash" onclick="changestatus('<?php echo $user_id; ?>')"></i></button></td>
+														<td><button type="button" class="btn btn-icon  btn-dark" ><i class="fa fa-random" onclick="changestatus('<?php echo $user_id; ?>')"></i></button></td>
+														<td><button type="button" class="btn btn-icon  btn-danger" onclick="deleteuser('<?php echo $user_id; ?>')" ><i class="fa fa-trash"></i></button></td>
+
 													</tr>
 												<?php
 												}
