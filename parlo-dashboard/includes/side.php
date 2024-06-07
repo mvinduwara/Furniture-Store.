@@ -73,6 +73,7 @@
                                         <ul class="sidemenu-list">
                                             <li><a class="slide-item" href="add-product.php">Add Product</a></li>
                                             <li><a class="slide-item" href="product-management.php">update Product</a></li>
+                                            <li><a class="slide-item" href="element-adding.php">Element Product</a></li>
                                         </ul>
                                     </div>
                                 </div>
