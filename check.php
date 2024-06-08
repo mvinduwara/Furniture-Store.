@@ -26,7 +26,7 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $checkout_session = \Stripe\Checkout\Session::create([
             "mode" => "payment",
-            "success_url" => "http://localhost/viva-project/invoice.php?session_id={CHECKOUT_SESSION_ID}",
+            "success_url" => "http://localhost/viva-project/invoice-page.php?session_id={CHECKOUT_SESSION_ID}",
             "cancel_url" => "http://localhost/clozet/cancel.php",
             "payment_method_types" => ['card'],
             "line_items" => [
