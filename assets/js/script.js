@@ -851,3 +851,7 @@ function ModalSignUp() {
     }
 
 }
+
+function pagedirecting(){
+    window.location = "./index.php";
+}

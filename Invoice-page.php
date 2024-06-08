@@ -109,6 +109,9 @@
                                         <a href="javascript:void(0);" class="btn btn-danger float-end mt-3 ms-2" onclick="javascript:window.print();">
                                             <i class="mdi mdi-printer me-1"></i>Print
                                         </a>
+                                        <a href="javascript:void(0);" class="btn btn-danger float-end mt-3 ms-2" onclick="pagedirecting();">
+                                            <i class="mdi mdi-printer me-1"></i>Cancel
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +125,9 @@
     <div style="background-color: #f8f9fa; padding: 20px; text-align: center;">
         <p style="color: #6f42c1;">Contact us at: youremail@company.com | Phone: 123-456-7890</p>
     </div>
+
+    <!-- script-files -->
+    <script src="assets/js/script.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
