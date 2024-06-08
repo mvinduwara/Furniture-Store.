@@ -216,6 +216,7 @@ if (isset($_SESSION["user"]) && isset($_POST["delivery"]) && isset($_POST["sub_t
                                             </div>
                                         </div>
 
+                                        <!-- data-passing-part-check.php (form-hidden)-->
                                         <form action="check.php" method="POST">
                                             <input type="hidden" name="delivery" value="<?php echo $delivery ?> ">
                                             <input type="hidden" name="total" value="<?php echo $sub_total + $delivery ?>">

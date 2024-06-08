@@ -160,8 +160,8 @@ $delivery_fee = $_GET["df"];
                         </div>
                     </fieldset>
                     <div class="single-input-item p-5">
-                        <button class="check-btn sqr-btn" type="button" onclick="ModalLogIn();">Log In</button>
-                        <button id="modalSignUp" class="check-btn sqr-btn" type="button">Don't Have an Account ? Sign Up</button>
+                        <button class="check-btn  btn btn-danger" type="button" onclick="ModalLogIn();">Log In</button>
+                        <button id="modalSignUp" class="check-btn sqr-btn btn btn-danger" type="button">Don't Have an Account ? Sign Up</button>
 
                     </div>
                 </div>
@@ -203,8 +203,8 @@ $delivery_fee = $_GET["df"];
                         </div>
                     </fieldset>
                     <div class="single-input-item p-5">
-                        <button class="check-btn sqr-btn" type="button" onclick="ModalSignUp();">Sign Up</button>
-                        <button id="modalLogIn" class="check-btn sqr-btn" type="button">Already Have an Account ? Log In</button>
+                        <button class="check-btn sqr-btn btn btn-danger" type="button" onclick="ModalSignUp();">Sign Up</button>
+                        <button id="modalLogIn" class="check-btn sqr-btn btn btn-danger" type="button">Already Have an Account ? Log In</button>
 
                     </div>
                 </div>

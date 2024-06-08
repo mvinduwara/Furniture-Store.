@@ -45,6 +45,7 @@
                 </div>
             </div>
         </div>
+
         <!--navigation-section-end-->
         <div class="about-story-area pt-100 pb-100">
             <div class="container">
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </div>
+
         <div class="banner-area pb-120">
             <div class="container">
                 <div class="row">
@@ -103,6 +105,7 @@
                 </div>
             </div>
         </div>
+
         <div class="feature-area pb-60">
             <div class="container">
                 <div class="row">
@@ -142,6 +145,7 @@
                 </div>
             </div>
         </div>
+
         <div class="testimonial-area pt-80 pb-95 section-margin-1" style="background-image: url(assets/img/bg/bg-1.jpg);">
             <div class="container">
                 <div class="row">
@@ -175,7 +179,7 @@
     </div>
 
     <!-- All JS is here
-============================================ -->
+    =================================================== -->
 
     <!-- jQuery JS -->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
