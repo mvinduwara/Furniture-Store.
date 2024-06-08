@@ -1,4 +1,6 @@
 <?php
+
+require './process/orderprocess.php';
 require __DIR__ . '/vendor/autoload.php';
 
 $stripe_secret_key_checkout = "sk_test_51POCJL2Nk5TrDRMKauVeWILmasqokWGaSVbfwatJhaVeXNIeHtL8StifzShLFbnh7C6ljbCqa0oKLKvanRK8owLI00ERQpc88Y";
@@ -9,6 +11,8 @@ $stripe_secret_key_invoice = "sk_test_51POCJL2Nk5TrDRMKauVeWILmasqokWGaSVbfwatJh
 session_start(); // Start the session 
 
 if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $orderID = uniqid();
 
     if (isset($_SESSION['order'])) {
         $product_name = $_SESSION['order']['productName'];
@@ -26,7 +30,7 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $checkout_session = \Stripe\Checkout\Session::create([
             "mode" => "payment",
-            "success_url" => "http://localhost/viva-project/invoice-page.php?session_id={CHECKOUT_SESSION_ID}",
+            "success_url" => "http://localhost/viva-project/invoice-page.php?order_ID=" . $orderID,
             "cancel_url" => "http://localhost/clozet/cancel.php",
             "payment_method_types" => ['card'],
             "line_items" => [
@@ -43,12 +47,13 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
             ]
         ]);
         http_response_code(303);
+        createOrder($orderID, $product_price);
         header('Location: ' . $checkout_session->url);
         exit; // Add exit after header redirect to prevent further execution
     } catch (\Exception $e) {
         // Log error to file or database
-        error_log('Error creating checkout session: ' . $e->getMessage());
         http_response_code(500);
-        echo "Error processing payment. Please try again later.";
+        error_log('Error creating checkout session: ' . $e->getMessage());
+        // echo "Error processing payment. Please try again later.";
     }
 }
