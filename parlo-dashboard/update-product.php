@@ -197,19 +197,19 @@ if (isset($_SESSION["admin"])) {
 
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path1/<?php echo $product_image_data["product_image_path01"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="l0" />
+                                                                <img src="path1/<?php echo $product_image_data["product_image_path01"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="l0" />
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path2/<?php echo $product_image_data["product_image_path02"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="j0" />
+                                                                <img src="path2/<?php echo $product_image_data["product_image_path02"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="j0" />
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path3/<?php echo $product_image_data["product_image_path03"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="y0" />
+                                                                <img src="path3/<?php echo $product_image_data["product_image_path03"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="y0" />
                                                             </div>
 
                                                             <div class="col-3">
-                                                                <img src="../../viva-project/product_img/path4/<?php echo $product_image_data["product_image_path04"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="t0" />
+                                                                <img src="path4/<?php echo $product_image_data["product_image_path04"];  ?>" class="img-fluid rounded-4" style="width: 250px; height: 150px;" id="t0" />
                                                             </div>
                                                         </div>
                                                     </div>
