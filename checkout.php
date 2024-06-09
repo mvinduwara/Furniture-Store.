@@ -221,7 +221,7 @@ if (isset($_SESSION["user"]) && isset($_POST["delivery"]) && isset($_POST["sub_t
                                             <input type="hidden" name="delivery" value="<?php echo $delivery ?> ">
                                             <input type="hidden" name="total" value="<?php echo $sub_total + $delivery ?>">
                                             <input type="hidden" name="quantity" value="<?php echo $quantity ?> ">
-                                            <button type="submit" class="btn btn-danger">Link Text</button>
+                                            <button type="submit" class="btn btn-danger">Buy now</button>
                                         </form>
 
 

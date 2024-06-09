@@ -67,6 +67,7 @@ if (isset($_SESSION["user"])) {
             $user_cart_resultset = Database::search("SELECT * FROM `product_cart` WHERE `user_id` = '" . $user_id . "'");
             $user_cart_num = $user_cart_resultset->num_rows;
 
+            $total=0;
             if ($user_cart_num == 0) {
 
             ?>
@@ -100,26 +101,46 @@ if (isset($_SESSION["user"])) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $user_cart_data_resultset = Database::search("SELECT * FROM `product_cart` WHERE `user_id`='" . $user_id . "' ");
+                                                $user_cart_data_resultset = Database::search("SELECT * FROM `product_cart`
+                                                INNER JOIN `product` ON `product`.`product_id` = `product_cart`.`product_id`
+                                                INNER JOIN `product_images` ON `product_images`.`product_id` = `product`.`product_id`
+                                                 WHERE `user_id`='" . $user_id . "' ");
                                                 $user_cart_data_count = $user_cart_data_resultset->num_rows;
 
                                                 for ($i = 0; $i < $user_cart_data_count; $i++) {
-                                                    $user_cart_data = $user_cart_data_resultset->fetch_assoc();
+                                                    $product_data = $user_cart_data_resultset->fetch_assoc();
 
-                                                    $product_resulset = Database::search("SELECT * FROM `product` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
-                                                    $product_data = $product_resulset->fetch_assoc();
-                                                    $sub_total += (((int)$product_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
-                                                    $delivery = ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;
+                                                    // $sub_total += (((int)$user_cart_data["product_price"]) * ((int)$user_cart_data["product_cart_quantity"]));
+                                                    $delivery = ((int)1000) * $user_cart_data_count;
+                                                    
+                                                    $product_id = $product_data["product_id"];
+                                                    $product_name = $product_data["product_name"];
+                                                    $product_img = $product_data["product_image_path01"];
+                                                    $product_price = $product_data["product_price"];
+                                                    $product_quantity = $product_data["product_cart_quantity"];
+                                                    $subtotal = $product_price * $product_quantity;
+                                                    
+                                                    $total+=$subtotal;
 
-                                                    $product_image_resultset = Database::search("SELECT * FROM `product_images` WHERE `product_id` = '" . $user_cart_data["product_id"] . "' ");
-                                                    $product_image_data = $product_image_resultset->fetch_assoc();
+                                                    $cart_items[] = array(
+                                                        'product_id' => $product_id,
+                                                        'product_name' => $product_name,
+                                                        'product_img' => $product_img,
+                                                        'product_price' => $product_price,
+                                                        'product_quantity' => $product_quantity,
+                                                        'subtotal' => $subtotal
+                                                    );
+                                                    $_SESSION['cart'] = $cart_items;
+                                                }
 
 
+                                                foreach ($_SESSION['cart'] as $cart_item) {
                                                 ?>
+
                                                     <tr>
                                                         <td class="product-thumbnail">
                                                             <?php
-                                                            if (empty($product_image_data["product_image_path01"])) {
+                                                            if (empty($cart_item["product_img"])) {
                                                             ?>
 
                                                                 <a href="#"><img src="resources/img/No-Image.jpg" alt=""></a>
@@ -128,24 +149,25 @@ if (isset($_SESSION["user"])) {
                                                             } else {
                                                             ?>
 
-                                                                <a href=" #"><img src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>" alt="" style="width: 90px; height: 90px;"></a>
+                                                                <a href="#"><img src="product_img/path1/<?php echo $cart_item["product_img"]; ?>" alt="" style="width: 90px; height: 90px;"></a>
 
                                                             <?php
                                                             }
                                                             ?>
 
                                                         </td>
-                                                        <td class="product-name"><a href="#"><?php echo $product_data["product_name"]  ?></a></td>
-                                                        <td class="product-price-cart"><span class="amount">RS <?php echo $product_data["product_price"]  ?>.00</span></td>
-                                                        <td class="product-quantity"><?php echo $user_cart_data["product_cart_quantity"]  ?></td>
-                                                        <td class="product-subtotal">RS <?php echo $product_data["product_price"]  ?>.00</td>
+                                                        <td class="product-name"><a href="#"><?php echo $cart_item["product_name"]  ?></a></td>
+                                                        <td class="product-price-cart"><span class="amount">RS <?php echo $cart_item["product_price"]  ?>.00</span></td>
+                                                        <td class="product-quantity"><?php echo $cart_item["product_quantity"]  ?></td>
+                                                        <td class="product-subtotal">RS <?php echo $cart_item["subtotal"]  ?>.00</td>
                                                         <td class="product-remove">
-                                                            <a href="#" onclick="removecartproduct(<?php echo $product_data['product_id']; ?>)"><i class="sli sli-close"></i></a>
+                                                            <a href="#" onclick="removecartproduct(<?php echo $cart_item['product_id']; ?>)"><i class="sli sli-close"></i></a>
                                                         </td>
                                                     </tr>
 
                                                 <?php
                                                 }
+
                                                 ?>
 
                                             </tbody>
@@ -182,17 +204,17 @@ if (isset($_SESSION["user"])) {
                                             <div class="total-shipping">
                                                 <h5>Total shipping</h5>
                                                 <ul>
-                                                    <li><input type="checkbox"> SubTatal <span>Rs <?php echo $sub_total  ?>.00</span></li>
+                                                    <li><input type="checkbox"> SubTatal <span>Rs <?php echo $total  ?>.00</span></li>
                                                     <li><input type="checkbox"> Delivery fee <span><?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count;   ?></span></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo (((int)$product_data["product_delivery_fee"]) * $user_cart_data_count + $sub_total); ?> .00</span></h4>
+                                            <h4 class="grand-totall-title">Grand Total <span>Rs <?php echo ((int)$product_data["product_delivery_fee"]* $user_cart_data_count)+$total; ?>.00</span></h4>
 
                                             <form action="checkout.php" method="POST">
                                                 <input type="hidden" name="delivery" value="<?php echo ((int)$product_data["product_delivery_fee"]) * $user_cart_data_count; ?>">
-                                                <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>">
+                                                <input type="hidden" name="sub_total" value="<?php echo $total; ?>">
                                                 <input type="hidden" name="quantity" value="<?php echo $user_cart_data_count * ((int)$user_cart_data["product_cart_quantity"]) ?>">
-                                                <button type="submit" class="btn btn-danger">Link Text</button>
+                                                <button type="submit" class="btn btn-danger">Check now</button>
                                             </form>
 
                                         </div>
@@ -216,7 +238,7 @@ if (isset($_SESSION["user"])) {
             <!-- All JS is here
 ============================================ -->
 
-            
+
 
             <!-- script.js -->
             <script src="assets/js/script.js"></script>

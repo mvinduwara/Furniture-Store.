@@ -7,6 +7,7 @@ $product_ID = $_GET["product_ID"];
 $product_price = $_GET["pc"];
 $delivery_fee = $_GET["df"];
 
+unset($_SESSION['cart']);
 
 ?>
 <!doctype html>
@@ -118,7 +119,7 @@ $delivery_fee = $_GET["df"];
                                 </div>
 
                                 <div>
-                                    <button onclick="BuyNow('<?php echo $product_ID ?>','<?php echo $Product_Name ?>','<?php echo  $product_price ?>','<?php echo  $quantity ?>','<?php echo  $delivery_fee ?>','<?php echo $product_price * $quantity + $delivery_fee ?>');" type="submit" class="btn btn-danger">Buy Now</button>
+                                    <button onclick="BuyNow('<?php echo $product_ID ?>','<?php echo  $quantity ?>','<?php echo  $delivery_fee ?>','<?php echo $product_price * $quantity + $delivery_fee ?>');" type="submit" class="btn btn-danger">Buy Now</button>
                                 </div>
 
                             </div>

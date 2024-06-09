@@ -106,7 +106,7 @@ if (isset($_SESSION["user"])) {
                                                                     <tr>
                                                                         <td><?php echo $item["product_id"]; ?></td>
                                                                         <td class="tx-12 p-2">
-                                                                            <img src="product_img/path1/<?php echo $item["product_image_path01"] ?>" width="100%" height="100px" />
+                                                                            <img src="product_img/path1/<?php echo $item["product_image_path01"] ?>" width="100px" height="100px" />
                                                                         </td>
                                                                         <td class="tx-center"><?php echo $item["product_name"] ?></td>
                                                                         <td class="tx-right"><?php echo $item["product_price"] ?></td>
@@ -142,7 +142,7 @@ if (isset($_SESSION["user"])) {
                 </div>
 
                 <div style="background-color: #f8f9fa; padding: 20px; text-align: center;">
-                    <p style="color: #6f42c1;">Contact us at: youremail@company.com | Phone: 123-456-7890</p>
+                    <p style="color: #6f42c1;">Contact us at: parloemail@companyname.com | Phone: 123-456-7890</p>
                 </div>
 
                 <!-- script-files -->

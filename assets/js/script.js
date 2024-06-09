@@ -704,8 +704,6 @@ function BuyNow(id,productName, price, quantity, delivery_fee, total_price) {
 
     var form = new FormData();
     form.append("id", id);
-    form.append("productName", productName);
-    form.append("price", price);
     form.append("quantity", quantity);
     form.append("delivery_fee", delivery_fee);
     form.append("total_price", total_price);
