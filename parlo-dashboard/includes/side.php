@@ -4,8 +4,8 @@
     <aside class="app-sidebar sidebar-scroll">
         <!-- logo-start -->
         <div class="main-sidebar-header active">
-            <a class="desktop-logo logo-light active" href="index.html"><img src="resources/img/logo.png" class="main-logo" alt="logo"></a>
-            <a class="desktop-logo logo-dark active" href="index.html"><img src="resources/img/logo.png" class="main-logo" alt="logo"></a>
+            <a class="desktop-logo logo-light active" href="index.php"><img src="resources/img/logo.png" class="main-logo" alt="logo"></a>
+            <a class="desktop-logo logo-dark active" href="index.php"><img src="resources/img/logo.png" class="main-logo" alt="logo"></a>
         </div>
 
         <!-- sidebar-menu -->
