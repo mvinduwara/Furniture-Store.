@@ -74,8 +74,8 @@ if (isset($_SESSION["admin"])) {
 					<div class="breadcrumb-header justify-content-between">
 						<div class="left-content">
 							<div>
-								<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, welcome back!</h2>
-								<p class="mg-b-0">Sales monitoring dashboard template.</p>
+								<h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1"> welcome back Admin!</h2>
+								<p class="mg-b-0">parlo Sales monitoring dashboard template.</p>
 							</div>
 						</div>
 					</div>
@@ -86,7 +86,7 @@ if (isset($_SESSION["admin"])) {
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">invoice</h3>
+									<h3 class="card-title">Payments</h3>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
@@ -94,7 +94,6 @@ if (isset($_SESSION["admin"])) {
 											<thead>
 												<tr>
 													<th>invoice id</th>
-													<th>Order id</th>
 													<th>Order id</th>
 													<th>order date</th>
 													<th>tatal amount</th>
@@ -104,7 +103,7 @@ if (isset($_SESSION["admin"])) {
 											</thead>
 											<tbody>
 												<?php
-												$invoice_resultset = Database::search("SELECT * FROM `invoice`");
+												$invoice_resultset = Database::search("SELECT * FROM `purchsed_history`");
 												$invoice_count = $invoice_resultset->num_rows;
 
 												for ($i = 0; $i < $invoice_count; $i++) {
@@ -112,11 +111,10 @@ if (isset($_SESSION["admin"])) {
 												?>
 
 													<tr>
-														<td><?php echo $invoice_data["invoice_id"]  ?></td>
+														<td><?php echo $invoice_data["purchased_history_id"]  ?></td>
 														<td><?php echo $invoice_data["order_id"]  ?></td>
-														<td><?php echo $invoice_data["date"]  ?></td>
-														<td><?php echo $invoice_data["product_quantity"]  ?></td>
-														<td><?php echo $invoice_data["tatal_amount"]  ?></td>
+														<td><?php echo $invoice_data["purchased_history_date"]  ?></td>
+														<td><?php echo $invoice_data["purchased_history_amount"]  ?></td>
 														<td><?php echo $invoice_data["product_id"]  ?></td>
 														<td><?php echo $invoice_data["user_id"]  ?></td>
 														<td>

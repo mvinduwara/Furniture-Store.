@@ -4,11 +4,11 @@ session_start();
 
 
 
-	if (isset($_GET["user_id"])) {
-		$user_id = $_GET["user_id"];
+if (isset($_GET["user_id"])) {
+	$user_id = $_GET["user_id"];
 
-	?>
-		
+?>
+
 
 	<!DOCTYPE html>
 	<html lang="en" dir="ltr">
@@ -97,7 +97,7 @@ session_start();
 														<label class="form-label">User Name</label>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" placeholder="User Name" value="<?php echo $user_details_data["user_firstname"] ." ". $user_details_data["user_lastname"]; ?>">
+														<input type="text" class="form-control" placeholder="User Name" value="<?php echo $user_details_data["user_firstname"] . " " . $user_details_data["user_lastname"]; ?>">
 													</div>
 												</div>
 											</div>
@@ -194,21 +194,31 @@ session_start();
 												</div>
 											</div>
 											<div class="mb-4 main-content-label">User Address</div>
-											<?php 
+											<?php
 											$user_address = Database::search("SELECT * FROM `user_address` WHERE `user_id` = '" . $user_id . "'");
 											$user_address_data = $user_address->fetch_assoc();
-											?>
-
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">User Address</label>
-													</div>
-													<div class="col-md-9">
-													<textarea class="form-control" name="example-textarea-input" rows="2" placeholder="Address"><?php echo $user_address_data["user_address_number"] . ' ' . $user_address_data["user_address_line01"] . ' ' . $user_address_data["user_address_line02"]; ?></textarea>
+											
+											if ($user_address_data) {
+												?>
+												
+												<div class="form-group ">
+													<div class="row">
+														<div class="col-md-3">
+															<label class="form-label">User Address</label>
+														</div>
+														<div class="col-md-9">
+															<textarea class="form-control" name="example-textarea-input" rows="2" placeholder="Address"><?php echo $user_address_data["user_address_number"] . ' ' . $user_address_data["user_address_line01"] . ' ' . $user_address_data["user_address_line02"]; ?></textarea>
+														</div>
 													</div>
 												</div>
-											</div>
+
+												<?php
+											} else {
+
+												echo "No address found for this user.";
+
+											}
+											?>
 
 										</form>
 									</div>
@@ -305,4 +315,3 @@ session_start();
 <?php
 }
 ?>
-
