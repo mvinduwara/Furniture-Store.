@@ -80,23 +80,23 @@ if (isset($_GET["id"])) {
                             ?>
                             <div class="product-details-img">
                                 <div class="zoompro-border zoompro-span">
-                                    <img class="zoompro" src="product_img/path1/<?php echo $product_image_resultset_data["product_image_path01"]; ?>"" data-zoom-image=" product_img/path1/<?php echo $product_image_resultset_data["product_image_path01"]; ?>"" alt="" />
+                                    <img class="zoompro" src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" alt="" />
                                 </div>
                                 <div id="gallery" class="mt-20 product-dec-slider">
-                                    <a data-image="product_img/path1/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" data-zoom-image="product_img/path1/<?php echo $product_image_resultset_data["product_image_path01"]; ?>">
-                                        <img src="product_img/path1/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" alt="" style="width: 90px; height: 90px;">
+                                    <a data-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path01"]; ?>">
+                                        <img src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path01"]; ?>" alt="" style="width: 90px; height: 90px;">
                                     </a>
-                                    <a data-image="product_img/path2/<?php echo $product_image_resultset_data["product_image_path02"]; ?>" data-zoom-image="product_img/path2/<?php echo $product_image_resultset_data["product_image_path02"]; ?>">
-                                        <img src="product_img/path2/<?php echo $product_image_resultset_data["product_image_path02"]; ?>" alt="" style="width: 90px; height: 90px;">
+                                    <a data-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path02"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path02"]; ?>">
+                                        <img src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path02"]; ?>" alt="" style="width: 90px; height: 90px;">
                                     </a>
-                                    <a data-image="product_img/path3/<?php echo $product_image_resultset_data["product_image_path03"]; ?>" data-zoom-image="product_img/path3/<?php echo $product_image_resultset_data["product_image_path03"]; ?>">
-                                        <img src="product_img/path3/<?php echo $product_image_resultset_data["product_image_path03"]; ?>" alt="" style="width: 90px; height: 90px;">
+                                    <a data-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path03"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path03"]; ?>">
+                                        <img src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path03"]; ?>" alt="" style="width: 90px; height: 90px;">
                                     </a>
-                                    <a data-image="product_img/path4/<?php echo $product_image_resultset_data["product_image_path04"]; ?>" data-zoom-image="product_img/path3/<?php echo $product_image_resultset_data["product_image_path04"]; ?>">
-                                        <img src="product_img/path4/<?php echo $product_image_resultset_data["product_image_path04"]; ?>" alt="" style="width: 90px; height: 90px;">
+                                    <a data-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path04"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path04"]; ?>">
+                                        <img src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path04"]; ?>" alt="" style="width: 90px; height: 90px;">
                                     </a>
-                                    <a data-image="product_img/path5/<?php echo $product_image_resultset_data["product_image_path05"]; ?>" data-zoom-image="product_img/path3/<?php echo $product_image_resultset_data["product_image_path05"]; ?>">
-                                        <img src="product_img/path5/<?php echo $product_image_resultset_data["product_image_path05"]; ?>" alt="" style="width: 90px; height: 90px;">
+                                    <a data-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path05"]; ?>" data-zoom-image="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path05"]; ?>">
+                                        <img src="./parlo-dashboard/<?php echo $product_image_resultset_data["product_image_path05"]; ?>" alt="" style="width: 90px; height: 90px;">
                                     </a>
                                 </div>
                             </div>

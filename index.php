@@ -164,7 +164,7 @@ session_start();
                                             <?php
                                             } else {
                                             ?>
-                                                <a href="product-details.php?id=<?php echo $product_type1_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_type1_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                <a href="product-details.php?id=<?php echo $product_type1_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_type1_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                             <?php
                                             }
@@ -249,7 +249,7 @@ session_start();
                                             <?php
                                             } else {
                                             ?>
-                                                <a href="product-details.php?id=<?php echo $product_type2_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_type2_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                <a href="product-details.php?id=<?php echo $product_type2_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_type2_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                             <?php
                                             }
@@ -386,7 +386,7 @@ session_start();
                                             <?php
                                             } else {
                                             ?>
-                                                <a href="product-details.php?id=<?php echo $product_type3_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_type3_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                <a href="product-details.php?id=<?php echo $product_type3_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_type3_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                             <?php
                                             }
@@ -507,7 +507,7 @@ session_start();
                                         <?php
                                         } else {
                                         ?>
-                                            <a href="product-details.php?id=<?php echo $product_resultset_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_resultset_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                            <a href="product-details.php?id=<?php echo $product_resultset_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_resultset_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                         <?php
                                         }
