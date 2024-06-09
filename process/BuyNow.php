@@ -1,32 +1,44 @@
 <?php
-
 session_start();
 
-$id = $_POST['id'];
-$price = $_POST['price'];
-$quantity = $_POST['quantity'];
-$delivery_fee = $_POST['delivery_fee'];
-$total_price = $_POST['total_price'];
+require "../content/connection.php";
 
-$data = array(
-    'id' => $id,
-    'price' => $price,
-    'quantity' => $quantity,
-    'delivery_fee' => $delivery_fee,
-    'total_price' => $total_price
-);
+if (isset($_SESSION['user'])) {
+    $user_id = $_SESSION['user']['user_id'];
 
-$_SESSION['order'] = $data;
+    $netTotal = null;
 
-if (isset($_SESSION['order'])) {
+    $id = $_POST['id'];
+    $quantity = $_POST['quantity'];
+    $delivery_fee = $_POST['delivery_fee'];
+    $total_price = $_POST['total_price'];
 
-    if (isset($_SESSION['user'])) {
+    $rs = Database::search("SELECT * FROM `product`
+                            INNER JOIN `product_images` ON `product_images`.`product_id` = `product`.`product_id`
+                            WHERE `product`.`product_id` = '" . $id . "'");
 
-        echo "success";
-    } else {
-        
-        echo "Failed user.";
+    if ($rs->num_rows == '1') {
+        $d = $rs->fetch_assoc();
+
+        $total = $d["product_price"] * $d["product_quantity"];
+        $netTotal += $total;
+
+        $_SESSION['order'] = array();
+
+        $_SESSION['order'][] = array(
+            "product_id" => $d["product_id"],
+            "productName" => $d["product_name"],
+            "price" => $d["product_price"]
+        );
     }
-} else {
-    echo "Failed order.";
+
+    if (isset($_SESSION['order'])) {
+        if (isset($_SESSION['user'])) {
+            echo "success";
+        } else {
+            echo "Failed user.";
+        }
+    } else {
+        echo "Failed order.";
+    }
 }

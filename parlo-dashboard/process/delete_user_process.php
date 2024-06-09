@@ -20,6 +20,12 @@ $user_cart_count = $user_cart->num_rows;
 $user_watchlist = Database::search("SELECT * FROM `product_watchlist` WHERE `user_id` = '" . $user_id . "'");
 $user_watchlist_count = $user_watchlist->num_rows; 
 
+$user_invoice_reultset = Database::search("SELECT * FROM `invoice` WHERE `user_id` = '" . $user_id . "'");
+$user_invoice_count = $user_invoice_reultset->num_rows;
+
+$user_payment_history = Database::search("SELECT * FROM `purchsed_history` WHERE `user_id` = '" . $user_id . "'");
+$user_payment_history_count = $user_payment_history->num_rows;
+
 
 if (isset($_GET["user_id"])) {
 
@@ -39,6 +45,19 @@ if (isset($_GET["user_id"])) {
 
     if ($user_cart_count == 1) {
         Database::iud("DELETE FROM `product_cart` WHERE `user_id`='" . $user_id . "'");
+    }
+}
+if (isset($_GET["user_id"])) {
+
+    if ($user_payment_history_count == 1) {
+        Database::iud("DELETE FROM `purchsed_history` WHERE `user_id`='" . $user_id . "'");
+    }
+}
+
+if (isset($_GET["user_id"])) {
+
+    if ($user_invoice_count == 1) {
+        Database::iud("DELETE FROM `invoice` WHERE `user_id`='" . $user_id . "'");
     }
 }
 

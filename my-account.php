@@ -75,7 +75,7 @@ if (isset($_SESSION["user"])) {
                                             <a href="#dashboad" class="active" data-toggle="tab"><i class="fa fa-dashboard"></i>
                                                 Dashboard</a>
                                             <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
-                                            <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>
+                                            <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Invoice</a>
                                             <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
                                                 Method</a>
                                             <a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i> address</a>
@@ -92,7 +92,7 @@ if (isset($_SESSION["user"])) {
                                                 <div class="myaccount-content">
                                                     <h3>Dashboard</h3>
                                                     <div class="welcome">
-                                                        <p>Hello, <strong><?php echo $user_firstname. ' '.$user_lastname ?></strong></p>
+                                                        <p>Hello, <strong><?php echo $user_firstname . ' ' . $user_lastname ?></strong></p>
                                                     </div>
 
                                                     <p class="mb-0">From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
@@ -103,7 +103,7 @@ if (isset($_SESSION["user"])) {
                                             <!-- Single Tab Content Start -->
                                             <div class="tab-pane fade" id="orders" role="tabpanel">
                                                 <div class="myaccount-content">
-                                                    <h3>Orders</h3>
+                                                    <h3>Purchased History</h3>
                                                     <div class="myaccount-table table-responsive text-center">
                                                         <table class="table table-bordered">
                                                             <thead class="thead-light">
@@ -116,27 +116,38 @@ if (isset($_SESSION["user"])) {
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Aug 22, 2018</td>
-                                                                    <td>Pending</td>
-                                                                    <td>$3000</td>
-                                                                    <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>July 22, 2018</td>
-                                                                    <td>Approved</td>
-                                                                    <td>$200</td>
-                                                                    <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>June 12, 2017</td>
-                                                                    <td>On Hold</td>
-                                                                    <td>$990</td>
-                                                                    <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                                </tr>
+
+                                                                <?php
+                                                                $user_puchesed_history = Database::search("SELECT * FROM `purchsed_history` WHERE `user_id` = '" . $user_id . "'");
+                                                                $user_puchesed_history_count = $user_puchesed_history->num_rows;
+
+                                                                if ($user_puchesed_history_count > 0) {
+                                                                    for ($i = 0; $i < $user_puchesed_history_count; $i++) {
+                                                                        $y = $i + 1;
+                                                                        $user_puchesed_history_data = $user_puchesed_history->fetch_assoc();
+                                                                ?>
+
+                                                                        <tr>
+                                                                            <td><?php echo $y  ?></td>
+                                                                            <td><?php echo $user_puchesed_history_data["order_id"]  ?></td>
+                                                                            <td><?php echo $user_puchesed_history_data["purchased_history_date"]  ?></td>
+                                                                            <td><?php echo $user_puchesed_history_data["purchased_history_amount"]  ?></td>
+                                                                            <td><?php echo $user_puchesed_history_data["product_id"]  ?></td>
+                                                                        </tr>
+
+                                                                    <?php
+                                                                    }
+                                                                } else {
+                                                                    // If no data is available
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td colspan="5">
+                                                                            <p>No Invoice yet</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php
+                                                                }
+                                                                ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -147,25 +158,50 @@ if (isset($_SESSION["user"])) {
                                             <!-- Single Tab Content Start -->
                                             <div class="tab-pane fade" id="download" role="tabpanel">
                                                 <div class="myaccount-content">
-                                                    <h3>Watchlist</h3>
+                                                    <h3>Invoice History</h3>
                                                     <div class="myaccount-table table-responsive text-center">
                                                         <table class="table table-bordered">
                                                             <thead class="thead-light">
                                                                 <tr>
-                                                                    <th>Product</th>
+                                                                    <th>Order Id</th>
                                                                     <th>Date</th>
-                                                                    <th>Expire</th>
-                                                                    <th>Download</th>
+                                                                    <th>quantity</th>
+                                                                    <th>Amount</th>
+                                                                    <th>product Id</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>Haven - Free Real Estate PSD Template</td>
-                                                                    <td>Aug 22, 2018</td>
-                                                                    <td>Yes</td>
-                                                                    <td><a href="#" class="check-btn sqr-btn "><i class="fa fa-cloud-download"></i> Download File</a></td>
-                                                                </tr>
+                                                                <?php
+                                                                $user_invoice_resulset = Database::search("SELECT * FROM `invoice` WHERE `user_id` = '" . $user_id . "'");
+                                                                $user_invoice_count = $user_invoice_resulset->num_rows;
+
+                                                                if ($user_invoice_count > 0) {
+                                                                    // If data is available
+                                                                    for ($i = 0; $i < $user_invoice_count; $i++) {
+                                                                        $user_invoice_data = $user_invoice_resulset->fetch_assoc();
+                                                                ?>
+                                                                        <tr>
+                                                                            <td><?php echo $user_invoice_data["order_id"]  ?></td>
+                                                                            <td><?php echo $user_invoice_data["date"] ?></td>
+                                                                            <td><?php echo $user_invoice_data["product_quantity"]   ?></td>
+                                                                            <td><?php echo $user_invoice_data["tatal_amount"]  ?></td>
+                                                                            <td><?php echo $user_invoice_data["product_id"]  ?></td>
+                                                                        </tr>
+                                                                    <?php
+                                                                    }
+                                                                } else {
+                                                                    // If no data is available
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td colspan="4">
+                                                                            <p>No Invoice yet</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php
+                                                                }
+                                                                ?>
                                                             </tbody>
+
                                                         </table>
                                                     </div>
                                                 </div>

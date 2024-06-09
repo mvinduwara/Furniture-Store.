@@ -8,7 +8,7 @@ if (isset($_SESSION["user"])) {
 ?>
 
     <!doctype html>
-    <html class="no-js" lang="zxx">
+    <html lang="zxx">
 
     <head>
         <meta charset="utf-8">
@@ -72,6 +72,7 @@ if (isset($_SESSION["user"])) {
                                                 <th>Qty</th>
                                                 <th>Subtotal</th>
                                                 <th>Add To Cart</th>
+                                                <th>Remove</th>
                                             </tr>
                                         </thead>
 
@@ -126,6 +127,9 @@ if (isset($_SESSION["user"])) {
                                                         <td class="product-subtotal">Rs <?php echo $product_data["product_price"];  ?>.00</td>
                                                         <td class="product-wishlist-cart">
                                                             <a href="#" onclick="addToCart(<?php echo $product_data['product_id']; ?>, document.querySelector('.cart-plus-minus-box').value);">add to cart</a>
+                                                        </td>
+                                                        <td class="product-remove">
+                                                            <a href="#" onclick="removewatchlistproduct(<?php echo $product_data['product_id']; ?>)"><i class="sli sli-close"></i></a>
                                                         </td>
                                                     </tr>
 

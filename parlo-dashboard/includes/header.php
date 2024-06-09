@@ -4,8 +4,6 @@
         <div class="main-header-left ">
             <div class="responsive-logo">
                 <a href="index.html" class="header-logo">
-                    <img src="build/assets/img/brand/logo.png" class="logo-1" alt="logo">
-                    <img src="build/assets/img/brand/logo-white.png" class="dark-logo-1" alt="logo">
                 </a>
             </div>
 
@@ -13,9 +11,7 @@
                 <a class="open-toggle" href="javascript:void(0);"><i class="header-icon fe fe-align-left"></i></a>
                 <a class="close-toggle" href="javascript:void(0);"><i class="header-icons fe fe-x"></i></a>
             </div>
-            <div class="main-header-center ms-3 d-sm-none d-md-none d-lg-block">
-                <input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i class="fas fa-search d-none d-md-block"></i></button>
-            </div>
+           
         </div>
         <div class="main-header-right">
             <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">

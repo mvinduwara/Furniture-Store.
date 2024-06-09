@@ -48,6 +48,7 @@
         <div class="blog-area pt-100 pb-100">
             <div class="container">
                 <div class="row">
+                    
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -66,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -84,6 +86,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -102,6 +105,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -120,6 +124,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -138,6 +143,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -156,6 +162,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -174,6 +181,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -192,6 +200,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-wrap mb-40 text-center scroll-zoom">
                             <div class="blog-img mb-25">
@@ -211,6 +220,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="pro-pagination-style text-center mt-20 pagination-mrg-xs-none">
                     <ul>
                         <li><a class="prev" href="#"><i class="sli sli-arrow-left"></i></a></li>
@@ -219,6 +229,7 @@
                         <li><a class="next" href="#"><i class="sli sli-arrow-right"></i></a></li>
                     </ul>
                 </div>
+
             </div>
         </div>
         
