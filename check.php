@@ -8,16 +8,17 @@ $stripe_secret_key_invoice = "sk_test_51POCJL2Nk5TrDRMKauVeWILmasqokWGaSVbfwatJh
 
 \Stripe\Stripe::setApiKey($stripe_secret_key_checkout);
 
-session_start(); 
+session_start();
 
 if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $orderID = uniqid();
-
+    $product_price = null;
     $line_items = [];
 
     if (isset($_SESSION['order'])) {
         foreach ($_SESSION['order'] as $product) {
+            $product_price = $product['price'];
             $line_items[] = [
                 "price_data" => [
                     "currency" => "LKR",
@@ -26,7 +27,7 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
                         "name" => $product['productName'],
                     ],
                 ],
-                "quantity" => 100, 
+                "quantity" => 100,
             ];
         }
     }
@@ -43,7 +44,7 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
                     "name" => $product_name,
                 ],
             ],
-            "quantity" => 100, 
+            "quantity" => 100,
         ];
     }
 
@@ -60,11 +61,9 @@ if (isset($_SESSION['order']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(303);
         createOrder($orderID, $product_price);
         header('Location: ' . $checkout_session->url);
-        exit; // Add exit after header redirect to prevent further execution
+        exit;
     } catch (\Exception $e) {
-        // Log error to file or database
         http_response_code(500);
         error_log('Error creating checkout session: ' . $e->getMessage());
-        // echo "Error processing payment. Please try again later.";
     }
 }

@@ -712,7 +712,6 @@ function BuyNow(id, quantity, delivery_fee, total_price) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var text = request.responseText;
-            console.log(text);
             if (text == "success") {
                 window.location = './check.php';
             } else {
