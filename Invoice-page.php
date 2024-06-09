@@ -106,7 +106,7 @@ if (isset($_SESSION["user"])) {
                                                                     <tr>
                                                                         <td><?php echo $item["product_id"]; ?></td>
                                                                         <td class="tx-12 p-2">
-                                                                            <img src="product_img/path1/<?php echo $item["product_image_path01"] ?>" width="100px" height="100px" />
+                                                                            <img src="./parlo-dashboard/<?php echo $item["product_image_path01"] ?>" width="100px" height="100px" />
                                                                         </td>
                                                                         <td class="tx-center"><?php echo $item["product_name"] ?></td>
                                                                         <td class="tx-right"><?php echo $item["product_price"] ?></td>
