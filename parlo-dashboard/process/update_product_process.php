@@ -70,7 +70,7 @@ if ($detail_resultset_count == 1) {
                 $new_file_type = ".webp";
             }
             if ($new_file_type == ".webp") {
-                $file_name_2 = "..//product_img//path3//." . $product_title . "-" . uniqid() . $new_file_type;
+                $file_name_2 = "..//product_img//path2//." . $product_title . "-" . uniqid() . $new_file_type;
                 move_uploaded_file($img2["tmp_name"], $file_name_2);
                 Database::iud("UPDATE `product_images` SET `product_image_path02` = '" . $file_name_2 . "' WHERE `product_id` = '" . $product_id . "' ");
 
