@@ -3,6 +3,8 @@ session_start();
 
 require "../content/connection.php";
 
+unset($_SESSION['cart']);
+
 if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 
