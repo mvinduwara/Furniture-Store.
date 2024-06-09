@@ -149,7 +149,7 @@ if (isset($_SESSION["user"])) {
                                                             } else {
                                                             ?>
 
-                                                                <a href="#"><img src="product_img/path1/<?php echo $cart_item["product_img"]; ?>" alt="" style="width: 90px; height: 90px;"></a>
+                                                                <a href="#"><img src="./parlo-dashboard/<?php echo $cart_item["product_img"]; ?>" alt="" style="width: 90px; height: 90px;"></a>
 
                                                             <?php
                                                             }

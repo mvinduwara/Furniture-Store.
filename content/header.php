@@ -87,7 +87,7 @@
 
                                             <li class="single-shopping-cart">
                                                 <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>"></a>
+                                                    <a href="#"><img alt="" src="./parlo-dashboard/<?php echo $product_image_data["product_image_path01"]; ?>"></a>
                                                     <div class="item-close">
                                                         <a href="#"><i class="sli sli-close"></i></a>
                                                     </div>

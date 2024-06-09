@@ -35,145 +35,140 @@ if (empty($product_name)) {
     echo ("please enter product name");
 } else if (empty($product_title)) {
     echo ("please enter product title");
-}else if (empty($product_dimention)) {
+} else if (empty($product_dimention)) {
     echo ("please enter product dimention");
-}else if (empty($product_material)) {
+} else if (empty($product_material)) {
     echo ("please enter product material");
-}else if (empty($product_price)) {
+} else if (empty($product_price)) {
     echo ("please enter product price");
-}else if (empty($product_adding_date)) {
+} else if (empty($product_adding_date)) {
     echo ("please enter product adding date");
-}else if (empty($product_description)) {
+} else if (empty($product_description)) {
     echo ("please enter product description1");
-}else if (empty($product_designer_name)) {
+} else if (empty($product_designer_name)) {
     echo ("please enter product designer name");
-}else if (empty($product_quantity)) {
+} else if (empty($product_quantity)) {
     echo ("please enter product quantity");
-}else if (empty($product_deleivery_fee)) {
+} else if (empty($product_deleivery_fee)) {
     echo ("please enter product deleivery fee");
-}else if (empty($product_type)) {
+} else if (empty($product_type)) {
     echo ("please enter product type");
-}else if (!isset($_FILES["file1"])) {
+} else if (!isset($_FILES["file1"])) {
     echo ("please select image 1");
 } else if (!isset($_FILES["file2"])) {
     echo ("please select image 2");
 } else if (!isset($_FILES["file3"])) {
     echo ("please select image 3");
-}else if (!isset($_FILES["file4"])) {
+} else if (!isset($_FILES["file4"])) {
     echo ("please select image 4");
 } else {
 
-if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]) && isset($_FILES["file4"])) {
+    if (isset($_FILES["file1"]) && isset($_FILES["file2"]) && isset($_FILES["file3"]) && isset($_FILES["file4"])) {
 
-    if (isset($_FILES["file1"])) {
+        if (isset($_FILES["file1"])) {
 
-        $img1 = $_FILES["file1"];
-        $file_type = $img1["type"];
-        $allowed_image_extentions = array("image/webp");
-        if (in_array($file_type, $allowed_image_extentions)) {
-            $new_file_type;
+            $img1 = $_FILES["file1"];
+            $file_type = $img1["type"];
+            $allowed_image_extentions = array("image/webp");
+            if (in_array($file_type, $allowed_image_extentions)) {
+                $new_file_type;
 
-            if ($file_type == "image/webp") {
-                $new_file_type = ".webp";
-            }
-            if ($new_file_type == ".webp") {
-                $file_name_1 = "../../viva-project/product_img/path1" . $product_title . "-" . $new_file_type;
+                if ($file_type == "image/webp") {
+                    $new_file_type = ".webp";
+                }
+                if ($new_file_type == ".webp") {
+                    $file_name_1 = "..//product_img//path1//" . $product_title . "-" . $new_file_type;
+                } else {
+                    echo ("File type of image 1 does not allowed to upload . ");
+                }
             } else {
                 echo ("File type of image 1 does not allowed to upload . ");
             }
-        } else {
-            echo ("File type of image 1 does not allowed to upload . ");
         }
-    }
-    if (isset($_FILES["file2"])) {
+        if (isset($_FILES["file2"])) {
 
-        $img2 = $_FILES["file2"];
-        $file_type = $img2["type"];
-        $allowed_image_extentions = array("image/webp");
-        if (in_array($file_type, $allowed_image_extentions)) {
-            $new_file_type;
+            $img2 = $_FILES["file2"];
+            $file_type = $img2["type"];
+            $allowed_image_extentions = array("image/webp");
+            if (in_array($file_type, $allowed_image_extentions)) {
+                $new_file_type;
 
-            if ($file_type == "image/webp") {
-                $new_file_type = ".webp";
-            }
-            if ($new_file_type == ".webp") {
-                $file_name_2 = "../../viva-project/product_img/path2" . $product_title . "-" . $new_file_type;
+                if ($file_type == "image/webp") {
+                    $new_file_type = ".webp";
+                }
+                if ($new_file_type == ".webp") {
+                    $file_name_2 = "..//product_img//path2//" . $product_title . "-" . $new_file_type;
+                } else {
+                    echo ("File type of image 2 does not allowed to upload . ");
+                }
             } else {
                 echo ("File type of image 2 does not allowed to upload . ");
             }
-        } else {
-            echo ("File type of image 2 does not allowed to upload . ");
         }
-    }
-    if (isset($_FILES["file3"])) {
+        if (isset($_FILES["file3"])) {
 
-        $img3 = $_FILES["file3"];
-        $file_type = $img3["type"];
-        $allowed_image_extentions = array("image/webp");
-        if (in_array($file_type, $allowed_image_extentions)) {
-            $new_file_type;
+            $img3 = $_FILES["file3"];
+            $file_type = $img3["type"];
+            $allowed_image_extentions = array("image/webp");
+            if (in_array($file_type, $allowed_image_extentions)) {
+                $new_file_type;
 
-            if ($file_type == "image/webp") {
-                $new_file_type = ".webp";
-            }
-            if ($new_file_type = ".webp") {
-                $file_name_3 = "../../viva-project/product_img/path3" . $product_title . "-" . $new_file_type;
+                if ($file_type == "image/webp") {
+                    $new_file_type = ".webp";
+                }
+                if ($new_file_type = ".webp") {
+                    $file_name_3 = "..//product_img//path3//" . $product_title . "-" . $new_file_type;
+                } else {
+                    echo ("File type of image 3 does not allowed to upload . ");
+                }
             } else {
                 echo ("File type of image 3 does not allowed to upload . ");
             }
-        } else {
-            echo ("File type of image 3 does not allowed to upload . ");
         }
-    }
-    if (isset($_FILES["file4"])) {
+        if (isset($_FILES["file4"])) {
 
-        $img4 = $_FILES["file4"];
-        $file_type = $img4["type"];
-        $allowed_image_extentions = array("image/webp");
-        if (in_array($file_type, $allowed_image_extentions)) {
-            $new_file_type;
+            $img4 = $_FILES["file4"];
+            $file_type = $img4["type"];
+            $allowed_image_extentions = array("image/webp");
+            if (in_array($file_type, $allowed_image_extentions)) {
+                $new_file_type;
 
-            if ($file_type == "image/webp") {
-                $new_file_type = ".webp";
-            }
-            if ($new_file_type = ".webp") {
-                $file_name_4 = "../../viva-project/product_img/path4" . $product_title . "-" . $new_file_type;
+                if ($file_type == "image/webp") {
+                    $new_file_type = ".webp";
+                }
+                if ($new_file_type = ".webp") {
+                    $file_name_4 = "..//product_img//path4//" . $product_title . "-" . $new_file_type;
+                } else {
+                    echo ("File type of image 4 does not allowed to upload . ");
+                }
             } else {
                 echo ("File type of image 4 does not allowed to upload . ");
             }
-        } else {
-            echo ("File type of image 4 does not allowed to upload . ");
         }
-    }
 
-    if ($_FILES["file1"]["type"] == "image/webp" && $_FILES["file2"]["type"] == "image/webp" && $_FILES["file3"]["type"] == "image/webp" && $_FILES["file4"]["type"] == "image/webp") {
-        move_uploaded_file($img1["tmp_name"], $file_name_1);
-        move_uploaded_file($img2["tmp_name"], $file_name_2);
-        move_uploaded_file($img3["tmp_name"], $file_name_3);
-        move_uploaded_file($img4["tmp_name"], $file_name_4);
+        if ($_FILES["file1"]["type"] == "image/webp" && $_FILES["file2"]["type"] == "image/webp" && $_FILES["file3"]["type"] == "image/webp" && $_FILES["file4"]["type"] == "image/webp") {
+            move_uploaded_file($img1["tmp_name"], $file_name_1);
+            move_uploaded_file($img2["tmp_name"], $file_name_2);
+            move_uploaded_file($img3["tmp_name"], $file_name_3);
+            move_uploaded_file($img4["tmp_name"], $file_name_4);
 
-        $product_resultset = Database::search("SELECT * FROM `product` WHERE `product_name`='" . $product_name . "'");
-        $product_count = $product_resultset->num_rows;
+            $product_resultset = Database::search("SELECT * FROM `product` WHERE `product_name`='" . $product_name . "'");
+            $product_count = $product_resultset->num_rows;
 
-        if ($product_count != 0) {
-            echo ("Already having product with this name");
-        } else {
+            if ($product_count != 0) {
+                echo ("Already having product with this name");
+            } else {
 
-            Database::iud("INSERT INTO `product_model_has_product_brand` (`product_model_product_model_id`, `product_brand_product_brand_id`)
-            VALUES ('" . $model_id . "', '" . $brand_id . "') ");
+                Database::iud("INSERT INTO `product` (`product_name`, `product_quantity`, `product_description`, `product_title`, `product_price`, `product_datetime_added`, `product_material`, `product_dimentions`, `product_type`, `product_designer`, `product_category_id`, `product_delivery_fee`, `status_id`) 
+                VALUES ('" . $product_name . "', '" . $product_quantity . "', '" . $product_description . "', '" . $product_title . "', '" . $product_price . "', '" . $product_adding_date . "', '" . $product_material . "', '" . $product_dimention . "', '" . $product_type . "', '" . $product_designer_name . "', '" . $product_deleivery_fee . "', '" . $category_id . "', 1)");
 
-            $product_model_has_product_brand = Database::$connection->insert_id;
+                $product_new_id = Database::$connection->insert_id;
 
-            Database::iud("INSERT INTO `product` (`product_name`,`product_quantity`,`product_description`,`product_title`,`product_price`,`product_datetime_added`,`product_material`,`product_type`,`product_designer`,`product_delivery_fee`,`product_category_id`,`status_id`,`product_model_has_brand_id`) 
-        VALUES ('" . $product_name . "','" . $product_quantity . "','" . $product_description . "','" . $product_title . "','" . $product_price . "','" . $product_adding_date . "','" . $product_type . "','" . $product_designer_name . "','".$product_deleivery_fee."','".$category_id."',1,'" .  $product_model_has_product_brand  . "') ");
-
-            $product_new_id = Database::$connection->insert_id;
-
-            Database::iud("INSERT INTO `product_images` (`product_image_path01`, `product_image_path02`, `product_image_path03`,`product_image_path04`, `product_id`) 
+                Database::iud("INSERT INTO `product_images` (`product_image_path01`, `product_image_path02`, `product_image_path03`,`product_image_path04`, `product_id`) 
         VALUES ('" . $file_name_1 . "' ,'" . $file_name_2 . "', '','', '" . $file_name_3 . "' , '" . $file_name_4 . "', '" . $product_new_id . "'  ) ");
 
-            echo ("success");
+                echo ("success");
+            }
         }
-    } 
-}
+    }
 }

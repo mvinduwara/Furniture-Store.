@@ -83,7 +83,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
                                                 <td class="first-column">Product</td>
                                                 <td class="product-image-title">
                                                     <a href="product-details.php?id=<?php echo $product_resultset_data1["product_id"]; ?>" class="image">
-                                                        <img class="img-fluid" src="product_img/path1/<?php echo $product_resultset_data1["product_image_path01"]; ?>" alt="Compare Product">
+                                                        <img class="img-fluid" src="./parlo-dashboard/<?php echo $product_resultset_data1["product_image_path01"]; ?>" alt="Compare Product">
                                                     </a>
                                                     <a href="#" class="category"><?php echo $product_resultset_data1["product_name"]; ?></a>
                                                     <a href="single-product-sale.html" class="title"><?php echo $product_resultset_data1["product_title"]; ?></a>
@@ -91,7 +91,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
 
                                                 <td class="product-image-title">
                                                     <a href="product-details.php?id=<?php echo $product_resultset_data2["product_id"]; ?>" class="image">
-                                                        <img class="img-fluid" src="product_img/path1/<?php echo $product_resultset_data2["product_image_path01"]; ?>" alt="Compare Product">
+                                                        <img class="img-fluid" src="./parlo-dashboard/<?php echo $product_resultset_data2["product_image_path01"]; ?>" alt="Compare Product">
                                                     </a>
                                                     <a href="#" class="category"><?php echo $product_resultset_data2["product_name"]; ?></a>
                                                     <a href="single-product-group.html" class="title"><?php echo $product_resultset_data2["product_title"]; ?></a>

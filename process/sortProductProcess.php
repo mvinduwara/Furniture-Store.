@@ -56,7 +56,7 @@ if (!empty($stock) && empty($category)) {
                                     <?php
                                     } else {
                                     ?>
-                                        <a href="product-details.php?id=<?php echo $product_image_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_image_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                        <a href="product-details.php?id=<?php echo $product_image_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_image_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
                                     <?php
                                     }
                                     ?>
