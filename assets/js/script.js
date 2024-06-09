@@ -272,7 +272,7 @@ function addtowishlist(id) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var text = request.responseText;
-            if (text === "sucess") {
+            if (text === "success") {
                 window.location = "./wishlist.php";
             } else {
                 document.getElementById("responseAlert").innerHTML = text;
@@ -700,7 +700,7 @@ function ProductSingleViewModal(id) {
 }
 
 
-function BuyNow(id,productName, price, quantity, delivery_fee, total_price) {
+function BuyNow(id, quantity, delivery_fee, total_price) {
 
     var form = new FormData();
     form.append("id", id);
@@ -852,4 +852,25 @@ function ModalSignUp() {
 
 function pagedirecting(){
     window.location = "./index.php";
+}
+
+function removewatchlistproduct(id){
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var text = request.responseText;
+            //   alert(text);
+            if (text == "Product has been removed") {
+                window.location.reload();
+            } else {
+                alert(text);
+            }
+        }
+    }
+
+    request.open("GET", "./process/removewatchlistProcess.php?id=" + id, true);
+    request.send();
+
 }

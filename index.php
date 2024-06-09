@@ -172,7 +172,7 @@ session_start();
                                             ?> <div class="ht-product-action">
                                                 <ul>
                                                     <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
-                                                    <li><a href="wishlist.php"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
+                                                    <li><a onclick="addtowishlist(<?php echo $product_type1_data['product_id'] ?> )"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
                                                     <li><a href="compare-page.php?id=<?php echo $product_type1_data["product_id"]; ?>&model=<?php echo $product_type1_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                     <li><a href="cart-page.php"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                                 </ul>
@@ -519,7 +519,7 @@ session_start();
                                                 <li><a type="button" onclick="ProductSingleViewModal(<?php echo $product_resultset_data['product_id']; ?>)"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
                                                 <!-- <li><button data-toggle="modal" data-target="#exampleModal" onclick="ProductSingleViewModal(<?php echo $product_resultset_data['product_id']; ?>)"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></button></li> -->
                                                 <!-- <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li> -->
-                                                <li><a href="#"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
+                                                <li><a onclick="addtowishlist(<?php echo $product_resultset_data['product_id'] ?> )"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
                                                 <li><a href="compare-page.php?id=<?php echo $product_resultset_data["product_id"]; ?>&model=<?php echo $product_resultset_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
                                                 <li><a href="#"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
                                             </ul>
@@ -584,21 +584,21 @@ session_start();
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="single-banner mb-30 scroll-zoom">
-                            <a href="product-details.html"><img src="assets/img/banner/banner-4.png" alt=""></a>
+                            <a href="shop.php"><img src="assets/img/banner/banner-4.png" alt=""></a>
                             <div class="banner-content banner-position-3">
                                 <h3>Black Monday</h3>
                                 <h2>Wooden Lamp <br>Save 30%</h2>
-                                <a href="product-details.html">Shop Now</a>
+                                <a href="shop.phpl">Shop Now</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="single-banner mb-30 scroll-zoom">
-                            <a href="product-details.html"><img src="assets/img/banner/banner-5.png" alt=""></a>
+                            <a href="shop.php"><img src="assets/img/banner/banner-5.png" alt=""></a>
                             <div class="banner-content banner-position-4">
                                 <h3>Black Monday</h3>
                                 <h2>Wooden Lamp <br>Save 30%</h2>
-                                <a href="product-details.html">Shop Now</a>
+                                <a href="shop.phpl">Shop Now</a>
                             </div>
                         </div>
                     </div>
@@ -650,55 +650,6 @@ session_start();
         </div>
         <!-- Seventh-section-end -->
 
-
-        <!-- blog-area-start -->
-        <div class="blog-area pt-50 pb-65">
-            <div class="container">
-                <div class="section-title text-center pb-60">
-                    <h2>New Blog Posts</h2>
-                    <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-wrap mb-30 mr-20 text-center scroll-zoom">
-                            <div class="blog-img mb-25">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="blog-details.html">Distracted by the readable content</a></h3>
-                                <div class="blog-meta blog-mrg-border">
-                                    <ul>
-                                        <li><a href="#">23 December 2019 </a></li>
-                                        <li><a href="#"> 24 View </a></li>
-                                        <li><a href="#">4 likes</a></li>
-                                    </ul>
-                                </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-wrap mb-30 ml-20 text-center scroll-zoom">
-                            <div class="blog-img mb-25">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="blog-details.html">There are many variations of passages of Lorem</a></h3>
-                                <div class="blog-meta blog-mrg-border">
-                                    <ul>
-                                        <li><a href="#">23 December 2019 </a></li>
-                                        <li><a href="#"> 24 View </a></li>
-                                        <li><a href="#">4 likes</a></li>
-                                    </ul>
-                                </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- blog-area-end -->
 
         <!-- footer-start -->
         <?php require "./content/footer.php"; ?>

@@ -37,9 +37,9 @@
 
                 <div class="col-xl-3 col-lg-2">
                     <div class="header-right-wrap pt-40">
-                        <div class="header-search">
+                        <!-- <div class="header-search">
                             <a class="search-active" href="#"><i class="sli sli-magnifier"></i></a>
-                        </div>
+                        </div> -->
                         <div class="cart-wrap">
                             <?php
 
@@ -122,7 +122,7 @@
         </div>
 
         <!-- main-search start -->
-        <div class="main-search-active">
+        <!-- <div class="main-search-active">
             <div class="sidebar-search-icon">
                 <button class="search-close"><span class="sli sli-close"></span></button>
             </div>
@@ -136,7 +136,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
         <!-- main-search end -->
 
     </div>
@@ -155,11 +155,7 @@
                 <div class="col-6">
                     <div class="header-right-wrap">
                         <div class="cart-wrap">
-                            <button class="icon-cart-active">
-                                <span class="cart-price">
-                                    $00.00
-                                </span>
-                            </button>
+                           
                             <div class="shopping-cart-content">
                                 <div class="shopping-cart-top">
                                     <h4>Shoping Cart</h4>
@@ -215,12 +211,12 @@
     <div class="header-mobile-aside-wrap">
 
         <!-- search-section-mobile-start -->
-        <div class="mobile-search">
+        <!-- <div class="mobile-search">
             <form class="search-form" action="#">
                 <input type="text" placeholder="Search entire store…">
                 <button class="button-search"><i class="sli sli-magnifier"></i></button>
             </form>
-        </div>
+        </div> -->
         <!-- search-section-mobile-end -->
 
         <div class="mobile-menu-wrap">
@@ -246,13 +242,13 @@
             </div>
             <!-- mobile menu end -->
         </div>
-        <div class="mobile-social-wrap">
+        <!-- <div class="mobile-social-wrap">
             <a class="facebook" href="#"><i class="sli sli-social-facebook"></i></a>
             <a class="twitter" href="#"><i class="sli sli-social-twitter"></i></a>
             <a class="pinterest" href="#"><i class="sli sli-social-pinterest"></i></a>
             <a class="instagram" href="#"><i class="sli sli-social-instagram"></i></a>
             <a class="google" href="#"><i class="sli sli-social-google"></i></a>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- header-section-mobile-end -->

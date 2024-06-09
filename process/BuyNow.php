@@ -6,9 +6,6 @@ require "../content/connection.php";
 if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 
-    // Remove or comment out this line
-    // $_SESSION['order']='';
-
     $netTotal = null;
 
     $id = $_POST['id'];

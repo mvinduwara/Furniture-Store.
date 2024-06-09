@@ -207,10 +207,10 @@ require "./content/connection.php";
                     <div class="col-lg-3">
                         <div class="sidebar-style mr-30" id="product_search_parent">
                             <div class="sidebar-widget">
-                                <h4 class="pro-sidebar-title">Search</h4>
+                                <h4 class="pro-sidebar-title">Search<a class="mx-2" onclick="window.location.reload(); return false;"><i class="sli sli-refresh"></i></a></h4>
 
                                 <div class="pro-sidebar-search mb-50 mt-25">
-                                    <div class="pro-sidebar-search-form">
+                                    <div class="pro-sidebar-search-form ">
                                         <input type="text" placeholder="Search here..." id="search_input" onkeypress="search(event);">
                                     </div>
                                 </div>
