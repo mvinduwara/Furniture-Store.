@@ -13,14 +13,14 @@
                 </div>
 
                 <!-- nav-bar-start -->
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-7 col-lg-7 mx-5">
                     <div class="main-menu">
                         <nav>
                             <ul>
                                 <li class="angle-shape"><a href="index.php">Home </a></li>
                                 <li class="angle-shape"><a href="shop.php"> Shop </a></li>
                                 <li><a href="contact-us.php"> Contact </a></li>
-                                <li class="angle-shape"><a href="blog-3-col.php"> Blog </a></li>
+                                <!-- <li class="angle-shape"><a href="blog-3-col.php"> Blog </a></li> -->
                                 <li><a href="about-us.php">about us </a></li>
                                 <li class="angle-shape"><a href="#">Pages </a>
                                     <ul class="submenu">
