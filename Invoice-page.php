@@ -120,7 +120,7 @@ if (isset($_SESSION["user"])) {
                                                                 <tr>
                                                                     <td class="tx-right tx-uppercase tx-bold tx-inverse">Total</td>
                                                                     <td class="tx-right" colspan="2">
-                                                                        <h4 class="tx-primary tx-bold"><?php echo $d['purchased_history_amount'] + $product_price?></h4>
+                                                                        <h4 class="tx-primary tx-bold"><?php echo $d['purchased_history_amount']?></h4>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
