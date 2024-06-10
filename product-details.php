@@ -106,7 +106,7 @@ if (isset($_GET["id"])) {
                                 <h2><?php echo $product_resultset_data["product_name"] ?></h2>
                                 <div class="product-details-price">
                                     <span>RS <?php echo $product_resultset_data["product_price"] ?>.00</span>
-                                    <span class="old">$20.00 </span>
+                                    <!-- <span class="old">$20.00 </span>    -->
                                 </div>
                                 <div class="pro-details-rating-wrap">
                                     <div class="pro-details-rating">

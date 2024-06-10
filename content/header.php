@@ -13,7 +13,7 @@
                 </div>
 
                 <!-- nav-bar-start -->
-                <div class="col-xl-7 col-lg-7 mx-5">
+                <div class="col-xl-7 col-lg-7 ">
                     <div class="main-menu">
                         <nav>
                             <ul>
