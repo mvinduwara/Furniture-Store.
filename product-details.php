@@ -106,7 +106,7 @@ if (isset($_GET["id"])) {
                                 <h2><?php echo $product_resultset_data["product_name"] ?></h2>
                                 <div class="product-details-price">
                                     <span>RS <?php echo $product_resultset_data["product_price"] ?>.00</span>
-                                    <span class="old">$20.00 </span>
+                                    <!-- <span class="old">$20.00 </span>    -->
                                 </div>
                                 <div class="pro-details-rating-wrap">
                                     <div class="pro-details-rating">
@@ -368,7 +368,7 @@ if (isset($_GET["id"])) {
                                         <?php
                                         } else {
                                         ?>
-                                            <a href="product-details.php?id=<?php echo $product_type_data["product_id"]; ?>" class="ht-product-image"> <img src="product_img/path1/<?php echo $product_type_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                            <a href="product-details.php?id=<?php echo $product_type_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_type_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
 
                                         <?php
                                         }
@@ -377,10 +377,10 @@ if (isset($_GET["id"])) {
 
                                         <div class="ht-product-action">
                                             <ul>
-                                                <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li>
-                                                <li><a href="#"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li>
-                                                <li><a href="compare-page.php?id=<?php echo $product_type_data["product_id"]; ?>&model=<?php echo $product_type_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li>
-                                                <li><a href="#"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li>
+                                                <!-- <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="sli sli-magnifier"></i><span class="ht-product-action-tooltip">Quick View</span></a></li> -->
+                                                <!-- <li><a href="#"><i class="sli sli-heart"></i><span class="ht-product-action-tooltip">Add to Wishlist</span></a></li> -->
+                                                <!-- <li><a href="compare-page.php?id=<?php echo $product_type_data["product_id"]; ?>&model=<?php echo $product_type_data['product_model_has_brand_id']; ?>"><i class="sli sli-refresh"></i><span class="ht-product-action-tooltip">Add to Compare</span></a></li> -->
+                                                <!-- <li><a href="#"><i class="sli sli-bag"></i><span class="ht-product-action-tooltip">Add to Cart</span></a></li> -->
                                             </ul>
                                         </div>
                                     </div>

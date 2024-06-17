@@ -73,7 +73,7 @@ if (isset($_SESSION["user"])) {
                                                         <div class="col-md">
                                                             <label class="tx-gray-600 fw-600" style="font-family: 'Courier New', Courier, monospace;font-weight: bold;">Billed To</label>
                                                             <div class="billed-to">
-                                                                <h6><?php echo $d["user_firstname"]; ?> <?php echo $d["user_firstname"]; ?></h6>
+                                                                <h6><?php echo $d["user_firstname"]; ?> <?php echo $d["user_lastname"]; ?></h6>
                                                                 <p><?php echo $d["user_address_number"]; ?>,<?php echo $d["user_address_line01"]; ?>,<?php echo $d["user_address_line02"]; ?>,<?php echo $d["user_address_postalcode"]; ?><br>
                                                                     <?php echo $d["city_name"]; ?><br>
                                                                     <?php echo $d["user_contact"]; ?><br>
@@ -102,7 +102,9 @@ if (isset($_SESSION["user"])) {
 
                                                                 <?php
                                                                 foreach ($results as $item) {
+                                                                    $product_price = $item["product_price"];
                                                                 ?>
+                                                                
                                                                     <tr>
                                                                         <td><?php echo $item["product_id"]; ?></td>
                                                                         <td class="tx-12 p-2">
