@@ -8,7 +8,7 @@ class Database
     public static function setUpConnection()
     {
         if (!isset(Database::$connection)) {
-            Database::$connection = new mysqli("localhost", "root", "Manilka@8576", "parlo", "3306");
+            Database::$connection = new mysqli("localhost", "root", "Kaushalya4255", "parlo", "3306");
         }
     }
 
