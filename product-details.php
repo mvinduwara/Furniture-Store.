@@ -149,8 +149,6 @@ if (isset($_GET["id"])) {
                                         <a onclick="Buynow(<?php echo $product_id; ?>,<?php echo $price; ?>, document.querySelector('.cart-plus-minus-box').value, '<?php echo $delivery_fee; ?>', '<?php echo $product_name; ?>');">Buy Now</a>
                                     </div>
 
-
-
                                     <!-- <div class="pro-details-cart btn-hover">
                                         <a onclick="Buynow(<?php echo $product_id; ?>, document.querySelector('.cart-plus-minus-box').value);" ?>Buy Now</a>
                                     </div> -->

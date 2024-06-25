@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require "../../../viva-project/content/connection.php";
+require "../../content/connection.php";
 
 if(isset($_GET["v"])){
 

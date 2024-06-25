@@ -1,5 +1,6 @@
 <?php
-require "../../../viva-project/content/connection.php";
+require "../../content/connection.php";
+
 
 $category_id = $_POST["category_id"];
 $brand_id = $_POST["brand_id"];
