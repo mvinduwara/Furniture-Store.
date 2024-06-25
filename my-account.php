@@ -9,12 +9,10 @@ if (isset($_SESSION["user"])) {
 
     $user_resultset = Database::search("SELECT * FROM `user` WHERE `user_id` = '" . $user_id . "'");
     $user_count = $user_resultset->num_rows;
-
 ?>
 
     <!doctype html>
     <html class="no-js" lang="zxx">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
