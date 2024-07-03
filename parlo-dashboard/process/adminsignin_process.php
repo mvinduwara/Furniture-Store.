@@ -1,5 +1,6 @@
 <?php 
-require "../../../viva-project/content/connection.php";
+require "../../content/connection.php";
+
 
 require "../resources/mails/Exception.php";
 require "../resources/mails/PHPMailer.php";

@@ -164,7 +164,7 @@ session_start();
                                             <?php
                                             } else {
                                             ?>
-                                                <a href="product-details.php?id=<?php echo $product_type1_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/<?php echo $product_type1_data["product_image_path01"]; ?>" alt="Universal Product Style"> </a>
+                                                <a href="product-details.php?id=<?php echo $product_type1_data["product_id"]; ?>" class="ht-product-image"> <img src="./parlo-dashboard/..//product_img//path1//natuzzu italia snail (2).webp" alt="Universal Product Style"> </a>
 
                                             <?php
                                             }
