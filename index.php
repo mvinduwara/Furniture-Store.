@@ -15,9 +15,6 @@ session_start();
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
-    <!-- CSS
-	============================================ -->
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Icon Font CSS -->
@@ -577,7 +574,6 @@ session_start();
         </div>
         <!-- Fifth-section-end -->
 
-
         <!-- Sixth-section-start -->
         <div class="banner-area pb-120">
             <div class="container">
@@ -606,7 +602,6 @@ session_start();
             </div>
         </div>
         <!-- Sixth-section-end -->
-
 
         <!-- Seventh-section-start -->
         <div class="feature-area">
@@ -722,9 +717,6 @@ session_start();
         <!-- Modal end -->
     </div>
 
-
-    <!-- All JS is here
-============================================ -->
     <!-- script.js -->
     <script src="assets/js/script.js"></script>
     <!-- jQuery JS -->
@@ -739,7 +731,6 @@ session_start();
     <script src="assets/js/ajax-mail.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
