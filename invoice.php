@@ -17,7 +17,6 @@ if (isset($_GET['session_id'])) {
         echo "<p>Customer: " . $checkout_session->customer_details['name'] . "</p>"; 
         echo "<p>Email: " . $checkout_session->customer_details['email'] . "</p>"; 
     } catch (\Exception $e) { 
-        // Log error to file or database
         error_log('Error retrieving checkout session: ' . $e->getMessage());
         echo "Error retrieving invoice details. Please try again later.";
     } 
