@@ -16,7 +16,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
         <title>Parlo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png"> 
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -91,7 +91,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
                                                     </a>
                                                     <a href="#" class="category"><?php echo $product_resultset_data2["product_name"]; ?></a>
                                                     <a href="single-product-group.html" class="title"><?php echo $product_resultset_data2["product_title"]; ?></a>
-</a>
+                                                    </a>
                                                 </td>
 
                                             </tr>
@@ -104,7 +104,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
 
                                                 <td class="pro-desc">
                                                     <p><?php echo $product_resultset_data2["product_description"]; ?></p>
-                                                </td>                                           
+                                                </td>
                                             </tr>
 
                                             <tr>
@@ -122,17 +122,17 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
                                             <tr>
                                                 <td class="first-column">Material</td>
                                                 <td class="pro-color"><?php echo $product_resultset_data1["product_material"]; ?></td>
-                                                <td class="pro-color"><?php echo $product_resultset_data2["product_material"]; ?></td>                                               
+                                                <td class="pro-color"><?php echo $product_resultset_data2["product_material"]; ?></td>
                                             </tr>
 
-                                            
+
 
                                             <tr>
                                                 <td class="first-column">Dimentions</td>
                                                 <td class="pro-color"><?php echo $product_resultset_data1["product_dimentions"]; ?></td>
                                                 <td class="pro-color"><?php echo $product_resultset_data2["product_dimentions"]; ?></td>
                                                 <!-- <td><a href="cart.html" class="check-btn">Add to Cart</a></td>
-                                                <td><a href="cart.html" class="check-btn disabled">Add to Cart</a></td> --> 
+                                                <td><a href="cart.html" class="check-btn disabled">Add to Cart</a></td> -->
                                             </tr>
 
                                             <tr>
@@ -157,7 +157,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
                                                     <i class="sli sli-star"></i>
                                                     <i class="sli sli-star"></i>
                                                 </td>
-                                               
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -176,18 +176,6 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
             <!-- footer-end-->
         </div>
 
-
-
-
-
-
-
-
-
-
-        <!-- All JS is here
-============================================ -->
-
         <!-- script.js -->
         <script src="assets/js/script.js"></script>
         <!-- jQuery JS -->
@@ -202,9 +190,7 @@ if (isset($_GET["id"]) && isset($_GET["model"])) {
         <script src="assets/js/ajax-mail.js"></script>
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-
     </body>
-
     </html>
 
 <?php
