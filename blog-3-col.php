@@ -9,9 +9,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
-    <!-- CSS
-	============================================ -->
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Icon Font CSS -->
@@ -238,10 +235,6 @@
         <!-- footer-end-->
     </div>
 
-
-    <!-- All JS is here
-============================================ -->
-
     <!-- jQuery JS -->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- Popper JS -->
@@ -254,7 +247,6 @@
     <script src="assets/js/ajax-mail.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-
 </body>
 
 
