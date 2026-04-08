@@ -9,10 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-
-    <!-- CSS
-	============================================ -->
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Icon Font CSS -->
@@ -181,18 +177,6 @@
         <!-- footer-end-->
     </div>
 
-
-
-
-
-
-
-
-
-
-    <!-- All JS is here
-============================================ -->
-
     <!-- script.js -->
     <script src="assets/js/script.js"></script>
     <!-- jQuery JS -->
@@ -207,7 +191,6 @@
     <script src="assets/js/ajax-mail.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
