@@ -50,3 +50,10 @@ A robust, full-stack e-commerce platform built with core PHP, designed specifica
 ├── shop.php                # Main product listing page
 ├── Check-out.php           # Stripe Checkout initialization
 └── webhook.php             # Stripe payment confirmation listener
+```
+<img width="1919" height="909" alt="1" src="https://github.com/user-attachments/assets/69d0d3be-480d-4466-a224-4003d3440d3c" />
+<img width="1919" height="910" alt="Screenshot 2026-05-05 164737" src="https://github.com/user-attachments/assets/c419a993-6995-4025-8dc9-b1ad6ebc314c" />
+<img width="1919" height="908" alt="Screenshot 2026-05-05 164753" src="https://github.com/user-attachments/assets/997e6199-8252-4f73-b0d8-72771c002875" />
+<img width="1919" height="909" alt="Screenshot 2026-05-05 164723" src="https://github.com/user-attachments/assets/a61cbf72-3e0d-4267-918a-11f13eb0fa6a" />
+
+
